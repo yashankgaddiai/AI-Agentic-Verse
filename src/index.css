@@ -1,0 +1,66 @@
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-headline: "General Sans", sans-serif;
+  --font-body: "General Sans", sans-serif;
+  --font-label: "General Sans", sans-serif;
+  --font-barlow: "General Sans", sans-serif;
+  --font-serif: "General Sans", sans-serif;
+  --font-general: "General Sans", sans-serif;
+
+  --color-surface: var(--surface);
+  --color-on-surface: var(--on-surface);
+  --color-surface-container: var(--surface-container);
+  --color-outline: var(--outline);
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+}
+
+:root {
+  --surface: #ffffff;
+  --on-surface: #000000;
+  --surface-container: #f5f5f5;
+  --outline: rgba(0, 0, 0, 0.1);
+  --primary: #000000;
+  --on-primary: #ffffff;
+}
+
+.dark {
+  --surface: #000000;
+  --on-surface: #ffffff;
+  --surface-container: #121212;
+  --outline: rgba(255, 255, 255, 0.1);
+  --primary: #ffffff;
+  --on-primary: #000000;
+}
+
+@layer base {
+  body {
+    @apply font-body bg-surface text-on-surface selection:bg-on-surface selection:text-surface transition-colors duration-300;
+  }
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+
+.tracking-tight-custom { letter-spacing: -4px; }
+.tracking-ultra-tight { letter-spacing: -0.04em; }
+
+.text-header-premium {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}

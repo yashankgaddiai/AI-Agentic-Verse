@@ -1,0 +1,693 @@
+import { Link } from "react-router-dom";
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
+
+export default function HomePage() {
+  return (
+    <div className="bg-surface text-on-surface">
+      <NavBar />
+      
+      {/* 1. Hero Section */}
+      <section className="relative min-h-[90vh] h-screen w-full overflow-hidden flex items-center justify-center text-center px-8">
+        <video autoPlay className="absolute top-0 left-0 w-full h-full object-cover z-0" loop muted playsInline>
+          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260228_065522_522e2295-ba22-457e-8fdb-fbcd68109c73.mp4" type="video/mp4"/>
+        </video>
+        <div className="relative z-10 max-w-5xl w-full">
+          <h1 className="font-barlow font-bold text-5xl md:text-8xl tracking-tight-custom text-white leading-[0.9] mb-8 uppercase">
+            AI AgenticVerse <br/>
+            <span className="font-serif italic font-normal text-6xl md:text-[72px] tracking-normal block mt-4 normal-case">Build. Automate. Scale.</span>
+          </h1>
+          <div className="space-y-4 mb-12">
+            <p className="font-barlow font-medium text-xl md:text-2xl text-white leading-relaxed">
+              Your 24/7 AI Workforce for Media, Marketing & Identity
+            </p>
+            <p className="font-barlow text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed italic">
+              "From Content to Conversion — Fully Automated with AI Agents" • "Scale Faster with Autonomous AI Systems That Never Sleep" • "The Future of Digital Growth — Powered by Agentic AI"
+            </p>
+          </div>
+          <Link to="/contact" className="inline-flex items-center gap-4 bg-white text-primary px-10 py-5 rounded-full font-headline font-bold text-xl hover:scale-105 transition-all shadow-2xl active:scale-95 group">
+            Deploy Your Digital Clone
+            <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </Link>
+        </div>
+      </section>
+
+      {/* New Section: Autonomous Ecosystems */}
+      <section className="py-32 px-8 bg-surface-container-lowest border-y border-outline-variant/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-4xl mb-24">
+            <span className="font-barlow font-bold text-lg md:text-xl uppercase tracking-[5px] text-primary bg-primary/10 px-8 py-3 rounded-full inline-block mb-10 border border-primary/20">Our Mission</span>
+            <h2 className="font-headline font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-8">
+              At AI AgenticVerse, we don’t just use AI — <br/>
+              <span className="text-primary">we build autonomous ecosystems</span> that run your business at scale.
+            </h2>
+            <p className="font-barlow text-xl md:text-2xl text-on-surface-variant leading-relaxed mb-6">
+              We specialize in end-to-end automation of media production, creative testing, and digital identity, enabling brands, creators, and businesses to operate with speed, intelligence, and precision.
+            </p>
+            <p className="font-barlow text-xl md:text-2xl text-on-surface-variant leading-relaxed">
+              Our advanced AI systems act as your 24/7 digital workforce, continuously creating, optimizing, and scaling your presence across platforms.
+            </p>
+          </div>
+
+          <div className="space-y-12">
+            <h3 className="font-headline font-bold text-3xl md:text-4xl tracking-tight">What We Deliver:</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  title: "AI Avatars",
+                  desc: "Hyper-realistic, multilingual digital humans that represent your brand, deliver content, and engage audiences globally.",
+                  icon: "person_celebrate"
+                },
+                {
+                  title: "AI UGC Ads",
+                  desc: "High-converting, data-driven ad creatives generated and tested at scale to maximize ROI.",
+                  icon: "ads_click"
+                },
+                {
+                  title: "AI Product Studios",
+                  desc: "Fully automated pipelines for product visuals, videos, and branding — from concept to launch.",
+                  icon: "camera"
+                },
+                {
+                  title: "AI Coaching Systems",
+                  desc: "Intelligent learning and mentoring systems that guide users, clients, or teams with personalized AI-driven insights.",
+                  icon: "psychology"
+                },
+                {
+                  title: "AI Chat Agents",
+                  desc: "Smart conversational agents for sales, support, onboarding, and engagement — working 24/7 without fatigue.",
+                  icon: "chat"
+                },
+                {
+                  title: "AI Social Media Automation",
+                  desc: "Run Your Entire Social Presence on Autopilot. Turn your social media into a fully automated growth engine.",
+                  icon: "auto_awesome"
+                }
+              ].map((item, idx) => (
+                <div key={idx} className="group p-8 rounded-3xl bg-surface-container-low border border-outline-variant/10 hover:border-primary/30 transition-all hover:shadow-xl">
+                  <h4 className="font-headline font-bold text-2xl mb-4">{item.title}</h4>
+                  <p className="text-on-surface-variant leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Avatars Section */}
+      <section className="py-32 px-8 bg-zinc-900 text-white overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="relative">
+            <div className="absolute -top-20 -left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl opacity-50"></div>
+            <span className="font-barlow font-bold text-lg md:text-xl uppercase tracking-[5px] text-white bg-white/10 px-8 py-3 rounded-full inline-block mb-10 border border-white/20">AI Avatars</span>
+            <h2 className="font-headline font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-8">
+              Scale Your Presence <br/>
+              <span className="italic font-serif font-normal text-white">Without Showing Up</span>
+            </h2>
+            <p className="font-barlow text-xl md:text-2xl text-zinc-400 leading-relaxed mb-8">
+              Create powerful content without ever stepping in front of the camera.
+            </p>
+            <div className="space-y-6 text-zinc-300 text-lg leading-relaxed mb-12">
+              <p>
+                At AI AgenticVerse, our AI Avatars enable you to build scalable digital identities that consistently represent your brand across every platform. Whether you're a creator, founder, or business, you can produce high-quality videos, messages, and content — all powered by intelligent, human-like avatars.
+              </p>
+              <p>
+                We combine realistic visuals, voice synthesis, and AI-driven scripting to help you maintain a strong, professional presence without the time, effort, or burnout of constant content creation.
+              </p>
+            </div>
+
+            <div className="space-y-8">
+              <h3 className="font-headline font-bold text-2xl tracking-tight">What You Get:</h3>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {[
+                  { title: "Camera-Free Content Creation", desc: "No filming, no setup, no retakes" },
+                  { title: "Scalable Digital Identity", desc: "Clone your presence and expand infinitely" },
+                  { title: "Multi-Platform Production", desc: "Create content for YouTube, Instagram, ads, and more" },
+                  { title: "Consistent Brand Voice", desc: "Stay aligned and visible across all channels" }
+                ].map((feature, idx) => (
+                  <div key={idx} className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+                    <h4 className="font-headline font-bold text-lg mb-2 text-white">{feature.title}</h4>
+                    <p className="text-sm text-zinc-400">{feature.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          
+          <div className="relative group">
+            <div className="absolute inset-0 bg-primary/20 rounded-[40px] blur-2xl group-hover:bg-primary/30 transition-all"></div>
+            <img 
+              src="https://picsum.photos/seed/avatar-tech/800/1000" 
+              alt="AI Avatar Technology" 
+              className="relative rounded-[40px] w-full aspect-[4/5] object-cover border border-white/10 shadow-2xl"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute bottom-8 left-8 right-8 p-6 rounded-2xl bg-black/60 backdrop-blur-md border border-white/10">
+              <div className="flex items-center gap-4">
+                <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
+                <span className="font-mono text-xs uppercase tracking-widest text-white/80">System Status: Autonomous Presence Active</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI UGC Avatars Section */}
+      <section className="py-32 px-8 bg-white text-zinc-900 overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="order-2 lg:order-1 relative group">
+            <div className="absolute inset-0 bg-zinc-100 rounded-[40px] blur-2xl group-hover:bg-zinc-200 transition-all"></div>
+            <img 
+              src="https://picsum.photos/seed/ugc-ads/800/1000" 
+              alt="AI UGC Avatar Technology" 
+              className="relative rounded-[40px] w-full aspect-[4/5] object-cover border border-zinc-200 shadow-2xl"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute top-8 left-8 right-8 p-6 rounded-2xl bg-white/80 backdrop-blur-md border border-zinc-200">
+              <div className="flex items-center gap-4">
+                <div className="w-3 h-3 rounded-full bg-primary animate-pulse"></div>
+                <span className="font-barlow font-bold text-sm uppercase tracking-widest text-zinc-900">UGC Engine: Scaling Authenticity</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="order-1 lg:order-2">
+            <span className="font-barlow font-bold text-lg md:text-xl uppercase tracking-[5px] text-primary bg-primary/10 px-8 py-3 rounded-full inline-block mb-10 border border-primary/20">AI UGC Avatars</span>
+            <h2 className="font-headline font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-8">
+              High-Converting Ads, <br/>
+              <span className="italic font-serif font-normal text-primary">Generated & Scaled by AI</span>
+            </h2>
+            <p className="font-barlow text-xl md:text-2xl text-zinc-600 leading-relaxed mb-8">
+              At AI AgenticVerse, we redefine user-generated content with AI-powered UGC Avatars — enabling brands to create authentic, high-converting ad creatives without relying on traditional creators.
+            </p>
+            <p className="font-barlow text-lg text-zinc-500 leading-relaxed mb-12">
+              Our system combines synthetic avatars, AI scripting, and performance-driven testing to produce ad content that feels real, relatable, and optimized for conversion.
+            </p>
+
+            <div className="space-y-12">
+              <h3 className="font-headline font-bold text-2xl tracking-tight">What We Deliver:</h3>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                {[
+                  { 
+                    title: "Synthetic UGC Creators", 
+                    desc: "Realistic AI avatars designed to mimic human-style content, delivering authentic-looking product reviews, testimonials, and ad creatives." 
+                  },
+                  { 
+                    title: "High-Converting Ad Generation", 
+                    desc: "AI-crafted scripts, hooks, and visuals optimized for engagement, retention, and conversions across platforms." 
+                  },
+                  { 
+                    title: "Rapid Iteration Engine", 
+                    desc: "Instantly generate and test multiple variations of ads — headlines, angles, creatives — and scale the top-performing versions automatically." 
+                  },
+                  { 
+                    title: "Performance-Driven Optimization", 
+                    desc: "Continuously refine creatives using data insights to improve ROI and reduce ad spend inefficiencies." 
+                  }
+                ].map((feature, idx) => (
+                  <div key={idx} className="group">
+                    <h4 className="font-headline font-bold text-xl mb-2 text-zinc-900">{feature.title}</h4>
+                    <p className="text-zinc-500 leading-relaxed">{feature.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-12 border-t border-zinc-100">
+                <h3 className="font-headline font-bold text-xl tracking-tight mb-6">Built for Modern Ad Platforms:</h3>
+                <div className="flex flex-wrap gap-3">
+                  {["Meta Ads", "TikTok Ads", "YouTube Ads", "Instagram Reels", "Shorts & More"].map((platform, idx) => (
+                    <span key={idx} className="px-4 py-2 rounded-full bg-zinc-50 border border-zinc-200 text-sm font-barlow font-medium text-zinc-600">
+                      {platform}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Production Studios Section */}
+      <section className="py-32 px-8 bg-zinc-900 text-white overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="relative z-10">
+            <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl opacity-50 -z-10"></div>
+            <span className="font-barlow font-bold text-lg md:text-xl uppercase tracking-[5px] text-white bg-white/10 px-8 py-3 rounded-full inline-block mb-10 border border-white/20">AI Production Studios</span>
+            <h2 className="font-headline font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-8">
+              Create Product Visuals <br/>
+              <span className="italic font-serif font-normal text-white">Without Photoshoots</span>
+            </h2>
+            <p className="font-barlow text-xl md:text-2xl text-white leading-relaxed mb-8">
+              At AI AgenticVerse, we transform the way brands produce visual content with AI-powered Production Studios — eliminating the need for expensive photoshoots, studios, and long production timelines.
+            </p>
+            <p className="font-barlow text-lg text-white/90 leading-relaxed mb-12">
+              Create stunning, photorealistic product images and scenes in minutes, tailored for ads, websites, and campaigns — all generated and optimized through advanced AI systems.
+            </p>
+
+            <div className="space-y-12">
+              <h3 className="font-headline font-bold text-2xl tracking-tight">What We Deliver:</h3>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                {[
+                  { 
+                    title: "No Photoshoots Required", 
+                    desc: "Produce high-quality product visuals without cameras, studios, or physical setups — saving time and cost." 
+                  },
+                  { 
+                    title: "Photorealistic Images & Scenes", 
+                    desc: "Generate lifelike product images in diverse environments, lighting conditions, and styles that match real-world aesthetics." 
+                  },
+                  { 
+                    title: "Unlimited Creative Variations", 
+                    desc: "Instantly create multiple versions of visuals for A/B testing, ads, landing pages, and campaigns — all at scale." 
+                  },
+                  { 
+                    title: "Instant Production Pipeline", 
+                    desc: "From concept to final visual in minutes — enabling faster launches, quicker iterations, and real-time marketing execution." 
+                  }
+                ].map((feature, idx) => (
+                  <div key={idx} className="group">
+                    <h4 className="font-headline font-bold text-xl mb-2 text-white">{feature.title}</h4>
+                    <p className="text-white/80 leading-relaxed">{feature.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-12 border-t border-white/10">
+                <h3 className="font-headline font-bold text-xl tracking-tight mb-6">Use Cases:</h3>
+                <div className="flex flex-wrap gap-3">
+                  {["E-commerce", "D2C Brands", "Ad Campaigns", "Landing Pages", "Social Media Creatives", "Product Launches & Branding"].map((useCase, idx) => (
+                    <span key={idx} className="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-barlow font-medium text-white">
+                      {useCase}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="p-8 rounded-3xl bg-white/10 border border-white/20">
+                <h3 className="font-headline font-bold text-xl tracking-tight mb-4 text-white">Outcome:</h3>
+                <p className="text-white leading-relaxed mb-4">
+                  Produce high-quality visuals faster, cheaper, and at scale — without the limitations of traditional production.
+                </p>
+                <p className="font-barlow font-bold text-white italic">
+                  More creativity. Faster execution. Unlimited scalability.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative group">
+            <div className="absolute inset-0 bg-primary/20 rounded-[40px] blur-2xl group-hover:bg-primary/30 transition-all"></div>
+            <img 
+              src="https://picsum.photos/seed/production-studio/800/1000" 
+              alt="AI Production Studio Visuals" 
+              className="relative rounded-[40px] w-full aspect-[4/5] object-cover border border-white/10 shadow-2xl"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute bottom-8 left-8 right-8 p-6 rounded-2xl bg-black/60 backdrop-blur-md border border-white/10">
+              <div className="flex items-center gap-4">
+                <div className="w-3 h-3 rounded-full bg-primary animate-pulse"></div>
+                <span className="font-barlow font-bold text-sm uppercase tracking-widest text-white">Studio Engine: Photorealism Active</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Coaching Systems Section */}
+      <section className="py-32 px-8 bg-white text-zinc-900 overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="order-2 lg:order-1 relative group">
+            <div className="absolute inset-0 bg-zinc-100 rounded-[40px] blur-2xl group-hover:bg-zinc-200 transition-all"></div>
+            <img 
+              src="https://picsum.photos/seed/coaching-ai/800/1000" 
+              alt="AI Coaching Systems" 
+              className="relative rounded-[40px] w-full aspect-[4/5] object-cover border border-zinc-200 shadow-2xl"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute top-8 left-8 right-8 p-6 rounded-2xl bg-white/80 backdrop-blur-md border border-zinc-200">
+              <div className="flex items-center gap-4">
+                <div className="w-3 h-3 rounded-full bg-primary animate-pulse"></div>
+                <span className="font-barlow font-bold text-sm uppercase tracking-widest text-zinc-900">Mentor Engine: Scaling Knowledge</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="order-1 lg:order-2">
+            <span className="font-barlow font-bold text-lg md:text-xl uppercase tracking-[5px] text-primary bg-primary/10 px-8 py-3 rounded-full inline-block mb-10 border border-primary/20">AI Coaching Systems</span>
+            <h2 className="font-headline font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-8">
+              Scale Knowledge <br/>
+              <span className="italic font-serif font-normal text-primary">Without Scaling Your Time</span>
+            </h2>
+            <p className="font-barlow text-xl md:text-2xl text-zinc-600 leading-relaxed mb-8">
+              At AI AgenticVerse, we empower educators, creators, and businesses to transform their expertise into intelligent, scalable coaching systems powered by AI.
+            </p>
+            <p className="font-barlow text-lg text-zinc-500 leading-relaxed mb-12">
+              Deliver personalized learning experiences, automate guidance, and provide real-time feedback — all without being physically present. Our AI systems act as your digital mentor, ensuring every user receives value, clarity, and direction at scale.
+            </p>
+
+            <div className="space-y-12">
+              <h3 className="font-headline font-bold text-2xl tracking-tight">What We Deliver:</h3>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                {[
+                  { 
+                    title: "Personalized AI-Driven Learning", 
+                    desc: "Tailored learning paths, adaptive content, and intelligent recommendations based on each user’s behavior and progress." 
+                  },
+                  { 
+                    title: "Real-Time Feedback Systems", 
+                    desc: "Instant responses, assessments, and guidance — helping users improve faster and stay engaged throughout their journey." 
+                  },
+                  { 
+                    title: "Built for Courses & Training", 
+                    desc: "Perfect for online courses, coaching programs, academies, and internal training systems — fully automated and scalable." 
+                  },
+                  { 
+                    title: "Scalable Knowledge Delivery", 
+                    desc: "Turn your expertise into a 24/7 AI-powered system that teaches, guides, and supports unlimited users simultaneously." 
+                  }
+                ].map((feature, idx) => (
+                  <div key={idx} className="group">
+                    <h4 className="font-headline font-bold text-xl mb-2 text-zinc-900">{feature.title}</h4>
+                    <p className="text-zinc-500 leading-relaxed">{feature.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="p-8 rounded-3xl bg-zinc-50 border border-zinc-200">
+                <h3 className="font-headline font-bold text-xl tracking-tight mb-4 text-zinc-900">Outcome:</h3>
+                <p className="text-zinc-600 leading-relaxed mb-4">
+                  Deliver consistent, high-value learning experiences — without increasing your time, effort, or team size.
+                </p>
+                <p className="font-barlow font-bold text-primary italic">
+                  Teach once. Scale infinitely.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Chat Agents Section */}
+      <section className="py-32 px-8 bg-zinc-900 text-white overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="relative z-10">
+            <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl opacity-50 -z-10"></div>
+            <span className="font-barlow font-bold text-lg md:text-xl uppercase tracking-[5px] text-white bg-white/10 px-8 py-3 rounded-full inline-block mb-10 border border-white/20">AI Chat Agents</span>
+            <h2 className="font-headline font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-8">
+              Turn Attention Into <br/>
+              <span className="italic font-serif font-normal text-white">Revenue Automatically</span>
+            </h2>
+            <p className="font-barlow text-xl md:text-2xl text-white leading-relaxed mb-8">
+              At AI AgenticVerse, we build intelligent AI Chat Agents that transform conversations into conversions. From capturing leads to closing clients, our systems work 24/7 to ensure no opportunity is ever missed.
+            </p>
+            <p className="font-barlow text-lg text-white/90 leading-relaxed mb-12">
+              Whether it's your website, WhatsApp, or social platforms — our AI agents act as your always-on sales and support team, delivering instant responses, nurturing prospects, and driving revenue on autopilot.
+            </p>
+
+            <div className="space-y-12">
+              <h3 className="font-headline font-bold text-2xl tracking-tight">What We Deliver:</h3>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                {[
+                  { 
+                    title: "Conversational Sales & Support", 
+                    desc: "Engage visitors with human-like conversations that answer questions, recommend solutions, and guide users toward action." 
+                  },
+                  { 
+                    title: "Automated Follow-Ups", 
+                    desc: "Never lose a lead — AI automatically follows up with prospects, nurtures interest, and moves them through your funnel." 
+                  },
+                  { 
+                    title: "CRM & Funnel Integration", 
+                    desc: "Seamlessly connect with your CRM, email, and sales funnels to track, manage, and convert leads efficiently." 
+                  },
+                  { 
+                    title: "Multi-Platform AI Agents", 
+                    desc: "Deploy across WhatsApp, Instagram, Facebook, Websites, Landing Pages, Telegram & More." 
+                  },
+                  { 
+                    title: "Lead Capture → Conversion System", 
+                    desc: "From the first interaction to final conversion, our AI agents handle the entire journey — intelligently and instantly." 
+                  }
+                ].map((feature, idx) => (
+                  <div key={idx} className="group">
+                    <h4 className="font-headline font-bold text-xl mb-2 text-white">{feature.title}</h4>
+                    <p className="text-white/80 leading-relaxed">{feature.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="p-8 rounded-3xl bg-white/10 border border-white/20">
+                <h3 className="font-headline font-bold text-xl tracking-tight mb-4 text-white">Outcome:</h3>
+                <p className="text-white leading-relaxed mb-4">
+                  Capture more leads. Close more deals. Scale your business without scaling your team.
+                </p>
+                <p className="font-barlow font-bold text-white italic">
+                  Your AI sales team that works 24/7 — without breaks.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative group">
+            <div className="absolute inset-0 bg-primary/20 rounded-[40px] blur-2xl group-hover:bg-primary/30 transition-all"></div>
+            <img 
+              src="https://picsum.photos/seed/chat-ai/800/1000" 
+              alt="AI Chat Agents" 
+              className="relative rounded-[40px] w-full aspect-[4/5] object-cover border border-white/10 shadow-2xl"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute bottom-8 left-8 right-8 p-6 rounded-2xl bg-black/60 backdrop-blur-md border border-white/10">
+              <div className="flex items-center gap-4">
+                <div className="w-3 h-3 rounded-full bg-primary animate-pulse"></div>
+                <span className="font-barlow font-bold text-sm uppercase tracking-widest text-white">Agent Engine: Revenue Optimization Active</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Social Media Automation Section */}
+      <section className="py-32 px-8 bg-white text-zinc-900 overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="order-2 lg:order-1 relative group">
+            <div className="absolute inset-0 bg-zinc-100 rounded-[40px] blur-2xl group-hover:bg-zinc-200 transition-all"></div>
+            <img 
+              src="https://picsum.photos/seed/social-automation/800/1000" 
+              alt="AI Social Media Automation" 
+              className="relative rounded-[40px] w-full aspect-[4/5] object-cover border border-zinc-200 shadow-2xl"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute top-8 left-8 right-8 p-6 rounded-2xl bg-white/80 backdrop-blur-md border border-zinc-200">
+              <div className="flex items-center gap-4">
+                <div className="w-3 h-3 rounded-full bg-primary animate-pulse"></div>
+                <span className="font-barlow font-bold text-sm uppercase tracking-widest text-zinc-900">Automation Engine: Traffic Conversion Active</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="order-1 lg:order-2">
+            <span className="font-barlow font-bold text-lg md:text-xl uppercase tracking-[5px] text-primary bg-primary/10 px-8 py-3 rounded-full inline-block mb-10 border border-primary/20">AI Social Media Automation</span>
+            <h2 className="font-headline font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-8">
+              Convert Traffic Into <br/>
+              <span className="italic font-serif font-normal text-primary">Customers Automatically</span>
+            </h2>
+            <p className="font-barlow text-xl md:text-2xl text-zinc-600 leading-relaxed mb-8">
+              Your website shouldn’t just inform — it should engage, nurture, and convert. At AI AgenticVerse, we integrate powerful AI-driven social media automation systems directly into your website.
+            </p>
+            <p className="font-barlow text-lg text-zinc-500 leading-relaxed mb-12">
+              Create a seamless bridge between your content, audience, and conversion funnels. We help you turn website visitors into conversations and conversations into revenue.
+            </p>
+
+            <div className="space-y-12">
+              <h3 className="font-headline font-bold text-2xl tracking-tight">What We Deliver:</h3>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                {[
+                  { 
+                    title: "Website + Social Integration", 
+                    desc: "Connect your website with platforms like WhatsApp, Instagram, and Facebook — enabling instant communication and lead capture." 
+                  },
+                  { 
+                    title: "Automated Engagement Systems", 
+                    desc: "Turn website visitors into conversations through embedded chat flows, comment automation, and interactive experiences." 
+                  },
+                  { 
+                    title: "Content-to-Conversation Flow", 
+                    desc: "Drive users from social media content directly into automated chat funnels that qualify and convert leads." 
+                  },
+                  { 
+                    title: "Smart Tracking & Retargeting", 
+                    desc: "Track user behavior, trigger personalized responses, and retarget visitors with AI-driven follow-ups." 
+                  },
+                  { 
+                    title: "End-to-End Automation", 
+                    desc: "From first click to final conversion — your entire system runs seamlessly without manual intervention." 
+                  }
+                ].map((feature, idx) => (
+                  <div key={idx} className="group">
+                    <h4 className="font-headline font-bold text-xl mb-2 text-zinc-900">{feature.title}</h4>
+                    <p className="text-zinc-500 leading-relaxed">{feature.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-12 border-t border-zinc-100">
+                <h3 className="font-headline font-bold text-xl tracking-tight mb-6">Built for Indian Businesses:</h3>
+                <p className="text-zinc-600 leading-relaxed mb-6">
+                  We specialize in helping Indian businesses capture high-quality leads, automate client communication, and scale operations efficiently with AI systems designed for local markets and customer behavior.
+                </p>
+              </div>
+
+              <div className="p-8 rounded-3xl bg-zinc-50 border border-zinc-200">
+                <h3 className="font-headline font-bold text-xl tracking-tight mb-4 text-zinc-900">Outcome:</h3>
+                <p className="text-zinc-600 leading-relaxed mb-4">
+                  Turn your website into a high-converting automation engine — where every visitor becomes an opportunity.
+                </p>
+                <p className="font-barlow font-bold text-primary italic">
+                  More conversations. More conversions. More growth — on autopilot.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Pencraft Section */}
+      <section className="py-32 px-8 bg-zinc-900 text-white overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="relative z-10">
+            <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl opacity-50 -z-10"></div>
+            <span className="font-barlow font-bold text-lg md:text-xl uppercase tracking-[5px] text-white bg-white/10 px-8 py-3 rounded-full inline-block mb-10 border border-white/20">AI Pencraft</span>
+            <h2 className="font-headline font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-8">
+              Your Intelligent Content Engine <br/>
+              <span className="italic font-serif font-normal text-white">That Writes Like a Human</span>
+            </h2>
+            <p className="font-barlow text-xl md:text-2xl text-white leading-relaxed mb-8">
+              AI Pencraft — Human-Like Writing, Automated at Scale
+            </p>
+            <p className="font-barlow text-lg text-white/90 leading-relaxed mb-12">
+              At AI AgenticVerse, AI Pencraft is an advanced content intelligence system designed to replicate the thinking, writing, and communication patterns of top professionals — including entrepreneurs, professors, scholars, and industry experts. It doesn’t just generate content — it learns from elite minds, understands tone, structure, and intent, and produces high-quality posts that feel authentic, insightful, and human-like.
+            </p>
+
+            <div className="space-y-12">
+              <h3 className="font-headline font-bold text-2xl tracking-tight flex items-center gap-3">
+                What We Deliver:
+              </h3>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                {[
+                  { 
+                    title: "Human-Like Content Generation", 
+                    desc: "Create posts, articles, threads, and captions that mirror real human thinking — structured, engaging, and meaningful." 
+                  },
+                  { 
+                    title: "Pattern Intelligence Engine", 
+                    desc: "AI analyzes and adapts to the communication styles of professionals — from academic depth to entrepreneurial clarity." 
+                  },
+                  { 
+                    title: "Multi-Platform Publishing", 
+                    desc: "Automatically create and distribute content across: LinkedIn • Twitter (X) • Instagram • Facebook • Blogs • More" 
+                  },
+                  { 
+                    title: "Consistent Thought Leadership", 
+                    desc: "Maintain a strong, authoritative presence online with regular, high-quality content — without manual writing effort." 
+                  },
+                  { 
+                    title: "Automated Posting & Scheduling", 
+                    desc: "From writing to publishing, the entire process is handled by AI — ensuring consistency and scale." 
+                  }
+                ].map((feature, idx) => (
+                  <div key={idx} className="group">
+                    <h4 className="font-headline font-bold text-xl mb-2 text-white">{feature.title}</h4>
+                    <p className="text-white/80 leading-relaxed">{feature.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-12 border-t border-white/10">
+                <h3 className="font-headline font-bold text-xl tracking-tight mb-6 flex items-center gap-3">
+                  Built for Modern Professionals & Brands:
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {["Entrepreneurs", "Coaches", "Educators", "Doctors", "Researchers", "Personal Brands", "Agencies"].map((pro, idx) => (
+                    <span key={idx} className="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-barlow font-medium text-white">
+                      {pro}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="p-8 rounded-3xl bg-white/10 border border-white/20">
+                <h3 className="font-headline font-bold text-xl tracking-tight mb-4 text-white flex items-center gap-3">
+                  Outcome:
+                </h3>
+                <p className="text-white leading-relaxed mb-4">
+                  Build authority. Share ideas. Grow your influence — without spending hours writing every day.
+                </p>
+                <p className="font-barlow font-bold text-white italic">
+                  Think once. Let AI write, refine, and publish for you.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative group">
+            <div className="absolute inset-0 bg-primary/20 rounded-[40px] blur-2xl group-hover:bg-primary/30 transition-all"></div>
+            <img 
+              src="https://picsum.photos/seed/writing-ai/800/1000" 
+              alt="AI Pencraft Technology" 
+              className="relative rounded-[40px] w-full aspect-[4/5] object-cover border border-white/10 shadow-2xl"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute bottom-8 left-8 right-8 p-6 rounded-2xl bg-black/60 backdrop-blur-md border border-white/10">
+              <div className="flex items-center gap-4">
+                <div className="w-3 h-3 rounded-full bg-primary animate-pulse"></div>
+                <span className="font-barlow font-bold text-sm uppercase tracking-widest text-white">Pencraft Engine: Content Intelligence Active</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Call to Action */}
+      <section className="py-40 px-8 bg-surface-container-low relative overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="space-y-8">
+            <h2 className="font-headline font-bold text-5xl md:text-8xl tracking-tight-custom leading-[0.9]">
+              Ready to <span className="font-serif italic font-normal tracking-normal">Scale</span> Your Identity?
+            </h2>
+            <p className="font-barlow text-2xl text-on-surface-variant max-w-xl">
+              Enter your details to schedule an integration roadmap call.
+            </p>
+          </div>
+          <div className="bg-surface-container-lowest p-12 md:p-16 rounded-[4rem] shadow-2xl">
+            <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+              <div className="space-y-6">
+                <div className="space-y-2">
+                  <label className="font-barlow font-bold text-xs uppercase tracking-widest text-outline">Full Name</label>
+                  <input className="w-full bg-transparent border-0 border-b border-outline-variant/30 px-0 py-4 focus:ring-0 focus:border-primary font-barlow text-xl" placeholder="John Doe" type="text" required />
+                </div>
+                <div className="space-y-2">
+                  <label className="font-barlow font-bold text-xs uppercase tracking-widest text-outline">Work Email</label>
+                  <input className="w-full bg-transparent border-0 border-b border-outline-variant/30 px-0 py-4 focus:ring-0 focus:border-primary font-barlow text-xl" placeholder="john@company.com" type="email" required />
+                </div>
+              </div>
+              <button className="w-full py-6 bg-primary text-white rounded-full font-headline font-bold text-xl uppercase tracking-widest hover:scale-[1.02] transition-transform active:scale-95 shadow-xl flex items-center justify-center gap-4">
+                Book Strategy Call
+                <span className="material-symbols-outlined">arrow_forward</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+}
