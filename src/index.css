@@ -47,7 +47,7 @@
   vertical-align: middle;
 }
 
-.tracking-tight-custom { letter-spacing: -4px; }
+.tracking-tight-custom { letter-spacing: -0.05em; }
 .tracking-ultra-tight { letter-spacing: -0.04em; }
 
 .text-header-premium {

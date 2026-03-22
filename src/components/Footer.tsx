@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="w-full py-12 px-8 border-t border-outline-variant/10">
+    <footer className="w-full py-12 px-8 border-t border-outline-variant/10 bg-white">
       <div className="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto w-full gap-8">
         <div className="flex items-center gap-2 font-barlow font-bold text-lg text-zinc-900 uppercase tracking-widest">
           <img src="/images/1.png" alt="Logo" className="w-6 h-6 rounded-full" referrerPolicy="no-referrer" />
