@@ -1,8 +1,31 @@
+import React, { useState } from "react";
 import { InlineWidget } from "react-calendly";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import { uploadToBlob } from "../lib/blob";
 
 export default function ContactPage() {
+  const [uploading, setUploading] = useState(false);
+  const [uploadedUrl, setUploadedUrl] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setUploading(true);
+    setError(null);
+    try {
+      const blob = await uploadToBlob(file);
+      setUploadedUrl(blob.url);
+    } catch (err) {
+      console.error(err);
+      setError("Upload failed. Please check your BLOB_READ_WRITE_TOKEN.");
+    } finally {
+      setUploading(false);
+    }
+  };
+
   return (
     <div className="bg-surface text-on-surface font-general selection:bg-on-surface selection:text-surface">
       <NavBar />
@@ -47,6 +70,31 @@ export default function ContactPage() {
                   <div className="space-y-2">
                     <label className="font-bold text-xs uppercase tracking-widest text-black/40 dark:text-white/40">Message</label>
                     <textarea className="w-full bg-transparent border-0 border-b border-black/10 dark:border-white/10 px-0 py-3 focus:ring-0 focus:border-on-surface text-lg min-h-[120px] resize-none" placeholder="Tell us about your project..."></textarea>
+                  </div>
+
+                  {/* Vercel Blob Upload Field */}
+                  <div className="space-y-2 pt-4">
+                    <label className="font-bold text-xs uppercase tracking-widest text-black/40 dark:text-white/40">Attach Project Brief (Optional)</label>
+                    <div className="relative">
+                      <input 
+                        type="file" 
+                        onChange={handleFileChange}
+                        disabled={uploading}
+                        className="w-full text-sm text-black/60 dark:text-white/60 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-bold file:bg-on-surface file:text-surface hover:file:opacity-80 transition-all cursor-pointer disabled:opacity-50"
+                      />
+                      {uploading && (
+                        <div className="mt-2 text-xs font-bold text-blue-500 animate-pulse">Uploading to Vercel Blob...</div>
+                      )}
+                      {uploadedUrl && (
+                        <div className="mt-2 text-xs font-bold text-green-500 flex items-center gap-1">
+                          <span className="material-symbols-outlined text-sm">check_circle</span>
+                          File uploaded successfully!
+                        </div>
+                      )}
+                      {error && (
+                        <div className="mt-2 text-xs font-bold text-red-500">{error}</div>
+                      )}
+                    </div>
                   </div>
                 </div>
                 <button className="w-full py-6 bg-on-surface text-surface rounded-full font-bold text-lg uppercase tracking-widest hover:scale-[1.02] transition-transform active:scale-95 flex items-center justify-center gap-4 shadow-xl">
