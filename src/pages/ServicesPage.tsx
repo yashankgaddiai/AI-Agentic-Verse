@@ -1,7 +1,10 @@
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import { useBlobAssets } from "../hooks/useBlobAssets";
 
 export default function ServicesPage() {
+  const { getBlobUrl } = useBlobAssets();
+
   return (
     <div className="bg-white text-black font-sans selection:bg-zinc-900 selection:text-white">
       <NavBar />
@@ -67,7 +70,7 @@ export default function ServicesPage() {
             <section key={i} className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
               <div className={`${i % 2 === 1 ? 'lg:order-2' : ''}`}>
                 <div className="relative w-full aspect-video overflow-hidden rounded-[2rem] mb-8 shadow-2xl border border-black/10 group">
-                  <img className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" src={service.img} alt={service.title} referrerPolicy="no-referrer"/>
+                  <img className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" src={getBlobUrl(service.img.split('/').pop() || '', service.img)} alt={service.title} referrerPolicy="no-referrer"/>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <span className="material-symbols-outlined text-white text-6xl">robot_2</span>

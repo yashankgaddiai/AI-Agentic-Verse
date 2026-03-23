@@ -35,7 +35,7 @@ export function useBlobAssets() {
       });
   }, []);
 
-  const getBlobUrl = (filename: string, fallback: string) => {
+  const getBlobUrl = (filename: string, fallback: string | null = null) => {
     // Try to find a blob that matches the filename (either exactly or as part of the pathname)
     const blob = blobs.find(b => b.pathname.endsWith(filename) || b.pathname === filename);
     return blob ? blob.url : fallback;

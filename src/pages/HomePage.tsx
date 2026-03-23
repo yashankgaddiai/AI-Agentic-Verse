@@ -12,7 +12,21 @@ export default function HomePage() {
       
       {/* 1. Hero Section */}
       <section className="relative min-h-[90vh] h-screen w-full overflow-hidden flex items-center justify-center text-center px-8 bg-zinc-950">
+        {/* Background Video */}
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          src={getBlobUrl('herosection.mp4')}
+        >
+          <source src={getBlobUrl('herosection.mp4')} type="video/mp4" />
+        </video>
+        
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/60 via-transparent to-zinc-950/80"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05),transparent_70%)]"></div>
+        
         <div className="relative z-10 max-w-5xl w-full">
           <h1 className="font-barlow font-bold text-5xl md:text-8xl tracking-tight-custom text-white leading-[0.9] mb-8 uppercase">
             AI Agentic Verse <br/>
