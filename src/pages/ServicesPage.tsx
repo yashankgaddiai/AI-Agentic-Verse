@@ -22,7 +22,7 @@ export default function ServicesPage() {
               desc: "Create a photorealistic AI version of yourself or your brand spokesperson.",
               get: ["Custom AI avatar", "Multi-platform use", "Consistent identity", "No filming required"],
               for: "Founders, creators, enterprise teams",
-              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDXxiFEJTT_xei7kO61TufehebhTGRQbPVzYHRGVcthlKI4ffx4kvS-Q3RH5ulHVJbqDFiUVjcobeKG1qAFUEBx5pRnQjAToBeTwIWAgjjFm3PMCi89KognCBlDj6nSu1LlbZAaDPCSGkQl34kMxPWdgoE3sLl2FXS-YBbCgqtNNoLVAMmNAm83e0Fq2VgJtyDwVMQ9-jYCYqdY9pIYBPtyMguh1Y0LO9CYMzpvL-eAlBsW3Iy6oV_JVCervd764UHSHahv8zDUTXw"
+              img: "/images/1.jpeg"
             },
             {
               id: "02",
@@ -30,7 +30,7 @@ export default function ServicesPage() {
               tagline: "High-Converting Ads. No Film Crews",
               desc: "Scalable user-generated content that converts. Infinite variations, zero burnout.",
               get: ["Hundreds of variants", "Built-in conversion hooks", "Optimization loop", "Ad integrations"],
-              img: "https://picsum.photos/seed/ads/1200/800"
+              img: "/images/2.jpeg"
             },
             {
               id: "03",
@@ -38,7 +38,7 @@ export default function ServicesPage() {
               tagline: "Studio-Quality Images. Without Studio",
               desc: "Create studio-quality product visuals from prompts.",
               get: ["Unlimited environments", "8K output", "Fast generation", "Direct ad integration"],
-              img: "https://picsum.photos/seed/product/1200/800"
+              img: "/images/3.jpeg"
             },
             {
               id: "04",
@@ -46,7 +46,7 @@ export default function ServicesPage() {
               tagline: "Your Knowledge. Teaching 24/7",
               desc: "Deploy AI avatars that teach and train 24/7.",
               get: ["Adaptive learning", "Real-time feedback", "50+ languages", "LMS integration"],
-              img: "https://picsum.photos/seed/coaching/1200/800"
+              img: "/images/4.jpeg"
             },
             {
               id: "05",
@@ -54,7 +54,7 @@ export default function ServicesPage() {
               tagline: "Your Sales Team. Automated",
               desc: "Automate conversations, bookings, and sales.",
               get: ["Intent-aware AI", "Automated follow-ups", "CRM integration", "Multi-channel support"],
-              img: "https://picsum.photos/seed/chat/1200/800"
+              img: "/images/6.png"
             }
           ].map((service, i) => (
             <section key={i} className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">

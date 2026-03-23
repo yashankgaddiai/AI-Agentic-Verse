@@ -369,7 +369,7 @@ export default function HomePage() {
 
           <div className="my-16 group">
             <img 
-              src="https://picsum.photos/seed/chat-ai/1200/675" 
+              src="/images/6.png" 
               alt="AI Chat Agents" 
               className="rounded-[40px] w-full aspect-video object-cover border border-white/10 shadow-2xl mb-4"
               referrerPolicy="no-referrer"

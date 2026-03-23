@@ -5,10 +5,12 @@ import ServicesPage from "./pages/ServicesPage";
 import WorkInMotionPage from "./pages/WorkInMotionPage";
 import ContactPage from "./pages/ContactPage";
 import ChatAgent from "./components/ChatAgent";
+import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
