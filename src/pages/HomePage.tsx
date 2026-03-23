@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import { useBlobAssets } from "../hooks/useBlobAssets";
 
 export default function HomePage() {
+  const { getBlobUrl } = useBlobAssets();
+
   return (
     <div className="bg-surface text-on-surface">
       <NavBar />
@@ -117,7 +120,7 @@ export default function HomePage() {
 
           <div className="my-16 group">
             <img 
-              src="/images/1.jpeg" 
+              src={getBlobUrl('1.jpeg', '/images/1.jpeg')} 
               alt="AI Avatar Technology" 
               className="rounded-[40px] w-full aspect-video object-cover border border-white/10 shadow-2xl mb-4"
               referrerPolicy="no-referrer"
@@ -167,7 +170,7 @@ export default function HomePage() {
 
           <div className="my-16 group">
             <img 
-              src="/images/2.jpeg" 
+              src={getBlobUrl('2.jpeg', '/images/2.jpeg')} 
               alt="AI UGC Avatar Technology" 
               className="rounded-[40px] w-full aspect-video object-cover border border-zinc-200 shadow-2xl mb-4"
               referrerPolicy="no-referrer"
@@ -240,7 +243,7 @@ export default function HomePage() {
 
           <div className="my-16 group">
             <img 
-              src="/images/3.jpeg" 
+              src={getBlobUrl('3.jpeg', '/images/3.jpeg')} 
               alt="AI Production Studio Visuals" 
               className="rounded-[40px] w-full aspect-video object-cover border border-white/10 shadow-2xl mb-4"
               referrerPolicy="no-referrer"
@@ -314,7 +317,7 @@ export default function HomePage() {
 
           <div className="my-16 group">
             <img 
-              src="/images/4.jpeg" 
+              src={getBlobUrl('4.jpeg', '/images/4.jpeg')} 
               alt="AI Coaching Systems" 
               className="rounded-[40px] w-full aspect-video object-cover border border-zinc-200 shadow-2xl mb-4"
               referrerPolicy="no-referrer"
@@ -377,7 +380,7 @@ export default function HomePage() {
 
           <div className="my-16 group">
             <img 
-              src="/images/6.png" 
+              src={getBlobUrl('6.png', '/images/6.png')} 
               alt="AI Chat Agents" 
               className="rounded-[40px] w-full aspect-video object-cover border border-white/10 shadow-2xl mb-4"
               referrerPolicy="no-referrer"
