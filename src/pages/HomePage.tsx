@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import LottiePlayer from "../components/LottiePlayer";
 
 export default function HomePage() {
   return (
@@ -34,24 +35,35 @@ export default function HomePage() {
 
       {/* New Section: Autonomous Ecosystems */}
       <section className="py-32 px-8 bg-white border-y border-zinc-100">
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-16">
-            <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-zinc-900 px-6 py-2.5 rounded-full inline-block mb-10 border border-zinc-800">Our Mission</span>
-            <h2 className="font-headline font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-8 text-zinc-900">
-              At AI Agentic Verse, we don’t just use AI — <br/>
-              <span className="text-zinc-900">we build autonomous ecosystems</span> that run your business at scale.
-            </h2>
-            <p className="font-barlow text-xl md:text-2xl text-zinc-600 leading-relaxed">
-              We specialize in end-to-end automation of media production, creative testing, and digital identity, enabling brands, creators, and businesses to operate with speed, intelligence, and precision.
-            </p>
-          </div>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="order-2 lg:order-1">
+            <div className="mb-16">
+              <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-zinc-900 px-6 py-2.5 rounded-full inline-block mb-10 border border-zinc-800">Our Mission</span>
+              <h2 className="font-headline font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-8 text-zinc-900">
+                At AI Agentic Verse, we don’t just use AI — <br/>
+                <span className="text-zinc-900">we build autonomous ecosystems</span> that run your business at scale.
+              </h2>
+              <p className="font-barlow text-xl md:text-2xl text-zinc-600 leading-relaxed">
+                We specialize in end-to-end automation of media production, creative testing, and digital identity, enabling brands, creators, and businesses to operate with speed, intelligence, and precision.
+              </p>
+            </div>
 
-          <div className="mb-24">
-            <p className="font-barlow text-xl md:text-2xl text-zinc-600 leading-relaxed">
-              Our advanced AI systems act as your 24/7 digital workforce, continuously creating, optimizing, and scaling your presence across platforms.
-            </p>
+            <div className="mb-24">
+              <p className="font-barlow text-xl md:text-2xl text-zinc-600 leading-relaxed">
+                Our advanced AI systems act as your 24/7 digital workforce, continuously creating, optimizing, and scaling your presence across platforms.
+              </p>
+            </div>
           </div>
+          
+          <div className="order-1 lg:order-2 flex justify-center">
+            <LottiePlayer 
+              url="https://lottie.host/6ad34516-4361-455b-9721-3647169622d1/9A04588X9O.json" 
+              className="w-full max-w-md aspect-square"
+            />
+          </div>
+        </div>
 
+        <div className="max-w-4xl mx-auto mt-24">
           <div className="space-y-12">
             <h3 className="font-headline font-bold text-3xl md:text-4xl tracking-tight text-zinc-900">What We Deliver:</h3>
             

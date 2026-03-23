@@ -1,16 +1,25 @@
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import LottiePlayer from "../components/LottiePlayer";
 
 export default function ServicesPage() {
   return (
     <div className="bg-white text-black font-sans selection:bg-zinc-900 selection:text-white">
       <NavBar />
       <main className="pt-32 pb-24 bg-white">
-        <header className="max-w-7xl mx-auto px-[120px] mb-24">
-          <h1 className="text-7xl md:text-9xl font-bold mb-6 mt-12 uppercase tracking-tight text-black">Our <span className="opacity-40">Intelligence</span></h1>
-          <p className="max-w-2xl text-xl text-black/60 leading-relaxed">
-            Elevating brands through the invisible power of AI. Cinematic production meets algorithmic precision.
-          </p>
+        <header className="max-w-7xl mx-auto px-[120px] mb-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 className="text-7xl md:text-9xl font-bold mb-6 mt-12 uppercase tracking-tight text-black">Our <span className="opacity-40">Intelligence</span></h1>
+            <p className="max-w-2xl text-xl text-black/60 leading-relaxed">
+              Elevating brands through the invisible power of AI. Cinematic production meets algorithmic precision.
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <LottiePlayer 
+              url="https://lottie.host/54002446-5e04-436c-940e-5e0e0a5a5e5e/animation.json" 
+              className="w-full max-w-sm aspect-square"
+            />
+          </div>
         </header>
 
         <div className="max-w-7xl mx-auto px-[120px] space-y-40">
@@ -22,7 +31,8 @@ export default function ServicesPage() {
               desc: "Create a photorealistic AI version of yourself or your brand spokesperson.",
               get: ["Custom AI avatar", "Multi-platform use", "Consistent identity", "No filming required"],
               for: "Founders, creators, enterprise teams",
-              img: "/images/1.jpeg"
+              img: "/images/1.jpeg",
+              lottie: "https://lottie.host/54002446-5e04-436c-940e-5e0e0a5a5e5e/animation.json"
             },
             {
               id: "02",
@@ -30,7 +40,8 @@ export default function ServicesPage() {
               tagline: "High-Converting Ads. No Film Crews",
               desc: "Scalable user-generated content that converts. Infinite variations, zero burnout.",
               get: ["Hundreds of variants", "Built-in conversion hooks", "Optimization loop", "Ad integrations"],
-              img: "/images/2.jpeg"
+              img: "/images/2.jpeg",
+              lottie: "https://lottie.host/6ad34516-4361-455b-9721-3647169622d1/9A04588X9O.json"
             },
             {
               id: "03",
@@ -38,7 +49,8 @@ export default function ServicesPage() {
               tagline: "Studio-Quality Images. Without Studio",
               desc: "Create studio-quality product visuals from prompts.",
               get: ["Unlimited environments", "8K output", "Fast generation", "Direct ad integration"],
-              img: "/images/3.jpeg"
+              img: "/images/3.jpeg",
+              lottie: "https://lottie.host/6ad34516-4361-455b-9721-3647169622d1/9A04588X9O.json"
             },
             {
               id: "04",
@@ -46,7 +58,8 @@ export default function ServicesPage() {
               tagline: "Your Knowledge. Teaching 24/7",
               desc: "Deploy AI avatars that teach and train 24/7.",
               get: ["Adaptive learning", "Real-time feedback", "50+ languages", "LMS integration"],
-              img: "/images/4.jpeg"
+              img: "/images/4.jpeg",
+              lottie: "https://lottie.host/54002446-5e04-436c-940e-5e0e0a5a5e5e/animation.json"
             },
             {
               id: "05",
@@ -54,14 +67,21 @@ export default function ServicesPage() {
               tagline: "Your Sales Team. Automated",
               desc: "Automate conversations, bookings, and sales.",
               get: ["Intent-aware AI", "Automated follow-ups", "CRM integration", "Multi-channel support"],
-              img: "/images/6.png"
+              img: "/images/6.png",
+              lottie: "https://lottie.host/54002446-5e04-436c-940e-5e0e0a5a5e5e/animation.json"
             }
           ].map((service, i) => (
             <section key={i} className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
               <div className={`${i % 2 === 1 ? 'lg:order-2' : ''}`}>
-                <div className="relative w-full aspect-video overflow-hidden rounded-[2rem] mb-8 shadow-2xl border border-black/10">
-                  <img className="w-full h-full object-cover opacity-80" src={service.img} alt={service.title} referrerPolicy="no-referrer"/>
+                <div className="relative w-full aspect-video overflow-hidden rounded-[2rem] mb-8 shadow-2xl border border-black/10 group">
+                  <img className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" src={service.img} alt={service.title} referrerPolicy="no-referrer"/>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <LottiePlayer 
+                      url={service.lottie} 
+                      className="w-48 h-48"
+                    />
+                  </div>
                 </div>
               </div>
               <div className="space-y-8">
