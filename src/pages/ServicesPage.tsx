@@ -3,12 +3,12 @@ import Footer from "../components/Footer";
 
 export default function ServicesPage() {
   return (
-    <div className="bg-surface text-on-surface font-general selection:bg-on-surface selection:text-surface">
+    <div className="bg-white text-black font-sans selection:bg-zinc-900 selection:text-white">
       <NavBar />
-      <main className="pt-32 pb-24">
+      <main className="pt-32 pb-24 bg-white">
         <header className="max-w-7xl mx-auto px-[120px] mb-24">
-          <h1 className="text-7xl md:text-9xl font-bold mb-6 mt-12 uppercase tracking-tight">Our <span className="opacity-40">Intelligence</span></h1>
-          <p className="max-w-2xl text-xl text-black/60 dark:text-white/60 leading-relaxed">
+          <h1 className="text-7xl md:text-9xl font-bold mb-6 mt-12 uppercase tracking-tight text-black">Our <span className="opacity-40">Intelligence</span></h1>
+          <p className="max-w-2xl text-xl text-black/60 leading-relaxed">
             Elevating brands through the invisible power of AI. Cinematic production meets algorithmic precision.
           </p>
         </header>
@@ -59,26 +59,26 @@ export default function ServicesPage() {
           ].map((service, i) => (
             <section key={i} className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
               <div className={`${i % 2 === 1 ? 'lg:order-2' : ''}`}>
-                <div className="relative w-full aspect-[4/3] overflow-hidden rounded-[2rem] mb-8 shadow-2xl border border-black/10 dark:border-white/10">
+                <div className="relative w-full aspect-video overflow-hidden rounded-[2rem] mb-8 shadow-2xl border border-black/10">
                   <img className="w-full h-full object-cover opacity-80" src={service.img} alt={service.title} referrerPolicy="no-referrer"/>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
               </div>
               <div className="space-y-8">
                 <div>
-                  <span className="uppercase tracking-[4px] text-xs text-black/40 dark:text-white/40 mb-4 block">Service {service.id}</span>
-                  <h2 className="text-5xl md:text-7xl font-bold mb-4">{service.title}</h2>
-                  <p className="text-2xl text-black/60 dark:text-white/60 italic">{service.tagline}</p>
+                  <span className="uppercase tracking-[4px] text-xs text-black/40 mb-4 block">Service {service.id}</span>
+                  <h2 className="text-5xl md:text-7xl font-bold mb-4 text-black">{service.title}</h2>
+                  <p className="text-2xl text-black/60 italic">{service.tagline}</p>
                 </div>
-                <p className="text-xl text-black/50 dark:text-white/50 leading-relaxed">
+                <p className="text-xl text-black/50 leading-relaxed">
                   {service.desc}
                 </p>
                 <div className="space-y-4">
-                  <h4 className="font-bold uppercase tracking-widest text-sm text-black/40 dark:text-white/40">What You Get:</h4>
+                  <h4 className="font-bold uppercase tracking-widest text-sm text-black/40">What You Get:</h4>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {service.get.map((item, j) => (
-                      <li key={j} className="flex items-center gap-3 font-medium text-black/70 dark:text-white/70">
-                        <span className="material-symbols-outlined text-on-surface">check_circle</span>
+                      <li key={j} className="flex items-center gap-3 font-medium text-black/70">
+                        <span className="material-symbols-outlined text-black">check_circle</span>
                         {item}
                       </li>
                     ))}
@@ -86,8 +86,8 @@ export default function ServicesPage() {
                 </div>
                 {service.for && (
                   <div>
-                    <h4 className="font-bold uppercase tracking-widest text-sm text-black/40 dark:text-white/40 mb-2">Who It's For:</h4>
-                    <p className="font-bold text-lg text-black/80 dark:text-white/80">{service.for}</p>
+                    <h4 className="font-bold uppercase tracking-widest text-sm text-black/40 mb-2">Who It's For:</h4>
+                    <p className="font-bold text-lg text-black/80">{service.for}</p>
                   </div>
                 )}
               </div>

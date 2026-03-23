@@ -1,75 +1,79 @@
-import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import { motion } from "motion/react";
 
 export default function AboutPage() {
   return (
-    <div className="bg-surface text-on-surface font-general selection:bg-on-surface selection:text-surface">
+    <div className="bg-white text-black font-sans selection:bg-zinc-900 selection:text-white">
       <NavBar />
-      <main>
+      <main className="bg-[#fcf9f9]">
         {/* Hero Section */}
-        <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-white/30 dark:bg-black/60 z-10 transition-colors duration-300"></div>
-            <div className="w-full h-full bg-cover bg-center opacity-40" style={{backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBltPGN5uBer4SQ4RBI3jNnqGbu-TFlcv5r9pCaxSMbKviAmQmYtca3vJLNFkWmK0IIGxIvdST4yxrSyHeRqhx8BPxGs3eDVe8Vb82cNqSSDBNqM1QmfBZpA2g1E_picTBVlWWecewS-U8WJgTQlCEXBLFSJaEtQuI3OKOnHt8Mk_fqPx9FFGiJfyiuoTZHJUsUbEFVxWqTqihM0JsYjywEQj6Ab3zKwgLBY97zs6m1g-0mQiO_mGtneBJ1QqzTvap5efpGdlt2Ie4')"}}></div>
-          </div>
-          <div className="relative z-20 max-w-7xl mx-auto px-[120px] w-full text-center">
-            <div className="max-w-5xl mx-auto">
-              <h1 className="font-bold text-5xl md:text-8xl lg:text-9xl leading-[0.9] tracking-tight text-on-surface mb-8 uppercase">
-                Building infrastructure that clones <span className="opacity-40">identity</span>, scales media, and automates revenue.
-              </h1>
-            </div>
-          </div>
+        <section className="pt-48 pb-32 px-8 max-w-7xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-zinc-500">About Us</span>
+            <h1 className="font-headline font-bold text-6xl md:text-9xl tracking-tight leading-[0.9] max-w-5xl">
+              AI Agentic Verse is a <span className="italic font-serif font-normal text-zinc-400">forward-thinking</span> AI Company.
+            </h1>
+            <p className="font-barlow text-2xl md:text-4xl text-zinc-600 max-w-4xl leading-tight">
+              Dedicated to transforming businesses through intelligent, agent-based solutions.
+            </p>
+          </motion.div>
         </section>
 
-        {/* What We Do */}
-        <section className="py-32 px-[120px] max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
-            <div className="md:col-span-4">
-              <span className="text-black/40 dark:text-white/40 uppercase tracking-[4px] text-sm font-medium">The Mission</span>
-              <h2 className="text-5xl mt-4 font-bold leading-none tracking-tight">What we do:</h2>
-            </div>
-            <div className="md:col-span-8">
-              <p className="text-4xl md:text-6xl font-bold leading-tight tracking-tight text-on-surface">
-                Automate <span className="opacity-40">media</span> + identity + <span className="opacity-40">conversion</span>
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Why We Win */}
-        <section className="py-32 px-[120px] bg-black/[0.02] dark:bg-white/[0.02] border-y border-black/5 dark:border-white/5">
+        {/* Founders Section */}
+        <section className="py-32 px-8 bg-zinc-50 border-y border-zinc-100">
           <div className="max-w-7xl mx-auto">
-            <h2 className="uppercase tracking-[6px] text-sm font-bold text-black/40 dark:text-white/40 mb-20">Why We Win</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              {[
-                { title: "Unified Identity Engine", desc: "One system for video, voice, and interaction" },
-                { title: "Deep Integration", desc: "Works inside your existing workflows" },
-                { title: "Outcome Model", desc: "Focused on performance, not licences" }
-              ].map((item, i) => (
-                <div key={i} className="space-y-6 bg-black/[0.03] dark:bg-white/[0.03] p-10 rounded-[2rem] border border-black/5 dark:border-white/5 hover:bg-black/[0.05] dark:hover:bg-white/[0.05] transition-colors">
-                  <div className="w-12 h-12 rounded-full bg-black dark:bg-white text-white dark:text-black flex items-center justify-center font-bold">{i + 1}</div>
-                  <h3 className="text-2xl font-bold">{item.title}</h3>
-                  <p className="text-black/50 dark:text-white/50 text-lg leading-relaxed">{item.desc}</p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
+              {/* Yahgenesh */}
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="space-y-8"
+              >
+                <div className="space-y-2">
+                  <h2 className="font-headline font-bold text-5xl tracking-tight">Yahgenesh</h2>
+                  <p className="font-barlow font-bold text-sm uppercase tracking-widest text-zinc-500">Founder & Tech Visionary</p>
                 </div>
-              ))}
+                <p className="font-barlow text-xl text-zinc-600 leading-relaxed">
+                  Yahgenesh is a young visionary shaping the future of intelligent automation. As the technical backbone of AI Agentic Verse, he specializes in building advanced agentic workflows, WhatsApp automations, and AI-driven business systems. His passion lies in turning complex technology into simple, powerful solutions that deliver real results for Indian businesses. With a deep focus on innovation, execution, and high-performance systems, Yahgenesh drives the company’s technical direction and ensures every product is fast, reliable, and scalable.
+                </p>
+              </motion.div>
+
+              {/* Yashank */}
+              <motion.div 
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="space-y-8"
+              >
+                <div className="space-y-2">
+                  <h2 className="font-headline font-bold text-5xl tracking-tight">Yashank</h2>
+                  <p className="font-barlow font-bold text-sm uppercase tracking-widest text-zinc-500">Co-Founder & Business Strategist</p>
+                </div>
+                <p className="font-barlow text-xl text-zinc-600 leading-relaxed">
+                  Where Yahgenesh shapes the tech, Yashank brings the strategy. As the business-focused co-founder of AI Agentic Verse, he is deeply interested in market trends, customer psychology, monetization models, and scalable business growth. With a sharp eye for opportunity, he transforms raw ideas into real-world offerings, builds client relationships, and steers the company toward high-demand niches. His strength lies in packaging AI into products that solve real problems and generate measurable revenue.
+                </p>
+              </motion.div>
             </div>
           </div>
         </section>
-        
-        {/* CTA Section */}
-        <section className="py-40 px-[120px] relative overflow-hidden bg-on-surface text-surface">
-          <div className="max-w-7xl mx-auto relative z-10 text-center md:text-left">
-            <div className="flex flex-col md:flex-row justify-between items-end gap-12">
-              <div className="max-w-3xl">
-                <h2 className="text-6xl md:text-8xl font-bold tracking-tight leading-none mb-8">Ready to <span className="opacity-40">automate</span> your empire?</h2>
-              </div>
-              <div className="pb-4">
-                <Link to="/contact" className="group relative inline-flex items-center justify-center bg-surface text-on-surface rounded-full px-12 py-8 font-bold text-xl uppercase tracking-widest transition-all hover:scale-105 active:scale-95 shadow-xl">
-                  Book a Strategy Call
-                  <span className="ml-4 material-symbols-outlined transition-transform group-hover:translate-x-2 group-hover:-translate-y-2">north_east</span>
-                </Link>
-              </div>
+
+        {/* Company Overview */}
+        <section className="py-48 px-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            <div className="lg:col-span-4">
+              <h2 className="font-headline font-bold text-5xl tracking-tight uppercase">Company <br/><span className="opacity-40">Overview</span></h2>
+            </div>
+            <div className="lg:col-span-8">
+              <p className="font-barlow text-2xl md:text-3xl text-zinc-700 leading-relaxed">
+                We specialize in creating powerful AI agents that automate workflows, enhance customer interactions, and unlock new levels of operational efficiency. At AI Agentic Verse, we harness cutting-edge technologies such as AI Avatars,AI UGC Ads,AI-powered chatagents, smart appointment systems, lead generation tools, and seamless omni-channel messaging (via SMS, email, and websites). Our solutions are designed to empower businesses to scale faster, operate smarter, and deliver exceptional customer experiences—24/7.
+              </p>
             </div>
           </div>
         </section>
