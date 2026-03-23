@@ -1,6 +1,5 @@
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import LottiePlayer from "../components/LottiePlayer";
 
 export default function ServicesPage() {
   return (
@@ -15,10 +14,9 @@ export default function ServicesPage() {
             </p>
           </div>
           <div className="flex justify-center">
-            <LottiePlayer 
-              url="https://lottie.host/54002446-5e04-436c-940e-5e0e0a5a5e5e/animation.json" 
-              className="w-full max-w-sm aspect-square"
-            />
+            <div className="w-full max-w-sm aspect-square bg-zinc-50 rounded-[40px] border border-zinc-100 flex items-center justify-center">
+              <span className="material-symbols-outlined text-zinc-200 text-8xl">robot_2</span>
+            </div>
           </div>
         </header>
 
@@ -31,8 +29,7 @@ export default function ServicesPage() {
               desc: "Create a photorealistic AI version of yourself or your brand spokesperson.",
               get: ["Custom AI avatar", "Multi-platform use", "Consistent identity", "No filming required"],
               for: "Founders, creators, enterprise teams",
-              img: "/images/1.jpeg",
-              lottie: "https://lottie.host/54002446-5e04-436c-940e-5e0e0a5a5e5e/animation.json"
+              img: "/images/1.jpeg"
             },
             {
               id: "02",
@@ -40,8 +37,7 @@ export default function ServicesPage() {
               tagline: "High-Converting Ads. No Film Crews",
               desc: "Scalable user-generated content that converts. Infinite variations, zero burnout.",
               get: ["Hundreds of variants", "Built-in conversion hooks", "Optimization loop", "Ad integrations"],
-              img: "/images/2.jpeg",
-              lottie: "https://lottie.host/6ad34516-4361-455b-9721-3647169622d1/9A04588X9O.json"
+              img: "/images/2.jpeg"
             },
             {
               id: "03",
@@ -49,8 +45,7 @@ export default function ServicesPage() {
               tagline: "Studio-Quality Images. Without Studio",
               desc: "Create studio-quality product visuals from prompts.",
               get: ["Unlimited environments", "8K output", "Fast generation", "Direct ad integration"],
-              img: "/images/3.jpeg",
-              lottie: "https://lottie.host/6ad34516-4361-455b-9721-3647169622d1/9A04588X9O.json"
+              img: "/images/3.jpeg"
             },
             {
               id: "04",
@@ -58,8 +53,7 @@ export default function ServicesPage() {
               tagline: "Your Knowledge. Teaching 24/7",
               desc: "Deploy AI avatars that teach and train 24/7.",
               get: ["Adaptive learning", "Real-time feedback", "50+ languages", "LMS integration"],
-              img: "/images/4.jpeg",
-              lottie: "https://lottie.host/54002446-5e04-436c-940e-5e0e0a5a5e5e/animation.json"
+              img: "/images/4.jpeg"
             },
             {
               id: "05",
@@ -67,8 +61,7 @@ export default function ServicesPage() {
               tagline: "Your Sales Team. Automated",
               desc: "Automate conversations, bookings, and sales.",
               get: ["Intent-aware AI", "Automated follow-ups", "CRM integration", "Multi-channel support"],
-              img: "/images/6.png",
-              lottie: "https://lottie.host/54002446-5e04-436c-940e-5e0e0a5a5e5e/animation.json"
+              img: "/images/6.png"
             }
           ].map((service, i) => (
             <section key={i} className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
@@ -77,10 +70,7 @@ export default function ServicesPage() {
                   <img className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" src={service.img} alt={service.title} referrerPolicy="no-referrer"/>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <LottiePlayer 
-                      url={service.lottie} 
-                      className="w-48 h-48"
-                    />
+                    <span className="material-symbols-outlined text-white text-6xl">robot_2</span>
                   </div>
                 </div>
               </div>

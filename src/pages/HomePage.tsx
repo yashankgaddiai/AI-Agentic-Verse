@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import LottiePlayer from "../components/LottiePlayer";
 
 export default function HomePage() {
   return (
@@ -56,10 +55,9 @@ export default function HomePage() {
           </div>
           
           <div className="order-1 lg:order-2 flex justify-center">
-            <LottiePlayer 
-              url="https://lottie.host/6ad34516-4361-455b-9721-3647169622d1/9A04588X9O.json" 
-              className="w-full max-w-md aspect-square"
-            />
+            <div className="w-full max-w-md aspect-square bg-zinc-50 rounded-[40px] border border-zinc-100 flex items-center justify-center">
+              <span className="material-symbols-outlined text-zinc-200 text-8xl">robot_2</span>
+            </div>
           </div>
         </div>
 
