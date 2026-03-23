@@ -10,7 +10,7 @@ export default function HomePage() {
       {/* 1. Hero Section */}
       <section className="relative min-h-[90vh] h-screen w-full overflow-hidden flex items-center justify-center text-center px-8">
         <video autoPlay className="absolute top-0 left-0 w-full h-full object-cover z-0" loop muted playsInline>
-          <source src="/images/herosection.mp4" type="video/mp4"/>
+          <source src="/videos/herosection.mp4" type="video/mp4"/>
         </video>
         <div className="relative z-10 max-w-5xl w-full">
           <h1 className="font-barlow font-bold text-5xl md:text-8xl tracking-tight-custom text-white leading-[0.9] mb-8 uppercase">
