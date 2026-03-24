@@ -8,22 +8,22 @@ export default function ServicesPage() {
   return (
     <div className="bg-white text-black font-sans selection:bg-zinc-900 selection:text-white">
       <NavBar />
-      <main className="pt-32 pb-24 bg-white">
-        <header className="max-w-7xl mx-auto px-[120px] mb-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <main className="pt-24 sm:pt-32 pb-16 sm:pb-24 bg-white">
+        <header className="max-w-7xl mx-auto px-6 sm:px-12 md:px-[120px] mb-16 sm:mb-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h1 className="text-7xl md:text-9xl font-bold mb-6 mt-12 uppercase tracking-tight text-black">Our <span className="opacity-40">Intelligence</span></h1>
-            <p className="max-w-2xl text-xl text-black/60 leading-relaxed">
+            <h1 className="text-5xl sm:text-7xl md:text-9xl font-bold mb-6 mt-8 sm:mt-12 uppercase tracking-tight text-black">Our <span className="opacity-40">Intelligence</span></h1>
+            <p className="max-w-2xl text-lg sm:text-xl text-black/60 leading-relaxed">
               Elevating brands through the invisible power of AI. Cinematic production meets algorithmic precision.
             </p>
           </div>
           <div className="flex justify-center">
-            <div className="w-full max-w-sm aspect-square bg-zinc-50 rounded-[40px] border border-zinc-100 flex items-center justify-center">
-              <span className="material-symbols-outlined text-zinc-200 text-8xl">robot_2</span>
+            <div className="w-full max-w-xs sm:max-w-sm aspect-square bg-zinc-50 rounded-[32px] sm:rounded-[40px] border border-zinc-100 flex items-center justify-center">
+              <span className="material-symbols-outlined text-zinc-200 text-6xl sm:text-8xl">robot_2</span>
             </div>
           </div>
         </header>
 
-        <div className="max-w-7xl mx-auto px-[120px] space-y-40">
+        <div className="max-w-7xl mx-auto px-6 sm:px-12 md:px-[120px] space-y-24 sm:space-y-40">
           {[
             {
               id: "01",
@@ -70,7 +70,15 @@ export default function ServicesPage() {
             <section key={i} className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
               <div className={`${i % 2 === 1 ? 'lg:order-2' : ''}`}>
                 <div className="relative w-full aspect-video overflow-hidden rounded-[2rem] mb-8 shadow-2xl border border-black/10 group">
-                  <img className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" src={getBlobUrl(service.img.split('/').pop() || '', service.img)} alt={service.title} referrerPolicy="no-referrer"/>
+                  <img 
+                    className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" 
+                    src={getBlobUrl(service.img.split('/').pop() || '', service.img)} 
+                    alt={service.title} 
+                    loading="lazy"
+                    width="1200"
+                    height="675"
+                    referrerPolicy="no-referrer"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <span className="material-symbols-outlined text-white text-6xl">robot_2</span>

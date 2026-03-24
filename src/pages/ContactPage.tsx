@@ -29,10 +29,10 @@ export default function ContactPage() {
   return (
     <div className="bg-surface text-on-surface font-general selection:bg-on-surface selection:text-surface">
       <NavBar />
-      <main className="pt-40 pb-24 px-8 md:px-[120px] max-w-7xl mx-auto">
-        <header className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8 mt-12">
+      <main className="pt-32 sm:pt-40 pb-16 sm:pb-24 px-6 sm:px-8 md:px-[120px] max-w-7xl mx-auto">
+        <header className="mb-16 sm:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8 mt-8 sm:mt-12">
           <div className="max-w-2xl">
-            <h1 className="font-bold text-6xl md:text-8xl tracking-tight leading-[0.9] text-on-surface uppercase mb-6">
+            <h1 className="font-bold text-4xl sm:text-6xl md:text-8xl tracking-tight leading-[0.9] text-on-surface uppercase mb-6">
               Connect with <span className="opacity-40">intelligence</span>
             </h1>
           </div>

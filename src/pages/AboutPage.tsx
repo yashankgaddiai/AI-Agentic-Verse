@@ -8,7 +8,7 @@ export default function AboutPage() {
       <NavBar />
       <main className="bg-[#fcf9f9]">
         {/* Hero Section */}
-        <section className="pt-48 pb-32 px-8 max-w-7xl mx-auto">
+        <section className="pt-32 sm:pt-48 pb-24 sm:pb-32 px-6 sm:px-8 max-w-7xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -16,10 +16,10 @@ export default function AboutPage() {
             className="space-y-8"
           >
             <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-zinc-500">About Us</span>
-            <h1 className="font-headline font-bold text-6xl md:text-9xl tracking-tight leading-[0.9] max-w-5xl">
+            <h1 className="font-headline font-bold text-4xl sm:text-6xl md:text-9xl tracking-tight leading-[0.9] max-w-5xl">
               AI Agentic Verse is a <span className="italic font-serif font-normal text-zinc-400">forward-thinking</span> AI Company.
             </h1>
-            <p className="font-barlow text-2xl md:text-4xl text-zinc-600 max-w-4xl leading-tight">
+            <p className="font-barlow text-xl sm:text-2xl md:text-4xl text-zinc-600 max-w-4xl leading-tight">
               Dedicated to transforming businesses through intelligent, agent-based solutions.
             </p>
           </motion.div>

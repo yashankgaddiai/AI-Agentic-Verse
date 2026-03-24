@@ -18,14 +18,14 @@ export default function WorkInMotionPage() {
     <div className="bg-zinc-950 text-white min-h-screen font-barlow">
       <NavBar />
       
-      <main className="pt-40 pb-24 px-8">
-        <header className="max-w-7xl mx-auto mb-24 text-center">
+      <main className="pt-32 sm:pt-40 pb-16 sm:pb-24 px-6 sm:px-8">
+        <header className="max-w-7xl mx-auto mb-16 sm:mb-24 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-6xl md:text-8xl font-bold mb-8 uppercase tracking-tight leading-[0.9]">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-8 uppercase tracking-tight leading-[0.9]">
               Our Work <br/>
               <span className="font-serif italic font-normal text-zinc-400 normal-case">In Motion</span>
             </h1>
@@ -46,6 +46,7 @@ export default function WorkInMotionPage() {
                 <iframe
                   src={video.videoUrl}
                   title={video.title}
+                  loading="lazy"
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen

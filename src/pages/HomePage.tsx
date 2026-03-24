@@ -18,6 +18,7 @@ export default function HomePage() {
           loop 
           muted 
           playsInline 
+          poster={getBlobUrl('herosection-poster.jpg', '/images/herosection-poster.jpg')}
           className="absolute inset-0 w-full h-full object-cover opacity-40"
           src={getBlobUrl('herosection.mp4')}
         >
@@ -27,20 +28,20 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/60 via-transparent to-zinc-950/80"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05),transparent_70%)]"></div>
         
-        <div className="relative z-10 max-w-5xl w-full">
-          <h1 className="font-barlow font-bold text-5xl md:text-8xl tracking-tight-custom text-white leading-[0.9] mb-8 uppercase">
+        <div className="relative z-10 max-w-5xl w-full px-4 sm:px-0">
+          <h1 className="font-barlow font-bold text-4xl sm:text-6xl md:text-8xl tracking-tight-custom text-white leading-[0.9] mb-8 uppercase">
             AI Agentic Verse <br/>
-            <span className="font-serif italic font-normal text-6xl md:text-[72px] tracking-normal block mt-4 normal-case">Build. Automate. Scale.</span>
+            <span className="font-serif italic font-normal text-4xl sm:text-5xl md:text-[72px] tracking-normal block mt-4 normal-case">Build. Automate. Scale.</span>
           </h1>
           <div className="space-y-4 mb-12">
-            <p className="font-barlow font-medium text-xl md:text-2xl text-white leading-relaxed">
+            <p className="font-barlow font-medium text-lg sm:text-xl md:text-2xl text-white leading-relaxed">
               Your 24/7 AI Workforce for Media, Marketing & Identity
             </p>
-            <p className="font-barlow text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed italic">
+            <p className="font-barlow text-base sm:text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed italic">
               "From Content to Conversion — Fully Automated with AI Agents" • "Scale Faster with Autonomous AI Systems That Never Sleep" • "The Future of Digital Growth — Powered by Agentic AI"
             </p>
           </div>
-          <a href="https://calendly.com/aiagenticverse/ai-agentic-verse" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-4 bg-white text-zinc-900 px-12 py-6 rounded-full font-headline font-bold text-xl hover:bg-zinc-50 hover:shadow-[0_20px_60px_rgba(255,255,255,0.15)] hover:-translate-y-1 transition-all duration-500 active:scale-95 group">
+          <a href="https://calendly.com/aiagenticverse/ai-agentic-verse" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-4 bg-white text-zinc-900 px-8 sm:px-12 py-4 sm:py-6 rounded-full font-headline font-bold text-lg sm:text-xl hover:bg-zinc-50 hover:shadow-[0_20px_60px_rgba(255,255,255,0.15)] hover:-translate-y-1 transition-all duration-500 active:scale-95 group">
             Deploy Your Digital Clone
             <span className="material-symbols-outlined group-hover:translate-x-1.5 transition-transform">arrow_forward</span>
           </a>
@@ -49,8 +50,8 @@ export default function HomePage() {
 
       {/* New Section: Autonomous Ecosystems */}
       <section className="py-32 px-8 bg-white border-y border-zinc-100">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="order-2 lg:order-1">
+        <div className="max-w-5xl mx-auto">
+          <div className="max-w-3xl">
             <div className="mb-16">
               <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-zinc-900 px-6 py-2.5 rounded-full inline-block mb-10 border border-zinc-800">Our Mission</span>
               <h2 className="font-headline font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-8 text-zinc-900">
@@ -66,12 +67,6 @@ export default function HomePage() {
               <p className="font-barlow text-xl md:text-2xl text-zinc-600 leading-relaxed">
                 Our advanced AI systems act as your 24/7 digital workforce, continuously creating, optimizing, and scaling your presence across platforms.
               </p>
-            </div>
-          </div>
-          
-          <div className="order-1 lg:order-2 flex justify-center">
-            <div className="w-full max-w-md aspect-square bg-zinc-50 rounded-[40px] border border-zinc-100 flex items-center justify-center">
-              <span className="material-symbols-outlined text-zinc-200 text-8xl">robot_2</span>
             </div>
           </div>
         </div>
@@ -119,15 +114,15 @@ export default function HomePage() {
       </section>
 
       {/* AI Avatars Section */}
-      <section className="py-32 px-8 bg-zinc-900 text-white overflow-hidden">
+      <section className="py-24 sm:py-32 px-6 sm:px-8 bg-zinc-900 text-white overflow-hidden">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-16">
-            <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-white/5 px-6 py-2.5 rounded-full inline-block mb-10 border border-white/10">AI Avatars</span>
-            <h2 className="font-headline font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-8">
+          <div className="mb-12 sm:mb-16">
+            <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-white/5 px-6 py-2.5 rounded-full inline-block mb-8 sm:mb-10 border border-white/10">AI Avatars</span>
+            <h2 className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-8">
               Scale Your Presence <br/>
               <span className="italic font-serif font-normal text-white">Without Showing Up</span>
             </h2>
-            <p className="font-barlow text-xl md:text-2xl text-zinc-400 leading-relaxed">
+            <p className="font-barlow text-lg sm:text-xl md:text-2xl text-zinc-400 leading-relaxed">
               Create powerful content without ever stepping in front of the camera. At AI Agentic Verse, our AI Avatars enable you to build scalable digital identities that consistently represent your brand across every platform.
             </p>
           </div>
@@ -136,6 +131,9 @@ export default function HomePage() {
             <img 
               src={getBlobUrl('1.jpeg', '/images/1.jpeg')} 
               alt="AI Avatar Technology" 
+              loading="lazy"
+              width="1200"
+              height="675"
               className="rounded-[40px] w-full aspect-video object-cover border border-white/10 shadow-2xl mb-4"
               referrerPolicy="no-referrer"
             />
@@ -169,15 +167,15 @@ export default function HomePage() {
       </section>
 
       {/* AI UGC Avatars Section */}
-      <section className="py-32 px-8 bg-white text-zinc-900 overflow-hidden">
+      <section className="py-24 sm:py-32 px-6 sm:px-8 bg-white text-zinc-900 overflow-hidden">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-16">
-            <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-zinc-900 px-6 py-2.5 rounded-full inline-block mb-10 border border-zinc-800">AI UGC Avatars</span>
-            <h2 className="font-headline font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-8">
+          <div className="mb-12 sm:mb-16">
+            <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-zinc-900 px-6 py-2.5 rounded-full inline-block mb-8 sm:mb-10 border border-zinc-800">AI UGC Avatars</span>
+            <h2 className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-8">
               High-Converting Ads, <br/>
               <span className="italic font-serif font-normal text-zinc-900">Generated & Scaled by AI</span>
             </h2>
-            <p className="font-barlow text-xl md:text-2xl text-zinc-600 leading-relaxed">
+            <p className="font-barlow text-lg sm:text-xl md:text-2xl text-zinc-600 leading-relaxed">
               At AI AgenticVerse, we redefine user-generated content with AI-powered UGC Avatars — enabling brands to create authentic, high-converting ad creatives without relying on traditional creators.
             </p>
           </div>
@@ -186,6 +184,9 @@ export default function HomePage() {
             <img 
               src={getBlobUrl('2.jpeg', '/images/2.jpeg')} 
               alt="AI UGC Avatar Technology" 
+              loading="lazy"
+              width="1200"
+              height="675"
               className="rounded-[40px] w-full aspect-video object-cover border border-zinc-200 shadow-2xl mb-4"
               referrerPolicy="no-referrer"
             />
@@ -242,15 +243,15 @@ export default function HomePage() {
       </section>
 
       {/* AI Production Studios Section */}
-      <section className="py-32 px-8 bg-zinc-900 text-white overflow-hidden">
+      <section className="py-24 sm:py-32 px-6 sm:px-8 bg-zinc-900 text-white overflow-hidden">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-16">
-            <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-white/5 px-6 py-2.5 rounded-full inline-block mb-10 border border-white/10">AI Production Studios</span>
-            <h2 className="font-headline font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-8">
+          <div className="mb-12 sm:mb-16">
+            <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-white/5 px-6 py-2.5 rounded-full inline-block mb-8 sm:mb-10 border border-white/10">AI Production Studios</span>
+            <h2 className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-8">
               Create Product Visuals <br/>
               <span className="italic font-serif font-normal text-white">Without Photoshoots</span>
             </h2>
-            <p className="font-barlow text-xl md:text-2xl text-white leading-relaxed">
+            <p className="font-barlow text-lg sm:text-xl md:text-2xl text-white leading-relaxed">
               At AI AgenticVerse, we transform the way brands produce visual content with AI-powered Production Studios — eliminating the need for expensive photoshoots, studios, and long production timelines.
             </p>
           </div>
@@ -259,6 +260,9 @@ export default function HomePage() {
             <img 
               src={getBlobUrl('3.jpeg', '/images/3.jpeg')} 
               alt="AI Production Studio Visuals" 
+              loading="lazy"
+              width="1200"
+              height="675"
               className="rounded-[40px] w-full aspect-video object-cover border border-white/10 shadow-2xl mb-4"
               referrerPolicy="no-referrer"
             />
@@ -315,16 +319,16 @@ export default function HomePage() {
       </section>
 
       {/* AI Coaching Systems Section */}
-      <section className="py-40 px-8 bg-white text-zinc-900 overflow-hidden relative">
+      <section className="py-24 sm:py-40 px-6 sm:px-8 bg-white text-zinc-900 overflow-hidden relative">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent"></div>
         <div className="max-w-4xl mx-auto relative z-10">
-          <div className="mb-16">
-            <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-zinc-900 px-6 py-2.5 rounded-full inline-block mb-10 border border-zinc-800">AI Coaching Systems</span>
-            <h2 className="font-headline font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-8">
+          <div className="mb-12 sm:mb-16">
+            <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-zinc-900 px-6 py-2.5 rounded-full inline-block mb-8 sm:mb-10 border border-zinc-800">AI Coaching Systems</span>
+            <h2 className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-8">
               Scale Knowledge <br/>
               <span className="italic font-serif font-normal text-zinc-900">Without Scaling Your Time</span>
             </h2>
-            <p className="font-barlow text-xl md:text-2xl text-zinc-600 leading-relaxed">
+            <p className="font-barlow text-lg sm:text-xl md:text-2xl text-zinc-600 leading-relaxed">
               At AI AgenticVerse, we empower educators, creators, and businesses to transform their expertise into intelligent, scalable coaching systems powered by AI.
             </p>
           </div>
@@ -333,6 +337,9 @@ export default function HomePage() {
             <img 
               src={getBlobUrl('4.jpeg', '/images/4.jpeg')} 
               alt="AI Coaching Systems" 
+              loading="lazy"
+              width="1200"
+              height="675"
               className="rounded-[40px] w-full aspect-video object-cover border border-zinc-200 shadow-2xl mb-4"
               referrerPolicy="no-referrer"
             />
@@ -378,16 +385,16 @@ export default function HomePage() {
       </section>
 
       {/* AI Chat Agents Section */}
-      <section className="py-40 px-8 bg-zinc-900 text-white overflow-hidden relative">
+      <section className="py-24 sm:py-40 px-6 sm:px-8 bg-zinc-900 text-white overflow-hidden relative">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03),transparent_70%)]"></div>
         <div className="max-w-4xl mx-auto relative z-10">
-          <div className="mb-16">
-            <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-white/5 px-6 py-2.5 rounded-full inline-block mb-10 border border-white/10">AI Chat Agents</span>
-            <h2 className="font-headline font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-8">
+          <div className="mb-12 sm:mb-16">
+            <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-white/5 px-6 py-2.5 rounded-full inline-block mb-8 sm:mb-10 border border-white/10">AI Chat Agents</span>
+            <h2 className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-8">
               Turn Attention Into <br/>
               <span className="italic font-serif font-normal text-white">Revenue Automatically</span>
             </h2>
-            <p className="font-barlow text-xl md:text-2xl text-white leading-relaxed">
+            <p className="font-barlow text-lg sm:text-xl md:text-2xl text-white leading-relaxed">
               At AI AgenticVerse, we build intelligent AI Chat Agents that transform conversations into conversions. From capturing leads to closing clients, our systems work 24/7 to ensure no opportunity is ever missed.
             </p>
           </div>
@@ -396,6 +403,9 @@ export default function HomePage() {
             <img 
               src={getBlobUrl('6.png', '/images/6.png')} 
               alt="AI Chat Agents" 
+              loading="lazy"
+              width="1200"
+              height="675"
               className="rounded-[40px] w-full aspect-video object-cover border border-white/10 shadow-2xl mb-4"
               referrerPolicy="no-referrer"
             />
@@ -445,30 +455,30 @@ export default function HomePage() {
       </section>
 
       {/* 8. Call to Action */}
-      <section className="py-48 px-8 bg-zinc-950 relative overflow-hidden text-white">
+      <section className="py-24 sm:py-48 px-6 sm:px-8 bg-zinc-950 relative overflow-hidden text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05),transparent_70%)]"></div>
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center relative z-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 sm:gap-24 items-center relative z-10">
           <div className="space-y-8">
-            <h2 className="font-headline font-bold text-5xl md:text-8xl tracking-tight-custom leading-[0.9]">
+            <h2 className="font-headline font-bold text-4xl sm:text-6xl md:text-8xl tracking-tight-custom leading-[0.9]">
               Ready to <span className="font-serif italic font-normal tracking-normal text-white">Scale</span> Your Identity?
             </h2>
-            <p className="font-barlow text-2xl text-zinc-400 max-w-xl">
+            <p className="font-barlow text-xl sm:text-2xl text-zinc-400 max-w-xl">
               Enter your details to schedule an integration roadmap call.
             </p>
           </div>
-          <div className="bg-white/5 backdrop-blur-xl p-12 md:p-16 rounded-[4rem] border border-white/10 shadow-2xl">
+          <div className="bg-white/5 backdrop-blur-xl p-8 sm:p-12 md:p-16 rounded-[32px] sm:rounded-[4rem] border border-white/10 shadow-2xl">
             <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
               <div className="space-y-6">
                 <div className="space-y-2">
                   <label className="font-barlow font-bold text-xs uppercase tracking-widest text-zinc-500">Full Name</label>
-                  <input className="w-full bg-transparent border-0 border-b border-white/10 px-0 py-4 focus:ring-0 focus:border-white font-barlow text-xl text-white placeholder:text-zinc-700" placeholder="John Doe" type="text" required />
+                  <input className="w-full bg-transparent border-0 border-b border-white/10 px-0 py-4 focus:ring-0 focus:border-white font-barlow text-lg sm:text-xl text-white placeholder:text-zinc-700" placeholder="John Doe" type="text" required />
                 </div>
                 <div className="space-y-2">
                   <label className="font-barlow font-bold text-xs uppercase tracking-widest text-zinc-500">Work Email</label>
-                  <input className="w-full bg-transparent border-0 border-b border-white/10 px-0 py-4 focus:ring-0 focus:border-white font-barlow text-xl text-white placeholder:text-zinc-700" placeholder="john@company.com" type="email" required />
+                  <input className="w-full bg-transparent border-0 border-b border-white/10 px-0 py-4 focus:ring-0 focus:border-white font-barlow text-lg sm:text-xl text-white placeholder:text-zinc-700" placeholder="john@company.com" type="email" required />
                 </div>
               </div>
-              <a href="https://calendly.com/aiagenticverse/ai-agentic-verse" target="_blank" rel="noopener noreferrer" className="w-full py-6 bg-white text-zinc-900 rounded-full font-headline font-bold text-xl uppercase tracking-widest hover:bg-zinc-100 transition-colors active:scale-95 shadow-xl flex items-center justify-center gap-4">
+              <a href="https://calendly.com/aiagenticverse/ai-agentic-verse" target="_blank" rel="noopener noreferrer" className="w-full py-5 sm:py-6 bg-white text-zinc-900 rounded-full font-headline font-bold text-lg sm:text-xl uppercase tracking-widest hover:bg-zinc-100 transition-colors active:scale-95 shadow-xl flex items-center justify-center gap-4">
                 Book Strategy Call
                 <span className="material-symbols-outlined">arrow_forward</span>
               </a>
