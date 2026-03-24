@@ -30,13 +30,6 @@ Response Guidelines:
 - Use bullet points only if absolutely necessary for clarity, but keep them brief.
 - If a user asks for more detail, provide the Calendly link for a strategy call.`;
 
-const QUICK_REPLIES = [
-  "What are AI Avatars?",
-  "How do AI UGC Ads work?",
-  "Tell me about Product Studios",
-  "How do I book a call?",
-];
-
 interface Message {
   role: "user" | "bot";
   text: string;
@@ -187,21 +180,6 @@ export default function ChatAgent() {
                       Thinking...
                     </motion.span>
                   </div>
-                </div>
-              )}
-
-              {/* Quick Replies */}
-              {!isLoading && messages.length === 1 && (
-                <div className="pt-4 flex flex-wrap gap-2">
-                  {QUICK_REPLIES.map((reply, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => handleSend(reply)}
-                      className="px-4 py-2.5 bg-white border border-zinc-200 rounded-full text-xs font-bold text-zinc-600 hover:border-zinc-900 hover:text-zinc-900 transition-all active:scale-95 shadow-sm"
-                    >
-                      {reply}
-                    </button>
-                  ))}
                 </div>
               )}
             </div>
