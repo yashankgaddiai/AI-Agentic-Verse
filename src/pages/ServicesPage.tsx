@@ -1,6 +1,7 @@
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import { useBlobAssets } from "../hooks/useBlobAssets";
+import OptimizedImage from "../components/OptimizedImage";
 
 export default function ServicesPage() {
   const { getBlobUrl } = useBlobAssets();
@@ -70,14 +71,11 @@ export default function ServicesPage() {
             <section key={i} className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
               <div className={`${i % 2 === 1 ? 'lg:order-2' : ''}`}>
                 <div className="relative w-full aspect-video overflow-hidden rounded-[2rem] mb-8 shadow-2xl border border-black/10 group">
-                  <img 
-                    className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" 
-                    src={getBlobUrl(service.img.split('/').pop() || '', service.img)} 
+                  <OptimizedImage 
+                    filename={service.img.split('/').pop() || ''} 
+                    fallback={service.img}
                     alt={service.title} 
-                    loading="lazy"
-                    width="1200"
-                    height="675"
-                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import { useBlobAssets } from "../hooks/useBlobAssets";
+import OptimizedImage from "../components/OptimizedImage";
 
 export default function HomePage() {
   const { getBlobUrl } = useBlobAssets();
@@ -128,14 +129,11 @@ export default function HomePage() {
           </div>
 
           <div className="my-16 group">
-            <img 
-              src={getBlobUrl('1.jpeg', '/images/1.jpeg')} 
+            <OptimizedImage 
+              filename="1.jpeg" 
+              fallback="/images/1.jpeg"
               alt="AI Avatar Technology" 
-              loading="lazy"
-              width="1200"
-              height="675"
               className="rounded-[40px] w-full aspect-video object-cover border border-white/10 shadow-2xl mb-4"
-              referrerPolicy="no-referrer"
             />
             <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-500 text-center">Hyper-realistic digital humans designed to bridge the gap between digital efficiency and human connection.</p>
           </div>
@@ -181,14 +179,11 @@ export default function HomePage() {
           </div>
 
           <div className="my-16 group">
-            <img 
-              src={getBlobUrl('2.jpeg', '/images/2.jpeg')} 
+            <OptimizedImage 
+              filename="2.jpeg" 
+              fallback="/images/2.jpeg"
               alt="AI UGC Avatar Technology" 
-              loading="lazy"
-              width="1200"
-              height="675"
               className="rounded-[40px] w-full aspect-video object-cover border border-zinc-200 shadow-2xl mb-4"
-              referrerPolicy="no-referrer"
             />
             <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-400 text-center">Synthetic UGC creators designed to mimic human-style content for maximum authenticity and engagement.</p>
           </div>
@@ -257,14 +252,11 @@ export default function HomePage() {
           </div>
 
           <div className="my-16 group">
-            <img 
-              src={getBlobUrl('3.jpeg', '/images/3.jpeg')} 
+            <OptimizedImage 
+              filename="3.jpeg" 
+              fallback="/images/3.jpeg"
               alt="AI Production Studio Visuals" 
-              loading="lazy"
-              width="1200"
-              height="675"
               className="rounded-[40px] w-full aspect-video object-cover border border-white/10 shadow-2xl mb-4"
-              referrerPolicy="no-referrer"
             />
             <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-500 text-center">Photorealistic product scenes generated in minutes, tailored for high-impact marketing campaigns.</p>
           </div>
@@ -334,14 +326,11 @@ export default function HomePage() {
           </div>
 
           <div className="my-16 group">
-            <img 
-              src={getBlobUrl('4.jpeg', '/images/4.jpeg')} 
+            <OptimizedImage 
+              filename="4.jpeg" 
+              fallback="/images/4.jpeg"
               alt="AI Coaching Systems" 
-              loading="lazy"
-              width="1200"
-              height="675"
               className="rounded-[40px] w-full aspect-video object-cover border border-zinc-200 shadow-2xl mb-4"
-              referrerPolicy="no-referrer"
             />
             <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-400 text-center">Intelligent mentor engines that deliver personalized learning experiences and real-time feedback at scale.</p>
           </div>
@@ -400,14 +389,11 @@ export default function HomePage() {
           </div>
 
           <div className="my-16 group">
-            <img 
-              src={getBlobUrl('6.png', '/images/6.png')} 
+            <OptimizedImage 
+              filename="6.png" 
+              fallback="/images/6.png"
               alt="AI Chat Agents" 
-              loading="lazy"
-              width="1200"
-              height="675"
               className="rounded-[40px] w-full aspect-video object-cover border border-white/10 shadow-2xl mb-4"
-              referrerPolicy="no-referrer"
             />
             <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-500 text-center">Intelligent conversational agents that act as your always-on sales and support team, driving revenue on autopilot.</p>
           </div>

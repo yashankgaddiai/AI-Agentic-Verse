@@ -1,6 +1,7 @@
 import { put } from '@vercel/blob';
 import fs from "fs";
 import path from "path";
+import sharp from "sharp";
 
 export default async function handler(req: any, res: any) {
   const token = process.env.BLOB_READ_WRITE_TOKEN;
@@ -20,12 +21,47 @@ export default async function handler(req: any, res: any) {
     }
 
     const fileBuffer = fs.readFileSync(filePath);
-    const blob = await put(`assets/${filename}`, fileBuffer, {
-      access: "public",
-      token,
-    });
+    const contentType = filename.endsWith('.png') ? 'image/png' : 'image/jpeg';
+    const isImage = contentType.startsWith('image/') && !filename.endsWith('.svg');
 
-    res.status(200).json(blob);
+    if (isImage) {
+      const baseName = filename.substring(0, filename.lastIndexOf('.')) || filename;
+      const sizes = [400, 800, 1200];
+      
+      const uploadPromises = sizes.map(async (size) => {
+        const optimizedBuffer = await sharp(fileBuffer)
+          .resize(size, null, { withoutEnlargement: true })
+          .webp({ quality: 70 })
+          .toBuffer();
+        
+        return put(`${baseName}-${size}.webp`, optimizedBuffer, {
+          access: "public",
+          contentType: "image/webp",
+          token,
+          addRandomSuffix: false,
+          cacheControlMaxAge: 31536000,
+        });
+      });
+
+      const mainUploadPromise = put(filename, fileBuffer, {
+        access: "public",
+        contentType,
+        token,
+        addRandomSuffix: false,
+        cacheControlMaxAge: 31536000,
+      });
+
+      const results = await Promise.all([...uploadPromises, mainUploadPromise]);
+      res.status(200).json(results[results.length - 1]);
+    } else {
+      const blob = await put(filename, fileBuffer, {
+        access: "public",
+        token,
+        addRandomSuffix: false,
+        cacheControlMaxAge: 31536000,
+      });
+      res.status(200).json(blob);
+    }
   } catch (error) {
     console.error("Sync error:", error);
     res.status(500).json({ error: "Sync failed" });
