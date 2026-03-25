@@ -20,13 +20,13 @@ export default function HomePage() {
           muted 
           playsInline 
           poster={getBlobUrl('herosection-poster.jpg', '/images/herosection-poster.jpg')}
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          className="absolute inset-0 w-full h-full object-cover opacity-100 brightness-110"
           src={getBlobUrl('herosection.mp4')}
         >
           <source src={getBlobUrl('herosection.mp4')} type="video/mp4" />
         </video>
         
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/60 via-transparent to-zinc-950/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/40 via-transparent to-zinc-950/60"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05),transparent_70%)]"></div>
         
         <div className="relative z-10 max-w-5xl w-full px-4 sm:px-0">
