@@ -9,7 +9,35 @@ const clientVideos = [
     category: "Global Growth Strategist",
     videoUrl: "https://www.youtube.com/embed/-5l1AhrZPlQ",
     thumbnail: "https://img.youtube.com/vi/-5l1AhrZPlQ/maxresdefault.jpg",
-    description: "Dr. Raghavendra Hunasgi is a serial entrepreneur, CMO and Co-founder of the Web3 unicorn Zeebu, bestselling author of 'Unleashing Growth', and a global growth strategist known for bridging traditional branding with emerging technologies like blockchain."
+    description: "Dr. Raghavendra Hunasgi is a serial entrepreneur, CMO and Co-founder of the Web3 unicorn Zeebu, bestselling author of 'Unleashing Growth', and a global growth strategist known for bridging traditional branding with emerging technologies like blockchain.",
+    tags: ["Web3 Unicorn", "Blockchain Strategy", "Growth Marketing"]
+  },
+  {
+    id: 1,
+    title: "AI Content Automation",
+    category: "Content Strategy",
+    videoUrl: "https://www.youtube.com/embed/8qDhdXyyP-s",
+    thumbnail: "https://img.youtube.com/vi/8qDhdXyyP-s/maxresdefault.jpg",
+    description: "Harness the power of AI to automate your content creation and distribution. Our agentic systems ensure your brand stays active and relevant across all digital channels without manual effort.",
+    tags: ["AI Content", "Automation", "Digital Strategy"]
+  },
+  {
+    id: 2,
+    title: "AI Agentic Verse Showcase",
+    category: "AI Automation & Scaling",
+    videoUrl: "https://www.youtube.com/embed/O6zFm4xqkS4",
+    thumbnail: "https://img.youtube.com/vi/O6zFm4xqkS4/maxresdefault.jpg",
+    description: "Discover how AI Agentic Verse is revolutionizing digital growth through autonomous AI systems. This showcase highlights our latest breakthroughs in AI-driven media, marketing, and identity scaling.",
+    tags: ["AI Automation", "Content Scaling", "Autonomous Systems"]
+  },
+  {
+    id: 3,
+    title: "AI Digital Identity Scaling",
+    category: "Digital Identity & Branding",
+    videoUrl: "https://www.youtube.com/embed/egWlU-ZNqNY",
+    thumbnail: "https://img.youtube.com/vi/egWlU-ZNqNY/maxresdefault.jpg",
+    description: "Experience the future of personal branding with our AI-driven digital identity solutions. We help founders and creators scale their presence through hyper-realistic AI avatars and automated content pipelines.",
+    tags: ["Digital Identity", "AI Avatars", "Personal Branding"]
   }
 ];
 
@@ -32,7 +60,7 @@ export default function WorkInMotionPage() {
           </motion.div>
         </header>
 
-        <section className="max-w-7xl mx-auto">
+        <section className="max-w-7xl mx-auto space-y-32 sm:space-y-48">
           {clientVideos.map((video, idx) => (
             <motion.div
               key={video.id}
@@ -61,9 +89,11 @@ export default function WorkInMotionPage() {
                 </p>
                 
                 <div className="mt-12 flex flex-wrap gap-4">
-                  <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-zinc-300">Web3 Unicorn</span>
-                  <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-zinc-300">Blockchain Strategy</span>
-                  <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-zinc-300">Growth Marketing</span>
+                  {video.tags.map((tag, tagIdx) => (
+                    <span key={tagIdx} className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-zinc-300">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             </motion.div>

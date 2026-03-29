@@ -4,12 +4,12 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 // Import Vercel Serverless Handlers
-import remoteAssetsHandler from "./api/admin/remote-assets.js";
-import localAssetsHandler from "./api/admin/local-assets.js";
-import syncAssetHandler from "./api/admin/sync-asset.js";
-import uploadHandler from "./api/upload.js";
-import testUploadHandler from "./api/admin/test-upload.js";
-import healthHandler from "./api/health.js";
+import remoteAssetsHandler from "./api/admin/remote-assets.ts";
+import localAssetsHandler from "./api/admin/local-assets.ts";
+import syncAssetHandler from "./api/admin/sync-asset.ts";
+import uploadHandler from "./api/upload.ts";
+import testUploadHandler from "./api/admin/test-upload.ts";
+import healthHandler from "./api/health.ts";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
