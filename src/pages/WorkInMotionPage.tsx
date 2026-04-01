@@ -13,6 +13,24 @@ const clientVideos = [
     tags: ["Web3 Unicorn", "Blockchain Strategy", "Growth Marketing"]
   },
   {
+    id: 5,
+    title: "AI Agentic Verse - Scaling Digital Presence",
+    category: "AI Identity & Growth",
+    videoUrl: "https://www.youtube.com/embed/o0b0IAIfVb0",
+    thumbnail: "https://img.youtube.com/vi/o0b0IAIfVb0/maxresdefault.jpg",
+    description: "Discover how we leverage advanced AI to scale digital identities and automate content pipelines, ensuring consistent growth and global reach.",
+    tags: ["AI Identity", "Digital Growth", "Automation"]
+  },
+  {
+    id: 4,
+    title: "AI Agentic Verse - The Future of Automation",
+    category: "AI Strategy & Execution",
+    videoUrl: "https://www.youtube.com/embed/Gx122aGmh1U",
+    thumbnail: "https://img.youtube.com/vi/Gx122aGmh1U/maxresdefault.jpg",
+    description: "Experience how AI Agentic Verse is redefining business efficiency through autonomous agentic systems. We build the intelligence that powers your growth, 24/7.",
+    tags: ["AI Strategy", "Autonomous Systems", "Business Scaling"]
+  },
+  {
     id: 1,
     title: "AI Content Automation",
     category: "Content Strategy",

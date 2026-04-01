@@ -28,11 +28,11 @@ export default function AboutPage() {
         {/* Founders Section */}
         <section className="py-32 px-8 bg-zinc-50 border-y border-zinc-100">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-24">
               {/* Yahgenesh */}
               <motion.div 
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 className="space-y-8"
               >
@@ -47,9 +47,10 @@ export default function AboutPage() {
 
               {/* Yashank */}
               <motion.div 
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
                 className="space-y-8"
               >
                 <div className="space-y-2">
@@ -58,6 +59,23 @@ export default function AboutPage() {
                 </div>
                 <p className="font-barlow text-xl text-zinc-600 leading-relaxed">
                   Where Yahgenesh shapes the tech, Yashank brings the strategy. As the business-focused co-founder of AI Agentic Verse, he is deeply interested in market trends, customer psychology, monetization models, and scalable business growth. With a sharp eye for opportunity, he transforms raw ideas into real-world offerings, builds client relationships, and steers the company toward high-demand niches. His strength lies in packaging AI into products that solve real problems and generate measurable revenue.
+                </p>
+              </motion.div>
+
+              {/* Vamshi Krishna */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="space-y-8"
+              >
+                <div className="space-y-2">
+                  <h2 className="font-headline font-bold text-5xl tracking-tight">Vamshi Krishna</h2>
+                  <p className="font-barlow font-bold text-sm uppercase tracking-widest text-zinc-500">CO-FOUNDER & AI ARCHITECT</p>
+                </div>
+                <p className="font-barlow text-xl text-zinc-600 leading-relaxed">
+                  Vamshi is a builder at the intersection of intelligence and engineering, shaping the future of autonomous AI systems. As the technical backbone of AI Agentic Verse, he specializes in architecting AI agents, end-to-end automation workflows, and production-grade web applications that deliver real results for businesses. His passion lies in turning complex technology into simple, powerful systems — whether that's a custom AI agent handling real-time decisions, a workflow that eliminates hours of manual work, or a web product that scales cleanly from day one. With a deep focus on innovation, execution, and high-performance systems, Vamshi drives the company's technical direction and ensures every solution is fast, reliable, and built for scale. He operates at the rare crossroads of AI engineering and product thinking — making him the kind of architect who doesn't just write code, but designs outcomes.
                 </p>
               </motion.div>
             </div>

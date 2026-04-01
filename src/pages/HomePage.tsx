@@ -99,6 +99,11 @@ export default function HomePage() {
                   icon: "psychology"
                 },
                 {
+                  title: "AI Pencraft",
+                  desc: "Advanced content intelligence that replicates professional writing patterns to produce high-quality, human-like content at scale.",
+                  icon: "edit_note"
+                },
+                {
                   title: "AI Chat Agents",
                   desc: "Smart conversational agents for sales, support, onboarding, and engagement — working 24/7 without fatigue.",
                   icon: "chat"
@@ -367,6 +372,82 @@ export default function HomePage() {
                     <p className="text-zinc-500 leading-relaxed">{feature.desc}</p>
                   </div>
                 ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Pencraft Section */}
+      <section className="py-24 sm:py-40 px-6 sm:px-8 bg-zinc-50 text-zinc-900 overflow-hidden relative">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent"></div>
+        <div className="max-w-4xl mx-auto relative z-10">
+          <div className="mb-12 sm:mb-16">
+            <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-zinc-900 px-6 py-2.5 rounded-full inline-block mb-8 sm:mb-10 border border-zinc-800">AI Pencraft</span>
+            <h2 className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-8">
+              Human-Like Writing, <br/>
+              <span className="italic font-serif font-normal text-zinc-900">Automated at Scale</span>
+            </h2>
+            <p className="font-barlow text-lg sm:text-xl md:text-2xl text-zinc-600 leading-relaxed">
+              At AI AgenticVerse, AI Pencraft is an advanced content intelligence system designed to replicate the thinking, writing, and communication patterns of top professionals — including entrepreneurs, professors, scholars, and industry experts.
+            </p>
+          </div>
+
+          <div className="mb-24">
+            <p className="font-barlow text-xl md:text-2xl text-zinc-600 leading-relaxed mb-12">
+              It doesn’t just generate content — it learns from elite minds, understands tone, structure, and intent, and produces high-quality posts that feel authentic, insightful, and human-like.
+            </p>
+
+            <div className="space-y-12">
+              <h3 className="font-headline font-bold text-2xl tracking-tight">⚡ What We Deliver:</h3>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                {[
+                  { 
+                    title: "✍️ Human-Like Content Generation", 
+                    desc: "Create posts, articles, threads, and captions that mirror real human thinking — structured, engaging, and meaningful." 
+                  },
+                  { 
+                    title: "🧬 Pattern Intelligence Engine", 
+                    desc: "AI analyzes and adapts to the communication styles of professionals — from academic depth to entrepreneurial clarity." 
+                  },
+                  { 
+                    title: "📱 Multi-Platform Publishing", 
+                    desc: "Automatically create and distribute content across LinkedIn, Twitter (X), Instagram, Facebook, Blogs, and more." 
+                  },
+                  { 
+                    title: "🔁 Consistent Thought Leadership", 
+                    desc: "Maintain a strong, authoritative presence online with regular, high-quality content — without manual writing effort." 
+                  },
+                  { 
+                    title: "🤖 Automated Posting & Scheduling", 
+                    desc: "From writing to publishing, the entire process is handled by AI — ensuring consistency and scale." 
+                  }
+                ].map((feature, idx) => (
+                  <div key={idx} className="group">
+                    <h4 className="font-headline font-bold text-xl mb-2 text-zinc-900">{feature.title}</h4>
+                    <p className="text-zinc-500 leading-relaxed">{feature.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-12 border-t border-zinc-100">
+                <h3 className="font-headline font-bold text-xl tracking-tight mb-6">🌐 Built for Modern Professionals & Brands:</h3>
+                <div className="flex flex-wrap gap-3">
+                  {["Entrepreneurs", "Coaches", "Educators", "Doctors", "Researchers", "Personal Brands", "Agencies"].map((target, idx) => (
+                    <span key={idx} className="px-4 py-2 rounded-full bg-zinc-100 border border-zinc-200 text-sm font-barlow font-medium text-zinc-600">
+                      {target}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-16 p-8 rounded-3xl bg-zinc-900 text-white">
+                <h3 className="font-headline font-bold text-2xl mb-4">🎯 Outcome</h3>
+                <p className="font-barlow text-xl text-zinc-300 leading-relaxed">
+                  Build authority. Share ideas. Grow your influence — without spending hours writing every day. <br/>
+                  <span className="font-bold text-white mt-4 block">👉 Think once. Let AI write, refine, and publish for you.</span>
+                </p>
               </div>
             </div>
           </div>
