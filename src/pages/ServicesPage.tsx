@@ -2,6 +2,8 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import { useBlobAssets } from "../hooks/useBlobAssets";
 import OptimizedImage from "../components/OptimizedImage";
+import Card from "../components/ui/Card";
+import { CheckCircle2, Bot } from "lucide-react";
 
 export default function ServicesPage() {
   const { getBlobUrl } = useBlobAssets();
@@ -19,7 +21,7 @@ export default function ServicesPage() {
           </div>
           <div className="flex justify-center">
             <div className="w-full max-w-xs sm:max-w-sm aspect-square bg-zinc-50 rounded-[32px] sm:rounded-[40px] border border-zinc-100 flex items-center justify-center">
-              <span className="material-symbols-outlined text-zinc-200 text-6xl sm:text-8xl">robot_2</span>
+              <Bot size={80} className="text-zinc-200" />
             </div>
           </div>
         </header>
@@ -68,7 +70,7 @@ export default function ServicesPage() {
               img: "/images/6.png"
             }
           ].map((service, i) => (
-            <section key={i} className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <Card key={i} variant="none" padding="none" className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center border-none rounded-none hover:translate-y-0">
               <div className={`${i % 2 === 1 ? 'lg:order-2' : ''}`}>
                 <div className="relative w-full aspect-video overflow-hidden rounded-[2rem] mb-8 shadow-2xl border border-black/10 group">
                   <OptimizedImage 
@@ -79,7 +81,7 @@ export default function ServicesPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <span className="material-symbols-outlined text-white text-6xl">robot_2</span>
+                    <Bot size={60} className="text-white" />
                   </div>
                 </div>
               </div>
@@ -97,7 +99,7 @@ export default function ServicesPage() {
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {service.get.map((item, j) => (
                       <li key={j} className="flex items-center gap-3 font-medium text-black/70">
-                        <span className="material-symbols-outlined text-black">check_circle</span>
+                        <CheckCircle2 size={18} className="text-zinc-900" />
                         {item}
                       </li>
                     ))}
@@ -110,7 +112,7 @@ export default function ServicesPage() {
                   </div>
                 )}
               </div>
-            </section>
+            </Card>
           ))}
         </div>
       </main>

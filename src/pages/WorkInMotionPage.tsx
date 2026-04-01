@@ -1,6 +1,9 @@
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import { motion } from "motion/react";
+import { motion, useInView } from "motion/react";
+import { useRef, useState, useEffect } from "react";
+import Button from "../components/ui/Button";
+import { Play, ArrowRight } from "lucide-react";
 
 const clientVideos = [
   {
@@ -59,6 +62,43 @@ const clientVideos = [
   }
 ];
 
+function LazyVideo({ video }: { video: typeof clientVideos[0] }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "400px" });
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  useEffect(() => {
+    if (isInView) {
+      setShouldLoad(true);
+    }
+  }, [isInView]);
+
+  return (
+    <div ref={ref} className="w-full h-full relative group">
+      {!shouldLoad ? (
+        <div 
+          className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+          style={{ backgroundImage: `url(${video.thumbnail})` }}
+        >
+          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <div className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-white/20 transition-all">
+              <Play className="text-white fill-white" size={32} />
+            </div>
+          </div>
+        </div>
+      ) : (
+        <iframe
+          src={`${video.videoUrl}?autoplay=0`}
+          title={video.title}
+          className="w-full h-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      )}
+    </div>
+  );
+}
+
 export default function WorkInMotionPage() {
   return (
     <div className="bg-zinc-950 text-white min-h-screen font-barlow">
@@ -78,25 +118,40 @@ export default function WorkInMotionPage() {
           </motion.div>
         </header>
 
-        <section className="max-w-7xl mx-auto space-y-32 sm:space-y-48">
+        <motion.section 
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.2
+              }
+            }
+          }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="max-w-7xl mx-auto space-y-32 sm:space-y-48"
+        >
           {clientVideos.map((video, idx) => (
             <motion.div
               key={video.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              variants={{
+                hidden: { opacity: 0, y: 40, scale: 0.95 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0, 
+                  scale: 1,
+                  transition: {
+                    duration: 1,
+                    ease: [0.21, 0.47, 0.32, 0.98]
+                  }
+                }
+              }}
               className="flex flex-col lg:flex-row gap-12 items-start"
             >
               <div className="w-full lg:w-3/5 aspect-video overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-900 shadow-2xl">
-                <iframe
-                  src={video.videoUrl}
-                  title={video.title}
-                  loading="lazy"
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+                <LazyVideo video={video} />
               </div>
               
               <div className="w-full lg:w-2/5 pt-4">
@@ -116,18 +171,29 @@ export default function WorkInMotionPage() {
               </div>
             </motion.div>
           ))}
-        </section>
+        </motion.section>
 
-        <section className="max-w-4xl mx-auto mt-40 text-center p-16 rounded-[4rem] bg-white/5 border border-white/10 backdrop-blur-xl">
+        <motion.section 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
+          className="max-w-4xl mx-auto mt-40 text-center p-16 rounded-[4rem] bg-white/5 border border-white/10 backdrop-blur-xl"
+        >
           <h2 className="text-4xl md:text-5xl font-bold mb-8">Ready to See Your Brand <br/><span className="font-serif italic font-normal text-zinc-400">In Motion?</span></h2>
           <p className="text-xl text-zinc-400 mb-12">
             Let's build your autonomous content engine and scale your presence globally.
           </p>
-          <a href="https://calendly.com/aiagenticverse/ai-agentic-verse" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-4 bg-white text-zinc-900 px-12 py-6 rounded-full font-bold text-xl hover:bg-zinc-50 transition-all active:scale-95">
+          <Button 
+            variant="secondary" 
+            size="lg" 
+            className="group"
+            onClick={() => window.open("https://calendly.com/aiagenticverse/ai-agentic-verse", "_blank")}
+          >
             Book Your Strategy Call
-            <span className="material-symbols-outlined">arrow_forward</span>
-          </a>
-        </section>
+            <ArrowRight className="group-hover:translate-x-1.5 transition-transform" />
+          </Button>
+        </motion.section>
       </main>
 
       <Footer />

@@ -3,6 +3,9 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import { useBlobAssets } from "../hooks/useBlobAssets";
 import OptimizedImage from "../components/OptimizedImage";
+import Button from "../components/ui/Button";
+import Card from "../components/ui/Card";
+import { ArrowRight } from "lucide-react";
 
 export default function HomePage() {
   const { getBlobUrl } = useBlobAssets();
@@ -42,10 +45,14 @@ export default function HomePage() {
               "From Content to Conversion — Fully Automated with AI Agents" • "Scale Faster with Autonomous AI Systems That Never Sleep" • "The Future of Digital Growth — Powered by Agentic AI"
             </p>
           </div>
-          <a href="https://calendly.com/aiagenticverse/ai-agentic-verse" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-4 bg-white text-zinc-900 px-8 sm:px-12 py-4 sm:py-6 rounded-full font-headline font-bold text-lg sm:text-xl hover:bg-zinc-50 hover:shadow-[0_20px_60px_rgba(255,255,255,0.15)] hover:-translate-y-1 transition-all duration-500 active:scale-95 group">
+          <Button 
+            size="lg" 
+            className="group"
+            onClick={() => window.open("https://calendly.com/aiagenticverse/ai-agentic-verse", "_blank")}
+          >
             Deploy Your Digital Clone
-            <span className="material-symbols-outlined group-hover:translate-x-1.5 transition-transform">arrow_forward</span>
-          </a>
+            <ArrowRight className="group-hover:translate-x-1.5 transition-transform" />
+          </Button>
         </div>
       </section>
 
@@ -109,10 +116,10 @@ export default function HomePage() {
                   icon: "chat"
                 }
               ].map((item, idx) => (
-                <div key={idx} className="group p-8 rounded-3xl bg-zinc-50 border border-zinc-100 hover:border-primary/30 transition-all hover:shadow-xl">
+                <Card key={idx} variant="flat" className="hover:border-zinc-900/10">
                   <h4 className="font-headline font-bold text-2xl mb-4 text-zinc-900">{item.title}</h4>
                   <p className="text-zinc-600 leading-relaxed">{item.desc}</p>
-                </div>
+                </Card>
               ))}
             </div>
           </div>
@@ -399,28 +406,28 @@ export default function HomePage() {
             </p>
 
             <div className="space-y-12">
-              <h3 className="font-headline font-bold text-2xl tracking-tight">⚡ What We Deliver:</h3>
+              <h3 className="font-headline font-bold text-2xl tracking-tight">What We Deliver:</h3>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 {[
                   { 
-                    title: "✍️ Human-Like Content Generation", 
+                    title: "Human-Like Content Generation", 
                     desc: "Create posts, articles, threads, and captions that mirror real human thinking — structured, engaging, and meaningful." 
                   },
                   { 
-                    title: "🧬 Pattern Intelligence Engine", 
+                    title: "Pattern Intelligence Engine", 
                     desc: "AI analyzes and adapts to the communication styles of professionals — from academic depth to entrepreneurial clarity." 
                   },
                   { 
-                    title: "📱 Multi-Platform Publishing", 
+                    title: "Multi-Platform Publishing", 
                     desc: "Automatically create and distribute content across LinkedIn, Twitter (X), Instagram, Facebook, Blogs, and more." 
                   },
                   { 
-                    title: "🔁 Consistent Thought Leadership", 
+                    title: "Consistent Thought Leadership", 
                     desc: "Maintain a strong, authoritative presence online with regular, high-quality content — without manual writing effort." 
                   },
                   { 
-                    title: "🤖 Automated Posting & Scheduling", 
+                    title: "Automated Posting & Scheduling", 
                     desc: "From writing to publishing, the entire process is handled by AI — ensuring consistency and scale." 
                   }
                 ].map((feature, idx) => (
@@ -432,7 +439,7 @@ export default function HomePage() {
               </div>
 
               <div className="pt-12 border-t border-zinc-100">
-                <h3 className="font-headline font-bold text-xl tracking-tight mb-6">🌐 Built for Modern Professionals & Brands:</h3>
+                <h3 className="font-headline font-bold text-xl tracking-tight mb-6">Built for Modern Professionals & Brands:</h3>
                 <div className="flex flex-wrap gap-3">
                   {["Entrepreneurs", "Coaches", "Educators", "Doctors", "Researchers", "Personal Brands", "Agencies"].map((target, idx) => (
                     <span key={idx} className="px-4 py-2 rounded-full bg-zinc-100 border border-zinc-200 text-sm font-barlow font-medium text-zinc-600">
@@ -443,10 +450,10 @@ export default function HomePage() {
               </div>
 
               <div className="mt-16 p-8 rounded-3xl bg-zinc-900 text-white">
-                <h3 className="font-headline font-bold text-2xl mb-4">🎯 Outcome</h3>
+                <h3 className="font-headline font-bold text-2xl mb-4">Outcome</h3>
                 <p className="font-barlow text-xl text-zinc-300 leading-relaxed">
                   Build authority. Share ideas. Grow your influence — without spending hours writing every day. <br/>
-                  <span className="font-bold text-white mt-4 block">👉 Think once. Let AI write, refine, and publish for you.</span>
+                  <span className="font-bold text-white mt-4 block">Think once. Let AI write, refine, and publish for you.</span>
                 </p>
               </div>
             </div>

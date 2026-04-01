@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { useBlobAssets } from "../hooks/useBlobAssets";
+import Button from "./ui/Button";
 
 export default function NavBar() {
   const { getBlobUrl } = useBlobAssets();
@@ -46,10 +47,15 @@ export default function NavBar() {
         </div>
 
         <div className="flex items-center gap-4">
-          <a href="https://calendly.com/aiagenticverse/ai-agentic-verse" target="_blank" rel="noopener noreferrer" className="hidden sm:flex group items-center gap-2 bg-zinc-900 text-white px-5 md:px-7 py-3 md:py-3.5 rounded-full font-barlow font-bold text-[11px] md:text-[13px] uppercase tracking-[0.1em] hover:bg-zinc-800 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 active:scale-95">
+          <Button 
+            variant="primary" 
+            size="sm" 
+            className="hidden sm:flex group h-11 px-6"
+            onClick={() => window.open("https://calendly.com/aiagenticverse/ai-agentic-verse", "_blank")}
+          >
             Book Meeting
-            <span className="material-symbols-outlined text-[16px] md:text-[18px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">north_east</span>
-          </a>
+            <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </Button>
 
           {/* Mobile Menu Toggle */}
           <button 
@@ -79,10 +85,14 @@ export default function NavBar() {
             
             <div className="w-full h-px bg-zinc-100 my-4"></div>
             
-            <a href="https://calendly.com/aiagenticverse/ai-agentic-verse" target="_blank" rel="noopener noreferrer" className="w-full flex justify-center items-center gap-3 bg-zinc-900 text-white py-6 rounded-2xl font-barlow font-bold text-lg uppercase tracking-widest hover:bg-zinc-800 transition-all active:scale-95">
+            <Button 
+              variant="primary" 
+              className="w-full py-6 rounded-2xl"
+              onClick={() => window.open("https://calendly.com/aiagenticverse/ai-agentic-verse", "_blank")}
+            >
               Book A Free Meeting
-              <span className="material-symbols-outlined">north_east</span>
-            </a>
+              <ArrowUpRight size={20} />
+            </Button>
           </motion.div>
         )}
       </AnimatePresence>
