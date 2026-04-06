@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
@@ -10,24 +11,37 @@ import { ArrowRight } from "lucide-react";
 export default function HomePage() {
   const { getBlobUrl } = useBlobAssets();
 
+  // Preload hero poster
+  useEffect(() => {
+    const posterUrl = getBlobUrl('herosection-poster.jpg', '/images/herosection-poster.jpg');
+    if (posterUrl) {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = posterUrl;
+      document.head.appendChild(link);
+      return () => {
+        document.head.removeChild(link);
+      };
+    }
+  }, [getBlobUrl]);
+
   return (
     <div className="bg-surface text-on-surface">
       <NavBar />
       
       {/* 1. Hero Section */}
       <section className="relative min-h-[90vh] h-screen w-full overflow-hidden flex items-center justify-center text-center px-8 bg-zinc-950">
-        {/* Background Video */}
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          poster={getBlobUrl('herosection-poster.jpg', '/images/herosection-poster.jpg')}
-          className="absolute inset-0 w-full h-full object-cover opacity-100 brightness-110"
-          src={getBlobUrl('herosection.mp4')}
-        >
-          <source src={getBlobUrl('herosection.mp4')} type="video/mp4" />
-        </video>
+        {/* Background Video (Cloudinary Embed) */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+          <iframe
+            src="https://player.cloudinary.com/embed/?cloud_name=dsqmjneyd&public_id=hero_section_gfdvyv&autoplay=true&loop=true&muted=true&controls=false"
+            className="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2 object-cover opacity-100 brightness-110"
+            allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+            allowFullScreen
+            frameBorder="0"
+          ></iframe>
+        </div>
         
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/40 via-transparent to-zinc-950/60"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05),transparent_70%)]"></div>
@@ -35,7 +49,7 @@ export default function HomePage() {
         <div className="relative z-10 max-w-5xl w-full px-4 sm:px-0">
           <h1 className="font-barlow font-bold text-4xl sm:text-6xl md:text-8xl tracking-tight-custom text-white leading-[0.9] mb-8 uppercase">
             AI Agentic Verse <br/>
-            <span className="font-serif italic font-normal text-4xl sm:text-5xl md:text-[72px] tracking-normal block mt-4 normal-case">Build. Automate. Scale.</span>
+            <span className="font-serif font-bold text-4xl sm:text-5xl md:text-[72px] tracking-normal block mt-4 normal-case">Build. Automate. Scale.</span>
           </h1>
           <div className="space-y-4 mb-12">
             <p className="font-barlow font-medium text-lg sm:text-xl md:text-2xl text-white leading-relaxed">
@@ -45,14 +59,25 @@ export default function HomePage() {
               "From Content to Conversion — Fully Automated with AI Agents" • "Scale Faster with Autonomous AI Systems That Never Sleep" • "The Future of Digital Growth — Powered by Agentic AI"
             </p>
           </div>
-          <Button 
-            size="lg" 
-            className="group"
-            onClick={() => window.open("https://calendly.com/aiagenticverse/ai-agentic-verse", "_blank")}
-          >
-            Deploy Your Digital Clone
-            <ArrowRight className="group-hover:translate-x-1.5 transition-transform" />
-          </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button 
+              size="lg" 
+              className="group w-full sm:w-auto"
+              onClick={() => window.open("https://calendly.com/aiagenticverse/ai-agentic-verse", "_blank")}
+            >
+              Deploy Your Digital Clone
+              <ArrowRight className="group-hover:translate-x-1.5 transition-transform" />
+            </Button>
+            <Link to="/contact" className="w-full sm:w-auto">
+              <Button 
+                size="lg" 
+                className="group w-full sm:w-auto"
+              >
+                Contact
+                <ArrowRight className="group-hover:translate-x-1.5 transition-transform" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -133,7 +158,7 @@ export default function HomePage() {
             <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-white/5 px-6 py-2.5 rounded-full inline-block mb-8 sm:mb-10 border border-white/10">AI Avatars</span>
             <h2 className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-8">
               Scale Your Presence <br/>
-              <span className="italic font-serif font-normal text-white">Without Showing Up</span>
+              <span className="font-serif font-bold text-white">Without Showing Up</span>
             </h2>
             <p className="font-barlow text-lg sm:text-xl md:text-2xl text-zinc-400 leading-relaxed">
               Create powerful content without ever stepping in front of the camera. At AI Agentic Verse, our AI Avatars enable you to build scalable digital identities that consistently represent your brand across every platform.
@@ -142,10 +167,11 @@ export default function HomePage() {
 
           <div className="my-16 group">
             <OptimizedImage 
-              filename="1.jpeg" 
-              fallback="/images/1.jpeg"
+              filename="ai-avatar-new" 
+              fallback="https://res.cloudinary.com/dsqmjneyd/image/upload/v1775484147/be44d117-6a09-4c5a-a56e-533a3672b3c8_isjvmg.jpg"
               alt="AI Avatar Technology" 
               className="rounded-[40px] w-full aspect-video object-cover border border-white/10 shadow-2xl mb-4"
+              priority={true}
             />
             <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-500 text-center">Hyper-realistic digital humans designed to bridge the gap between digital efficiency and human connection.</p>
           </div>
@@ -183,7 +209,7 @@ export default function HomePage() {
             <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-zinc-900 px-6 py-2.5 rounded-full inline-block mb-8 sm:mb-10 border border-zinc-800">AI UGC Avatars</span>
             <h2 className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-8">
               High-Converting Ads, <br/>
-              <span className="italic font-serif font-normal text-zinc-900">Generated & Scaled by AI</span>
+              <span className="font-serif font-bold text-zinc-900">Generated & Scaled by AI</span>
             </h2>
             <p className="font-barlow text-lg sm:text-xl md:text-2xl text-zinc-600 leading-relaxed">
               At AI AgenticVerse, we redefine user-generated content with AI-powered UGC Avatars — enabling brands to create authentic, high-converting ad creatives without relying on traditional creators.
@@ -192,8 +218,8 @@ export default function HomePage() {
 
           <div className="my-16 group">
             <OptimizedImage 
-              filename="2.jpeg" 
-              fallback="/images/2.jpeg"
+              filename="ai-ugc-new" 
+              fallback="https://res.cloudinary.com/dsqmjneyd/image/upload/v1775484156/f51d239d-69b4-4984-bb7f-0eadc1a6ed1a_nhwwaw.jpg"
               alt="AI UGC Avatar Technology" 
               className="rounded-[40px] w-full aspect-video object-cover border border-zinc-200 shadow-2xl mb-4"
             />
@@ -256,7 +282,7 @@ export default function HomePage() {
             <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-white/5 px-6 py-2.5 rounded-full inline-block mb-8 sm:mb-10 border border-white/10">AI Production Studios</span>
             <h2 className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-8">
               Create Product Visuals <br/>
-              <span className="italic font-serif font-normal text-white">Without Photoshoots</span>
+              <span className="font-serif font-bold text-white">Without Photoshoots</span>
             </h2>
             <p className="font-barlow text-lg sm:text-xl md:text-2xl text-white leading-relaxed">
               At AI AgenticVerse, we transform the way brands produce visual content with AI-powered Production Studios — eliminating the need for expensive photoshoots, studios, and long production timelines.
@@ -265,8 +291,8 @@ export default function HomePage() {
 
           <div className="my-16 group">
             <OptimizedImage 
-              filename="3.jpeg" 
-              fallback="/images/3.jpeg"
+              filename="ai-production-studios-new" 
+              fallback="https://res.cloudinary.com/dsqmjneyd/image/upload/v1775484167/3_fuhjg2.jpg"
               alt="AI Production Studio Visuals" 
               className="rounded-[40px] w-full aspect-video object-cover border border-white/10 shadow-2xl mb-4"
             />
@@ -330,7 +356,7 @@ export default function HomePage() {
             <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-zinc-900 px-6 py-2.5 rounded-full inline-block mb-8 sm:mb-10 border border-zinc-800">AI Coaching Systems</span>
             <h2 className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-8">
               Scale Knowledge <br/>
-              <span className="italic font-serif font-normal text-zinc-900">Without Scaling Your Time</span>
+              <span className="font-serif font-bold text-zinc-900">Without Scaling Your Time</span>
             </h2>
             <p className="font-barlow text-lg sm:text-xl md:text-2xl text-zinc-600 leading-relaxed">
               At AI AgenticVerse, we empower educators, creators, and businesses to transform their expertise into intelligent, scalable coaching systems powered by AI.
@@ -393,7 +419,7 @@ export default function HomePage() {
             <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-zinc-900 px-6 py-2.5 rounded-full inline-block mb-8 sm:mb-10 border border-zinc-800">AI Pencraft</span>
             <h2 className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-8">
               Human-Like Writing, <br/>
-              <span className="italic font-serif font-normal text-zinc-900">Automated at Scale</span>
+              <span className="font-serif font-bold text-zinc-900">Automated at Scale</span>
             </h2>
             <p className="font-barlow text-lg sm:text-xl md:text-2xl text-zinc-600 leading-relaxed">
               At AI AgenticVerse, AI Pencraft is an advanced content intelligence system designed to replicate the thinking, writing, and communication patterns of top professionals — including entrepreneurs, professors, scholars, and industry experts.
@@ -469,7 +495,7 @@ export default function HomePage() {
             <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-white/5 px-6 py-2.5 rounded-full inline-block mb-8 sm:mb-10 border border-white/10">AI Chat Agents</span>
             <h2 className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-8">
               Turn Attention Into <br/>
-              <span className="italic font-serif font-normal text-white">Revenue Automatically</span>
+              <span className="font-serif font-bold text-white">Revenue Automatically</span>
             </h2>
             <p className="font-barlow text-lg sm:text-xl md:text-2xl text-white leading-relaxed">
               At AI AgenticVerse, we build intelligent AI Chat Agents that transform conversations into conversions. From capturing leads to closing clients, our systems work 24/7 to ensure no opportunity is ever missed.
@@ -478,8 +504,8 @@ export default function HomePage() {
 
           <div className="my-16 group">
             <OptimizedImage 
-              filename="6.png" 
-              fallback="/images/6.png"
+              filename="ai-chat-agent-new" 
+              fallback="https://res.cloudinary.com/dsqmjneyd/image/upload/v1775484167/6_gtrpqm.png"
               alt="AI Chat Agents" 
               className="rounded-[40px] w-full aspect-video object-cover border border-white/10 shadow-2xl mb-4"
             />
@@ -534,7 +560,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 sm:gap-24 items-center relative z-10">
           <div className="space-y-8">
             <h2 className="font-headline font-bold text-4xl sm:text-6xl md:text-8xl tracking-tight-custom leading-[0.9]">
-              Ready to <span className="font-serif italic font-normal tracking-normal text-white">Scale</span> Your Identity?
+              Ready to <span className="font-serif font-bold tracking-normal text-white">Scale</span> Your Identity?
             </h2>
             <p className="font-barlow text-xl sm:text-2xl text-zinc-400 max-w-xl">
               Enter your details to schedule an integration roadmap call.

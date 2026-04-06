@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
           <div className="md:col-span-2 space-y-8">
             <Link to="/" className="flex items-center gap-3 font-barlow font-bold text-xl text-primary uppercase tracking-widest group">
-              <img src={getBlobUrl('1.png', '/images/1.png')} alt="Logo" className="w-10 h-10 rounded-full border border-outline group-hover:scale-110 transition-transform duration-500" referrerPolicy="no-referrer" />
+              <img src="https://res.cloudinary.com/dsqmjneyd/image/upload/v1775483943/1_lfvwn7.png" alt="Logo" className="w-10 h-10 rounded-full border border-outline group-hover:scale-110 transition-transform duration-500" referrerPolicy="no-referrer" />
               AI Agentic Verse
             </Link>
             <p className="text-zinc-500 font-light text-lg max-w-sm leading-relaxed">

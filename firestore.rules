@@ -1,0 +1,82 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: contacts
+    // Document ID: auto-generated
+    // Fields:
+    //   - fullName: string (required, 1-100 chars)
+    //   - email: string (required, valid email format)
+    //   - company: string (optional, 0-100 chars)
+    //   - message: string (required, 1-5000 chars)
+    //   - createdAt: timestamp (required)
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() &&
+        (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin' ||
+          (request.auth.token.email == "yashankgaddi.ai@gmail.com" && request.auth.token.email_verified == true));
+    }
+
+    function isValidEmail(email) {
+      return email is string &&
+        email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    }
+
+    function hasRequiredFields(fields) {
+      return request.resource.data.keys().hasAll(fields);
+    }
+
+    function hasOnlyAllowedFields(fields) {
+      return request.resource.data.keys().hasOnly(fields);
+    }
+
+    // ===============================================================
+    // Domain Validators
+    // ===============================================================
+
+    function isValidContact(data) {
+      return hasRequiredFields(['fullName', 'email', 'message', 'createdAt']) &&
+             hasOnlyAllowedFields(['fullName', 'email', 'company', 'message', 'createdAt']) &&
+             data.fullName is string && data.fullName.size() >= 1 && data.fullName.size() <= 100 &&
+             isValidEmail(data.email) &&
+             (!('company' in data) || (data.company is string && data.company.size() <= 100)) &&
+             data.message is string && data.message.size() >= 1 && data.message.size() <= 5000 &&
+             data.createdAt is timestamp;
+    }
+
+    // ===============================================================
+    // Rules
+    // ===============================================================
+
+    match /contacts/{contactId} {
+      // Anyone can submit a contact form (unauthenticated allowed if needed, but we'll stick to basic validation)
+      // For a public contact form, we allow create without auth but with strict validation
+      allow create: if isValidContact(request.resource.data);
+      
+      // Only admins can read or manage inquiries
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /users/{userId} {
+      allow read: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
+      allow create, update: if isAdmin();
+    }
+    
+    match /{path=**} {
+      allow read, write: if false;
+    }
+  }
+}

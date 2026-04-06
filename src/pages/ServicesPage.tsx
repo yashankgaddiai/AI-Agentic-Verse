@@ -35,7 +35,7 @@ export default function ServicesPage() {
               desc: "Create a photorealistic AI version of yourself or your brand spokesperson.",
               get: ["Custom AI avatar", "Multi-platform use", "Consistent identity", "No filming required"],
               for: "Founders, creators, enterprise teams",
-              img: "/images/1.jpeg"
+              img: "https://res.cloudinary.com/dsqmjneyd/image/upload/v1775484147/be44d117-6a09-4c5a-a56e-533a3672b3c8_isjvmg.jpg"
             },
             {
               id: "02",
@@ -43,7 +43,7 @@ export default function ServicesPage() {
               tagline: "High-Converting Ads. No Film Crews",
               desc: "Scalable user-generated content that converts. Infinite variations, zero burnout.",
               get: ["Hundreds of variants", "Built-in conversion hooks", "Optimization loop", "Ad integrations"],
-              img: "/images/2.jpeg"
+              img: "https://res.cloudinary.com/dsqmjneyd/image/upload/v1775484156/f51d239d-69b4-4984-bb7f-0eadc1a6ed1a_nhwwaw.jpg"
             },
             {
               id: "03",
@@ -51,7 +51,7 @@ export default function ServicesPage() {
               tagline: "Studio-Quality Images. Without Studio",
               desc: "Create studio-quality product visuals from prompts.",
               get: ["Unlimited environments", "8K output", "Fast generation", "Direct ad integration"],
-              img: "/images/3.jpeg"
+              img: "https://res.cloudinary.com/dsqmjneyd/image/upload/v1775484167/3_fuhjg2.jpg"
             },
             {
               id: "04",
@@ -67,7 +67,7 @@ export default function ServicesPage() {
               tagline: "Your Sales Team. Automated",
               desc: "Automate conversations, bookings, and sales.",
               get: ["Intent-aware AI", "Automated follow-ups", "CRM integration", "Multi-channel support"],
-              img: "/images/6.png"
+              img: "https://res.cloudinary.com/dsqmjneyd/image/upload/v1775484167/6_gtrpqm.png"
             }
           ].map((service, i) => (
             <Card key={i} variant="none" padding="none" className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center border-none rounded-none hover:translate-y-0">
@@ -78,6 +78,7 @@ export default function ServicesPage() {
                     fallback={service.img}
                     alt={service.title} 
                     className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
+                    priority={i === 0}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">

@@ -7,20 +7,23 @@ import ContactPage from "./pages/ContactPage";
 import AdminMediaPage from "./pages/AdminMediaPage";
 import ChatAgent from "./components/ChatAgent";
 import ScrollToTop from "./components/ScrollToTop";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 export default function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/services" element={<ServicesPage />} />
-        <Route path="/work-in-motion" element={<WorkInMotionPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/admin/media" element={<AdminMediaPage />} />
-      </Routes>
-      <ChatAgent />
-    </Router>
+    <ErrorBoundary>
+      <Router>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/work-in-motion" element={<WorkInMotionPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/admin/media" element={<AdminMediaPage />} />
+        </Routes>
+        <ChatAgent />
+      </Router>
+    </ErrorBoundary>
   );
 }

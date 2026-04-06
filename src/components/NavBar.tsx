@@ -26,14 +26,14 @@ export default function NavBar() {
 
   const isActive = (path: string) => location.pathname === path;
 
-  const navLinkClass = (path: string) => `font-barlow font-medium text-[14px] uppercase tracking-wider transition-colors hover:scale-105 transition-transform duration-300 ${isActive(path) ? 'text-zinc-900 font-bold border-b border-zinc-900 pb-1' : 'text-zinc-500 hover:text-zinc-900'}`;
-  const mobileNavLinkClass = (path: string) => `font-barlow font-bold text-2xl uppercase tracking-widest transition-colors ${isActive(path) ? 'text-zinc-900' : 'text-zinc-400 hover:text-zinc-900'}`;
+  const navLinkClass = (path: string) => `font-premium font-bold text-[14px] uppercase tracking-wider transition-colors hover:scale-105 transition-transform duration-300 ${isActive(path) ? 'text-black border-b-2 border-black pb-1' : 'text-zinc-800 hover:text-black'}`;
+  const mobileNavLinkClass = (path: string) => `font-premium font-black text-2xl uppercase tracking-widest transition-colors ${isActive(path) ? 'text-black' : 'text-zinc-700 hover:text-black'}`;
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'mt-2' : 'mt-6'} mx-auto max-w-7xl w-[95%]`}>
       <div className={`flex justify-between items-center px-6 md:px-8 py-4 bg-white/80 backdrop-blur-md shadow-[0_20px_40px_rgba(26,28,28,0.06)] rounded-full border border-zinc-100`}>
-        <Link to="/" className="flex items-center gap-2 font-barlow font-bold text-lg md:text-xl tracking-[-1px] md:tracking-[-2px] text-zinc-900">
-          <img src={getBlobUrl('1.png', '/images/1.png')} alt="Logo" className="w-8 h-8 rounded-full" referrerPolicy="no-referrer" />
+        <Link to="/" className="flex items-center gap-2 font-premium font-bold text-lg md:text-xl tracking-[-1px] md:tracking-[-2px] text-zinc-900">
+          <img src="https://res.cloudinary.com/dsqmjneyd/image/upload/v1775483943/1_lfvwn7.png" alt="Logo" className="w-8 h-8 rounded-full" referrerPolicy="no-referrer" />
           <span className="whitespace-nowrap">AI Agentic Verse</span>
         </Link>
 
@@ -50,7 +50,7 @@ export default function NavBar() {
           <Button 
             variant="primary" 
             size="sm" 
-            className="hidden sm:flex group h-11 px-6"
+            className="hidden sm:flex group h-11 px-6 font-premium"
             onClick={() => window.open("https://calendly.com/aiagenticverse/ai-agentic-verse", "_blank")}
           >
             Book Meeting
@@ -87,7 +87,7 @@ export default function NavBar() {
             
             <Button 
               variant="primary" 
-              className="w-full py-6 rounded-2xl"
+              className="w-full py-6 rounded-2xl font-premium"
               onClick={() => window.open("https://calendly.com/aiagenticverse/ai-agentic-verse", "_blank")}
             >
               Book A Free Meeting

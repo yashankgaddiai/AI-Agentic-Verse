@@ -19,9 +19,9 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const variants = {
-    primary: "bg-zinc-900 text-white hover:bg-zinc-800 shadow-lg",
+    primary: "bg-gradient-to-br from-zinc-950 to-zinc-800 text-white hover:from-zinc-900 hover:to-zinc-500 shadow-xl border border-white/5 transition-all duration-500",
     secondary: "bg-white text-zinc-900 border border-zinc-200 hover:bg-zinc-50 shadow-sm",
-    outline: "bg-transparent border-2 border-zinc-900 text-zinc-900 hover:bg-zinc-900 hover:text-white",
+    outline: "bg-transparent border-2 border-zinc-900 text-zinc-900 hover:bg-zinc-900/10 transition-colors duration-300",
     ghost: "bg-transparent text-zinc-600 hover:bg-zinc-100",
   };
 

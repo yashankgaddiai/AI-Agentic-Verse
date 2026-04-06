@@ -5,9 +5,91 @@ import Footer from "../components/Footer";
 import Input from "../components/ui/Input";
 import Textarea from "../components/ui/Textarea";
 import Button from "../components/ui/Button";
-import { Send } from "lucide-react";
+import { Send, CheckCircle } from "lucide-react";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db, auth } from "../firebase";
+
+enum OperationType {
+  CREATE = 'create',
+  UPDATE = 'update',
+  DELETE = 'delete',
+  LIST = 'list',
+  GET = 'get',
+  WRITE = 'write',
+}
+
+interface FirestoreErrorInfo {
+  error: string;
+  operationType: OperationType;
+  path: string | null;
+  authInfo: {
+    userId: string | undefined;
+    email: string | null | undefined;
+    emailVerified: boolean | undefined;
+    isAnonymous: boolean | undefined;
+    tenantId: string | null | undefined;
+    providerInfo: {
+      providerId: string;
+      displayName: string | null;
+      email: string | null;
+      photoUrl: string | null;
+    }[];
+  }
+}
+
+function handleFirestoreError(error: unknown, operationType: OperationType, path: string | null) {
+  const errInfo: FirestoreErrorInfo = {
+    error: error instanceof Error ? error.message : String(error),
+    authInfo: {
+      userId: auth.currentUser?.uid,
+      email: auth.currentUser?.email,
+      emailVerified: auth.currentUser?.emailVerified,
+      isAnonymous: auth.currentUser?.isAnonymous,
+      tenantId: auth.currentUser?.tenantId,
+      providerInfo: auth.currentUser?.providerData.map(provider => ({
+        providerId: provider.providerId,
+        displayName: provider.displayName,
+        email: provider.email,
+        photoUrl: provider.photoURL
+      })) || []
+    },
+    operationType,
+    path
+  }
+  console.error('Firestore Error: ', JSON.stringify(errInfo));
+  throw new Error(JSON.stringify(errInfo));
+}
 
 export default function ContactPage() {
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    company: "",
+    message: ""
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.fullName || !formData.email || !formData.message) return;
+
+    setLoading(true);
+    const path = 'contacts';
+    try {
+      await addDoc(collection(db, path), {
+        ...formData,
+        createdAt: serverTimestamp()
+      });
+      setSubmitted(true);
+      setFormData({ fullName: "", email: "", company: "", message: "" });
+    } catch (error) {
+      handleFirestoreError(error, OperationType.CREATE, path);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="bg-surface text-on-surface font-general selection:bg-on-surface selection:text-surface">
       <NavBar />
@@ -35,20 +117,63 @@ export default function ContactPage() {
           <div className="lg:col-span-5 space-y-8">
             <div className="bg-black/[0.02] dark:bg-white/[0.02] rounded-[3rem] p-8 md:p-12 border border-black/5 dark:border-white/5">
               <h3 className="font-bold text-2xl uppercase tracking-tight mb-10">Direct Message</h3>
-              <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
-                <div className="space-y-6">
-                  <Input label="Full Name" placeholder="John Doe" type="text" />
-                  <Input label="Email Address" placeholder="john@company.com" type="email" />
-                  <Input label="Company" placeholder="Company Name" type="text" />
-                  <Textarea label="Message" placeholder="Tell us about your project..." />
+              {submitted ? (
+                <div className="py-12 text-center space-y-6">
+                  <div className="w-20 h-20 bg-green-50 text-green-500 rounded-full flex items-center justify-center mx-auto">
+                    <CheckCircle size={40} />
+                  </div>
+                  <h4 className="text-2xl font-bold">Message Received!</h4>
+                  <p className="text-zinc-600">
+                    Thank you for reaching out. Our team will get back to you within 24 hours.
+                  </p>
+                  <Button variant="outline" onClick={() => setSubmitted(false)}>
+                    Send Another Message
+                  </Button>
                 </div>
-                <Button 
-                  className="w-full py-6 shadow-xl" 
-                >
-                  Submit Inquiry
-                  <Send size={20} />
-                </Button>
-              </form>
+              ) : (
+                <form className="space-y-8" onSubmit={handleSubmit}>
+                  <div className="space-y-6">
+                    <Input 
+                      label="Full Name" 
+                      placeholder="John Doe" 
+                      type="text" 
+                      required
+                      value={formData.fullName}
+                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                    />
+                    <Input 
+                      label="Email Address" 
+                      placeholder="john@company.com" 
+                      type="email" 
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    />
+                    <Input 
+                      label="Company" 
+                      placeholder="Company Name" 
+                      type="text" 
+                      value={formData.company}
+                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                    />
+                    <Textarea 
+                      label="Message" 
+                      placeholder="Tell us about your project..." 
+                      required
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    />
+                  </div>
+                  <Button 
+                    type="submit"
+                    className="w-full py-6 shadow-xl" 
+                    isLoading={loading}
+                  >
+                    Submit Inquiry
+                    <Send size={20} />
+                  </Button>
+                </form>
+              )}
             </div>
             <div className="p-12 space-y-8">
               <div>

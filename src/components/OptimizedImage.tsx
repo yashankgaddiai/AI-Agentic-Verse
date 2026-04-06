@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useBlobAssets } from "../hooks/useBlobAssets";
 
 interface OptimizedImageProps {
@@ -8,6 +9,7 @@ interface OptimizedImageProps {
   loading?: "lazy" | "eager";
   sizes?: string;
   priority?: boolean;
+  placeholder?: "blur" | "none";
 }
 
 /**
@@ -21,9 +23,11 @@ export default function OptimizedImage({
   className, 
   loading = "lazy",
   sizes = "(max-width: 768px) 100vw, 1200px",
-  priority = false
+  priority = false,
+  placeholder = "blur"
 }: OptimizedImageProps) {
   const { getBlobUrl } = useBlobAssets();
+  const [isLoaded, setIsLoaded] = useState(false);
   
   // Strip extension to get base name
   const lastDotIndex = filename.lastIndexOf('.');
@@ -45,15 +49,42 @@ export default function OptimizedImage({
   // Use 800px version as default src if it exists, otherwise original
   const mainSrc = url800 || originalUrl || '';
 
+  // Handle priority preloading
+  useEffect(() => {
+    if (priority && mainSrc) {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = mainSrc;
+      if (srcSet) link.imageSrcset = srcSet;
+      if (sizes) link.imageSizes = sizes;
+      document.head.appendChild(link);
+      return () => {
+        document.head.removeChild(link);
+      };
+    }
+  }, [priority, mainSrc, srcSet, sizes]);
+
   return (
-    <img
-      src={mainSrc}
-      srcSet={srcSet}
-      sizes={sizes}
-      loading={priority ? "eager" : loading}
-      alt={alt}
-      className={className}
-      referrerPolicy="no-referrer"
-    />
+    <div className={`relative overflow-hidden ${className}`}>
+      {placeholder === "blur" && !isLoaded && (
+        <div 
+          className="absolute inset-0 bg-zinc-800 animate-pulse-slow blur-xl scale-110 z-0"
+          aria-hidden="true"
+        />
+      )}
+      <img
+        src={mainSrc}
+        srcSet={srcSet}
+        sizes={sizes}
+        loading={priority ? "eager" : loading}
+        alt={alt}
+        onLoad={() => setIsLoaded(true)}
+        className={`w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
+          isLoaded ? "opacity-100" : "opacity-0"
+        }`}
+        referrerPolicy="no-referrer"
+      />
+    </div>
   );
 }
