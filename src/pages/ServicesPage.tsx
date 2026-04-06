@@ -67,7 +67,7 @@ export default function ServicesPage() {
               tagline: "Your Sales Team. Automated",
               desc: "Automate conversations, bookings, and sales.",
               get: ["Intent-aware AI", "Automated follow-ups", "CRM integration", "Multi-channel support"],
-              img: "https://res.cloudinary.com/dsqmjneyd/image/upload/v1775484167/6_gtrpqm.png"
+              img: "https://res.cloudinary.com/dsqmjneyd/image/upload/q_auto/f_auto/v1775484167/6_gtrpqm.png"
             }
           ].map((service, i) => (
             <Card key={i} variant="none" padding="none" className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center border-none rounded-none hover:translate-y-0">

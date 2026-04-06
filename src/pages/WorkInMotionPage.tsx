@@ -59,6 +59,15 @@ const clientVideos = [
     thumbnail: "https://img.youtube.com/vi/egWlU-ZNqNY/maxresdefault.jpg",
     description: "Experience the future of personal branding with our AI-driven digital identity solutions. We help founders and creators scale their presence through hyper-realistic AI avatars and automated content pipelines.",
     tags: ["Digital Identity", "AI Avatars", "Personal Branding"]
+  },
+  {
+    id: 6,
+    title: "AI Agentic Verse - Future of Work",
+    category: "AI Strategy & Innovation",
+    videoUrl: "https://www.youtube.com/embed/zXzrkBPJrsM",
+    thumbnail: "https://img.youtube.com/vi/zXzrkBPJrsM/maxresdefault.jpg",
+    description: "Witness the convergence of AI and human creativity. We build the infrastructure for the next generation of digital-first businesses through autonomous agents and hyper-realistic digital identities.",
+    tags: ["AI Innovation", "Future of Work", "Digital Identity"]
   }
 ];
 

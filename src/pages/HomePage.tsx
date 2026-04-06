@@ -505,7 +505,7 @@ export default function HomePage() {
           <div className="my-16 group">
             <OptimizedImage 
               filename="ai-chat-agent-new" 
-              fallback="https://res.cloudinary.com/dsqmjneyd/image/upload/v1775484167/6_gtrpqm.png"
+              fallback="https://res.cloudinary.com/dsqmjneyd/image/upload/q_auto/f_auto/v1775484167/6_gtrpqm.png"
               alt="AI Chat Agents" 
               className="rounded-[40px] w-full aspect-video object-cover border border-white/10 shadow-2xl mb-4"
             />
