@@ -59,7 +59,7 @@ export default function ServicesPage() {
               tagline: "Your Knowledge. Teaching 24/7",
               desc: "Deploy AI avatars that teach and train 24/7.",
               get: ["Adaptive learning", "Real-time feedback", "50+ languages", "LMS integration"],
-              img: "/images/4.jpeg"
+              img: "https://res.cloudinary.com/dsqmjneyd/image/upload/q_auto/f_auto/v1775484169/4_hexpus.jpg"
             },
             {
               id: "05",

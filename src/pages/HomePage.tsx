@@ -365,8 +365,8 @@ export default function HomePage() {
 
           <div className="my-16 group">
             <OptimizedImage 
-              filename="4.jpeg" 
-              fallback="/images/4.jpeg"
+              filename="ai-coaching-system-new" 
+              fallback="https://res.cloudinary.com/dsqmjneyd/image/upload/q_auto/f_auto/v1775484169/4_hexpus.jpg"
               alt="AI Coaching Systems" 
               className="rounded-[40px] w-full aspect-video object-cover border border-zinc-200 shadow-2xl mb-4"
             />
