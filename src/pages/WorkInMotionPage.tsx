@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import { motion, useInView } from "motion/react";
 import { useRef, useState, useEffect } from "react";
 import Button from "../components/ui/Button";
-import { Play, ArrowRight } from "lucide-react";
+import { Play, ArrowRight, Tag } from "lucide-react";
 
 const clientVideos = [
   {
@@ -16,31 +16,13 @@ const clientVideos = [
     tags: ["Web3 Unicorn", "Blockchain Strategy", "Growth Marketing"]
   },
   {
-    id: 5,
-    title: "AI Agentic Verse - Scaling Digital Presence",
-    category: "AI Identity & Growth",
-    videoUrl: "https://www.youtube.com/embed/o0b0IAIfVb0",
-    thumbnail: "https://img.youtube.com/vi/o0b0IAIfVb0/maxresdefault.jpg",
-    description: "Discover how we leverage advanced AI to scale digital identities and automate content pipelines, ensuring consistent growth and global reach.",
-    tags: ["AI Identity", "Digital Growth", "Automation"]
-  },
-  {
-    id: 4,
-    title: "AI Agentic Verse - The Future of Automation",
-    category: "AI Strategy & Execution",
-    videoUrl: "https://www.youtube.com/embed/Gx122aGmh1U",
-    thumbnail: "https://img.youtube.com/vi/Gx122aGmh1U/maxresdefault.jpg",
-    description: "Experience how AI Agentic Verse is redefining business efficiency through autonomous agentic systems. We build the intelligence that powers your growth, 24/7.",
-    tags: ["AI Strategy", "Autonomous Systems", "Business Scaling"]
-  },
-  {
-    id: 1,
-    title: "AI Content Automation",
-    category: "Content Strategy",
-    videoUrl: "https://www.youtube.com/embed/8qDhdXyyP-s",
-    thumbnail: "https://img.youtube.com/vi/8qDhdXyyP-s/maxresdefault.jpg",
-    description: "Harness the power of AI to automate your content creation and distribution. Our agentic systems ensure your brand stays active and relevant across all digital channels without manual effort.",
-    tags: ["AI Content", "Automation", "Digital Strategy"]
+    id: 7,
+    title: "AI Agentic Verse - Strategic Growth",
+    category: "Strategic Growth & AI",
+    videoUrl: "https://www.youtube.com/embed/ps08u-aUw88",
+    thumbnail: "https://img.youtube.com/vi/ps08u-aUw88/maxresdefault.jpg",
+    description: "Explore how we integrate strategic growth frameworks with AI-driven automation to deliver exponential results for global brands.",
+    tags: ["Strategic Growth", "AI Automation", "Global Branding"]
   },
   {
     id: 2,
@@ -59,6 +41,33 @@ const clientVideos = [
     thumbnail: "https://img.youtube.com/vi/egWlU-ZNqNY/maxresdefault.jpg",
     description: "Experience the future of personal branding with our AI-driven digital identity solutions. We help founders and creators scale their presence through hyper-realistic AI avatars and automated content pipelines.",
     tags: ["Digital Identity", "AI Avatars", "Personal Branding"]
+  },
+  {
+    id: 10,
+    title: "AI Agentic Verse - Identity Scaling",
+    category: "Digital Identity & Automation",
+    videoUrl: "https://www.youtube.com/embed/UwtDDeJGLy4",
+    thumbnail: "https://img.youtube.com/vi/UwtDDeJGLy4/maxresdefault.jpg",
+    description: "Scale your digital presence with autonomous AI systems. We specialize in building hyper-realistic digital identities and automated content pipelines for global reach.",
+    tags: ["Identity Scaling", "AI Automation", "Digital Presence"]
+  },
+  {
+    id: 8,
+    title: "AI Agentic Verse - Brand Evolution",
+    category: "AI Branding & Identity",
+    videoUrl: "https://www.youtube.com/embed/tsJdkbgk7W4",
+    thumbnail: "https://img.youtube.com/vi/tsJdkbgk7W4/maxresdefault.jpg",
+    description: "Witness the evolution of brand identity in the age of AI. We create hyper-realistic digital assets and autonomous systems that amplify your brand's voice and reach.",
+    tags: ["Brand Evolution", "AI Identity", "Digital Assets"]
+  },
+  {
+    id: 9,
+    title: "AI Agentic Verse - Creative Innovation",
+    category: "AI Innovation & Media",
+    videoUrl: "https://www.youtube.com/embed/2_1zoeWOBn4",
+    thumbnail: "https://img.youtube.com/vi/2_1zoeWOBn4/maxresdefault.jpg",
+    description: "Explore the intersection of AI and creative media. Our short-form content solutions leverage advanced AI to deliver high-impact visuals and engaging narratives at scale.",
+    tags: ["AI Innovation", "Creative Media", "Short-form Content"]
   },
   {
     id: 6,
@@ -170,11 +179,15 @@ export default function WorkInMotionPage() {
                   {video.description}
                 </p>
                 
-                <div className="mt-12 flex flex-wrap gap-4">
+                <div className="mt-10 flex flex-wrap gap-3">
                   {video.tags.map((tag, tagIdx) => (
-                    <span key={tagIdx} className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-zinc-300">
+                    <div 
+                      key={tagIdx} 
+                      className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[10px] uppercase tracking-widest font-bold text-zinc-400 hover:bg-white/10 hover:text-white transition-all duration-300 cursor-default group/tag"
+                    >
+                      <Tag className="w-3 h-3 text-zinc-600 group-hover/tag:text-zinc-400 transition-colors" />
                       {tag}
-                    </span>
+                    </div>
                   ))}
                 </div>
               </div>
