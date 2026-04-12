@@ -1,0 +1,38 @@
+import { Helmet } from "react-helmet-async";
+
+interface SEOProps {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  image?: string;
+  url?: string;
+}
+
+export default function SEO({ 
+  title = "AI Agentic Verse | Build. Automate. Scale.", 
+  description = "Your 24/7 AI Workforce for Media, Marketing & Identity. We build autonomous ecosystems that run your business at scale.",
+  keywords = "AI, Automation, Media Production, AI Avatars, UGC Ads, Digital Identity",
+  image = "https://res.cloudinary.com/dsqmjneyd/image/upload/v1775484147/be44d117-6a09-4c5a-a56e-533a3672b3c8_isjvmg.jpg",
+  url = "https://aiagenticverse.com/"
+}: SEOProps) {
+  const siteTitle = title.includes("AI Agentic Verse") ? title : `${title} | AI Agentic Verse`;
+
+  return (
+    <Helmet>
+      <title>{siteTitle}</title>
+      <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
+
+      {/* Open Graph / Facebook */}
+      <meta property="og:title" content={siteTitle} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={image} />
+      <meta property="og:url" content={url} />
+
+      {/* Twitter */}
+      <meta property="twitter:title" content={siteTitle} />
+      <meta property="twitter:description" content={description} />
+      <meta property="twitter:image" content={image} />
+    </Helmet>
+  );
+}

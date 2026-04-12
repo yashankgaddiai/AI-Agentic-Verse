@@ -7,6 +7,7 @@ import OptimizedImage from "../components/OptimizedImage";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
 import { ArrowRight } from "lucide-react";
+import SEO from "../components/SEO";
 
 export default function HomePage() {
   const { getBlobUrl } = useBlobAssets();
@@ -28,6 +29,10 @@ export default function HomePage() {
 
   return (
     <div className="bg-surface text-on-surface">
+      <SEO 
+        title="AI Agentic Verse | Build. Automate. Scale."
+        description="Your 24/7 AI Workforce for Media, Marketing & Identity. We build autonomous ecosystems that run your business at scale."
+      />
       <NavBar />
       
       {/* 1. Hero Section */}
@@ -165,6 +170,12 @@ export default function HomePage() {
             </p>
           </div>
 
+          <div className="mb-24">
+            <p className="font-barlow text-xl md:text-2xl text-zinc-400 leading-relaxed mb-12">
+              Whether you're a creator, founder, or business, you can produce high-quality videos, messages, and content — all powered by intelligent, human-like avatars. We combine realistic visuals, voice synthesis, and AI-driven scripting to help you maintain a strong, professional presence.
+            </p>
+          </div>
+
           <div className="my-16 group">
             <OptimizedImage 
               filename="ai-avatar-new" 
@@ -176,10 +187,6 @@ export default function HomePage() {
             <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-500 text-center">Hyper-realistic digital humans designed to bridge the gap between digital efficiency and human connection.</p>
           </div>
 
-          <div className="mb-24">
-            <p className="font-barlow text-xl md:text-2xl text-zinc-400 leading-relaxed mb-12">
-              Whether you're a creator, founder, or business, you can produce high-quality videos, messages, and content — all powered by intelligent, human-like avatars. We combine realistic visuals, voice synthesis, and AI-driven scripting to help you maintain a strong, professional presence.
-            </p>
 
             <div className="space-y-8">
               <h3 className="font-headline font-bold text-2xl tracking-tight">What You Get:</h3>
@@ -198,7 +205,6 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
-          </div>
         </div>
       </section>
 
@@ -216,6 +222,12 @@ export default function HomePage() {
             </p>
           </div>
 
+          <div className="mb-24">
+            <p className="font-barlow text-xl md:text-2xl text-zinc-600 leading-relaxed mb-12">
+              Our system combines synthetic avatars, AI scripting, and performance-driven testing to produce ad content that feels real, relatable, and optimized for conversion. We help you iterate faster and scale top-performing versions automatically.
+            </p>
+          </div>
+
           <div className="my-16 group">
             <OptimizedImage 
               filename="ai-ugc-new" 
@@ -226,10 +238,6 @@ export default function HomePage() {
             <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-400 text-center">Synthetic UGC creators designed to mimic human-style content for maximum authenticity and engagement.</p>
           </div>
 
-          <div className="mb-24">
-            <p className="font-barlow text-xl md:text-2xl text-zinc-600 leading-relaxed mb-12">
-              Our system combines synthetic avatars, AI scripting, and performance-driven testing to produce ad content that feels real, relatable, and optimized for conversion. We help you iterate faster and scale top-performing versions automatically.
-            </p>
 
             <div className="space-y-12">
               <h3 className="font-headline font-bold text-2xl tracking-tight">What We Deliver:</h3>
@@ -271,7 +279,6 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </section>
 
@@ -289,6 +296,12 @@ export default function HomePage() {
             </p>
           </div>
 
+          <div className="mb-24">
+            <p className="font-barlow text-xl md:text-2xl text-white leading-relaxed mb-12">
+              Create stunning, photorealistic product images and scenes in minutes, tailored for ads, websites, and campaigns — all generated and optimized through advanced AI systems. From concept to final visual in minutes.
+            </p>
+          </div>
+
           <div className="my-16 group">
             <OptimizedImage 
               filename="ai-production-studios-new" 
@@ -299,10 +312,6 @@ export default function HomePage() {
             <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-500 text-center">Photorealistic product scenes generated in minutes, tailored for high-impact marketing campaigns.</p>
           </div>
 
-          <div className="mb-24">
-            <p className="font-barlow text-xl md:text-2xl text-white leading-relaxed mb-12">
-              Create stunning, photorealistic product images and scenes in minutes, tailored for ads, websites, and campaigns — all generated and optimized through advanced AI systems. From concept to final visual in minutes.
-            </p>
 
             <div className="space-y-12">
               <h3 className="font-headline font-bold text-2xl tracking-tight">What We Deliver:</h3>
@@ -344,7 +353,6 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </section>
 

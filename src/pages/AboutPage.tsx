@@ -1,10 +1,15 @@
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import { motion } from "motion/react";
+import SEO from "../components/SEO";
 
 export default function AboutPage() {
   return (
     <div className="bg-white text-black font-sans selection:bg-zinc-900 selection:text-white">
+      <SEO 
+        title="About Us"
+        description="Learn about AI Agentic Verse, a forward-thinking AI company dedicated to transforming businesses through intelligent, agent-based solutions."
+      />
       <NavBar />
       <main className="bg-[#fcf9f9]">
         {/* Hero Section */}
@@ -38,11 +43,16 @@ export default function AboutPage() {
               >
                 <div className="space-y-2">
                   <h2 className="font-headline font-bold text-5xl tracking-tight">Yahgenesh</h2>
-                  <p className="font-barlow font-bold text-sm uppercase tracking-widest text-zinc-500">Founder & Tech Visionary</p>
+                  <p className="font-barlow font-bold text-sm uppercase tracking-widest text-zinc-500">Founder & Chief Executive Officer (CEO)</p>
                 </div>
-                <p className="font-barlow text-xl text-zinc-600 leading-relaxed">
-                  Yahgenesh is a young visionary shaping the future of intelligent automation. As the technical backbone of AI Agentic Verse, he specializes in building advanced agentic workflows, WhatsApp automations, and AI-driven business systems. His passion lies in turning complex technology into simple, powerful solutions that deliver real results for Indian businesses. With a deep focus on innovation, execution, and high-performance systems, Yahgenesh drives the company’s technical direction and ensures every product is fast, reliable, and scalable.
-                </p>
+                <div className="space-y-4">
+                  <p className="font-barlow text-xl text-zinc-600 leading-relaxed">
+                    Yahgenesh is a visionary leader and technology innovator, serving as the Founder and Chief Executive Officer of AI Agentic Verse. He is responsible for defining the company’s strategic direction while leading the development of advanced AI-driven solutions. His expertise lies in building AI systems and infrastructure that enable businesses to operate with greater efficiency and intelligence.
+                  </p>
+                  <p className="font-barlow text-xl text-zinc-600 leading-relaxed">
+                    With a strong commitment to innovation, precision, and performance, Yahgenesh ensures that all products meet the highest standards of reliability, scalability, and real-world impact. His leadership integrates deep technical knowledge with a forward-looking vision, positioning the company at the forefront of intelligent automation in India.
+                  </p>
+                </div>
               </motion.div>
 
               {/* Yashank */}
@@ -55,11 +65,16 @@ export default function AboutPage() {
               >
                 <div className="space-y-2">
                   <h2 className="font-headline font-bold text-5xl tracking-tight">Yashank</h2>
-                  <p className="font-barlow font-bold text-sm uppercase tracking-widest text-zinc-500">Co-Founder & Business Strategist</p>
+                  <p className="font-barlow font-bold text-sm uppercase tracking-widest text-zinc-500">Co-Founder & Chief Operating Officer (COO)</p>
                 </div>
-                <p className="font-barlow text-xl text-zinc-600 leading-relaxed">
-                  Where Yahgenesh shapes the tech, Yashank brings the strategy. As the business-focused co-founder of AI Agentic Verse, he is deeply interested in market trends, customer psychology, monetization models, and scalable business growth. With a sharp eye for opportunity, he transforms raw ideas into real-world offerings, builds client relationships, and steers the company toward high-demand niches. His strength lies in packaging AI into products that solve real problems and generate measurable revenue.
-                </p>
+                <div className="space-y-4">
+                  <p className="font-barlow text-xl text-zinc-600 leading-relaxed">
+                    Yashank serves as the Co-Founder and Chief Operating Officer of AI Agentic Verse, where he oversees business operations and drives organizational execution. He plays a pivotal role in translating strategic vision into actionable initiatives, ensuring operational efficiency, and delivering consistent business outcomes.
+                  </p>
+                  <p className="font-barlow text-xl text-zinc-600 leading-relaxed">
+                    With a strong acumen for market analysis, customer behavior, and monetization strategies, Yashank focuses on identifying high-growth opportunities and building sustainable revenue models. He is instrumental in strengthening client relationships, optimizing internal processes, and aligning the company’s offerings with evolving market demands. His operational leadership ensures scalability, consistency, and long-term business success.
+                  </p>
+                </div>
               </motion.div>
             </div>
           </div>

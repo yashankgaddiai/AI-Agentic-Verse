@@ -4,12 +4,17 @@ import { useBlobAssets } from "../hooks/useBlobAssets";
 import OptimizedImage from "../components/OptimizedImage";
 import Card from "../components/ui/Card";
 import { CheckCircle2, Bot } from "lucide-react";
+import SEO from "../components/SEO";
 
 export default function ServicesPage() {
   const { getBlobUrl } = useBlobAssets();
 
   return (
     <div className="bg-white text-black font-sans selection:bg-zinc-900 selection:text-white">
+      <SEO 
+        title="Our Services"
+        description="Explore our AI-powered services: AI Avatars, AI UGC Ads, AI Product Studios, AI Coaching Systems, and AI Chat Agents. Elevating brands through the power of AI."
+      />
       <NavBar />
       <main className="pt-24 sm:pt-32 pb-16 sm:pb-24 bg-white">
         <header className="max-w-7xl mx-auto px-6 sm:px-12 md:px-[120px] mb-16 sm:mb-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

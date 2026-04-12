@@ -4,6 +4,7 @@ import { motion, useInView } from "motion/react";
 import { useRef, useState, useEffect } from "react";
 import Button from "../components/ui/Button";
 import { Play, ArrowRight, Tag } from "lucide-react";
+import SEO from "../components/SEO";
 
 const clientVideos = [
   {
@@ -120,6 +121,10 @@ function LazyVideo({ video }: { video: typeof clientVideos[0] }) {
 export default function WorkInMotionPage() {
   return (
     <div className="bg-zinc-950 text-white min-h-screen font-barlow">
+      <SEO 
+        title="Our Work"
+        description="Witness the convergence of AI and human creativity. Explore our portfolio of AI-generated commercials, avatars, and brand stories."
+      />
       <NavBar />
       
       <main className="pt-32 sm:pt-40 pb-16 sm:pb-24 px-6 sm:px-8">

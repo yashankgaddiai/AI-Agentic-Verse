@@ -8,6 +8,7 @@ import Button from "../components/ui/Button";
 import { Send, CheckCircle } from "lucide-react";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db, auth } from "../firebase";
+import SEO from "../components/SEO";
 
 enum OperationType {
   CREATE = 'create',
@@ -92,6 +93,10 @@ export default function ContactPage() {
 
   return (
     <div className="bg-surface text-on-surface font-general selection:bg-on-surface selection:text-surface">
+      <SEO 
+        title="Contact Us"
+        description="Get in touch with AI Agentic Verse. Schedule a strategy call or send us a message to discuss your AI integration roadmap."
+      />
       <NavBar />
       <main className="pt-32 sm:pt-40 pb-16 sm:pb-24 px-6 sm:px-8 md:px-[120px] max-w-7xl mx-auto">
         <header className="mb-16 sm:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8 mt-8 sm:mt-12">

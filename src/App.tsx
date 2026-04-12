@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ServicesPage from "./pages/ServicesPage";
@@ -12,18 +13,20 @@ import ErrorBoundary from "./components/ErrorBoundary";
 export default function App() {
   return (
     <ErrorBoundary>
-      <Router>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/work-in-motion" element={<WorkInMotionPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/admin/media" element={<AdminMediaPage />} />
-        </Routes>
-        <ChatAgent />
-      </Router>
+      <HelmetProvider>
+        <Router>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/work-in-motion" element={<WorkInMotionPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/admin/media" element={<AdminMediaPage />} />
+          </Routes>
+          <ChatAgent />
+        </Router>
+      </HelmetProvider>
     </ErrorBoundary>
   );
 }
