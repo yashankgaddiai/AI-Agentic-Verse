@@ -163,7 +163,7 @@ export default function HomePage() {
             <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-white/5 px-6 py-2.5 rounded-full inline-block mb-8 sm:mb-10 border border-white/10">AI Avatars</span>
             <h2 className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-8">
               Scale Your Presence <br/>
-              <span className="font-serif font-bold text-white">Without Showing Up</span>
+              <span className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight text-white">Without Showing Up</span>
             </h2>
             <p className="font-barlow text-lg sm:text-xl md:text-2xl text-zinc-400 leading-relaxed">
               Create powerful content without ever stepping in front of the camera. At AI Agentic Verse, our AI Avatars enable you to build scalable digital identities that consistently represent your brand across every platform.
@@ -184,7 +184,6 @@ export default function HomePage() {
               className="rounded-[40px] w-full aspect-video object-cover border border-white/10 shadow-2xl mb-4"
               priority={true}
             />
-            <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-500 text-center">Hyper-realistic digital humans designed to bridge the gap between digital efficiency and human connection.</p>
           </div>
 
 
@@ -215,7 +214,7 @@ export default function HomePage() {
             <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-zinc-900 px-6 py-2.5 rounded-full inline-block mb-8 sm:mb-10 border border-zinc-800">AI UGC Avatars</span>
             <h2 className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-8">
               High-Converting Ads, <br/>
-              <span className="font-serif font-bold text-zinc-900">Generated & Scaled by AI</span>
+              <span className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight text-zinc-900">Generated & Scaled by AI</span>
             </h2>
             <p className="font-barlow text-lg sm:text-xl md:text-2xl text-zinc-600 leading-relaxed">
               At AI AgenticVerse, we redefine user-generated content with AI-powered UGC Avatars — enabling brands to create authentic, high-converting ad creatives without relying on traditional creators.
@@ -235,7 +234,6 @@ export default function HomePage() {
               alt="AI UGC Avatar Technology" 
               className="rounded-[40px] w-full aspect-video object-cover border border-zinc-200 shadow-2xl mb-4"
             />
-            <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-400 text-center">Synthetic UGC creators designed to mimic human-style content for maximum authenticity and engagement.</p>
           </div>
 
 
@@ -289,7 +287,7 @@ export default function HomePage() {
             <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-white/5 px-6 py-2.5 rounded-full inline-block mb-8 sm:mb-10 border border-white/10">AI Production Studios</span>
             <h2 className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-8">
               Create Product Visuals <br/>
-              <span className="font-serif font-bold text-white">Without Photoshoots</span>
+              <span className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight text-white">Without Photoshoots</span>
             </h2>
             <p className="font-barlow text-lg sm:text-xl md:text-2xl text-white leading-relaxed">
               At AI AgenticVerse, we transform the way brands produce visual content with AI-powered Production Studios — eliminating the need for expensive photoshoots, studios, and long production timelines.
@@ -309,7 +307,6 @@ export default function HomePage() {
               alt="AI Production Studio Visuals" 
               className="rounded-[40px] w-full aspect-video object-cover border border-white/10 shadow-2xl mb-4"
             />
-            <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-500 text-center">Photorealistic product scenes generated in minutes, tailored for high-impact marketing campaigns.</p>
           </div>
 
 
@@ -364,7 +361,7 @@ export default function HomePage() {
             <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-zinc-900 px-6 py-2.5 rounded-full inline-block mb-8 sm:mb-10 border border-zinc-800">AI Coaching Systems</span>
             <h2 className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-8">
               Scale Knowledge <br/>
-              <span className="font-serif font-bold text-zinc-900">Without Scaling Your Time</span>
+              <span className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight text-zinc-900">Without Scaling Your Time</span>
             </h2>
             <p className="font-barlow text-lg sm:text-xl md:text-2xl text-zinc-600 leading-relaxed">
               At AI AgenticVerse, we empower educators, creators, and businesses to transform their expertise into intelligent, scalable coaching systems powered by AI.
@@ -378,7 +375,6 @@ export default function HomePage() {
               alt="AI Coaching Systems" 
               className="rounded-[40px] w-full aspect-video object-cover border border-zinc-200 shadow-2xl mb-4"
             />
-            <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-400 text-center">Intelligent mentor engines that deliver personalized learning experiences and real-time feedback at scale.</p>
           </div>
 
           <div className="mb-24">
@@ -427,7 +423,7 @@ export default function HomePage() {
             <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-zinc-900 px-6 py-2.5 rounded-full inline-block mb-8 sm:mb-10 border border-zinc-800">AI Pencraft</span>
             <h2 className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-8">
               Human-Like Writing, <br/>
-              <span className="font-serif font-bold text-zinc-900">Automated at Scale</span>
+              <span className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight text-zinc-900">Automated at Scale</span>
             </h2>
             <p className="font-barlow text-lg sm:text-xl md:text-2xl text-zinc-600 leading-relaxed">
               At AI AgenticVerse, AI Pencraft is an advanced content intelligence system designed to replicate the thinking, writing, and communication patterns of top professionals — including entrepreneurs, professors, scholars, and industry experts.
@@ -503,7 +499,7 @@ export default function HomePage() {
             <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-white/5 px-6 py-2.5 rounded-full inline-block mb-8 sm:mb-10 border border-white/10">AI Chat Agents</span>
             <h2 className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-8">
               Turn Attention Into <br/>
-              <span className="font-serif font-bold text-white">Revenue Automatically</span>
+              <span className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight text-white">Revenue Automatically</span>
             </h2>
             <p className="font-barlow text-lg sm:text-xl md:text-2xl text-white leading-relaxed">
               At AI AgenticVerse, we build intelligent AI Chat Agents that transform conversations into conversions. From capturing leads to closing clients, our systems work 24/7 to ensure no opportunity is ever missed.
@@ -517,7 +513,6 @@ export default function HomePage() {
               alt="AI Chat Agents" 
               className="rounded-[40px] w-full aspect-video object-cover border border-white/10 shadow-2xl mb-4"
             />
-            <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-500 text-center">Intelligent conversational agents that act as your always-on sales and support team, driving revenue on autopilot.</p>
           </div>
 
           <div className="mb-24">

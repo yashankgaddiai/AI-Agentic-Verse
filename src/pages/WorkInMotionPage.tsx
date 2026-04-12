@@ -85,6 +85,7 @@ function LazyVideo({ video }: { video: typeof clientVideos[0] }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "400px" });
   const [shouldLoad, setShouldLoad] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     if (isInView) {
@@ -93,25 +94,39 @@ function LazyVideo({ video }: { video: typeof clientVideos[0] }) {
   }, [isInView]);
 
   return (
-    <div ref={ref} className="w-full h-full relative group">
-      {!shouldLoad ? (
-        <div 
-          className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-          style={{ backgroundImage: `url(${video.thumbnail})` }}
-        >
-          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-            <div className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-white/20 transition-all">
-              <Play className="text-white fill-white" size={32} />
+    <div ref={ref} className="w-full h-full relative group bg-zinc-900 overflow-hidden">
+      {/* Skeleton / Placeholder */}
+      {!isLoaded && (
+        <div className="absolute inset-0 z-10">
+          <div 
+            className="w-full h-full bg-cover bg-center transition-opacity duration-500"
+            style={{ backgroundImage: `url(${video.thumbnail})` }}
+          >
+            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+              {!shouldLoad ? (
+                <div className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-white/20 transition-all">
+                  <Play className="text-white fill-white" size={32} />
+                </div>
+              ) : (
+                <div className="flex flex-col items-center gap-4">
+                  <div className="w-12 h-12 border-4 border-white/20 border-t-white rounded-full animate-spin"></div>
+                  <span className="text-xs font-mono uppercase tracking-widest text-white/60">Loading Video...</span>
+                </div>
+              )}
             </div>
           </div>
         </div>
-      ) : (
+      )}
+
+      {shouldLoad && (
         <iframe
-          src={`${video.videoUrl}?autoplay=0`}
+          src={`${video.videoUrl}?autoplay=0&rel=0&modestbranding=1`}
           title={video.title}
-          className="w-full h-full"
+          className={`w-full h-full transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
+          onLoad={() => setIsLoaded(true)}
+          loading="lazy"
         ></iframe>
       )}
     </div>

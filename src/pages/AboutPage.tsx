@@ -22,7 +22,7 @@ export default function AboutPage() {
           >
             <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-zinc-500">About Us</span>
             <h1 className="font-headline font-bold text-4xl sm:text-6xl md:text-9xl tracking-tight leading-[0.9] max-w-5xl">
-              AI Agentic Verse is a <span className="italic font-serif font-normal text-zinc-400">forward-thinking</span> AI Company.
+              AI Agentic Verse is a <span className="font-headline font-bold text-zinc-400">forward-thinking</span> AI Company.
             </h1>
             <p className="font-barlow text-xl sm:text-2xl md:text-4xl text-zinc-600 max-w-4xl leading-tight">
               Dedicated to transforming businesses through intelligent, agent-based solutions.
