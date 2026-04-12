@@ -9,74 +9,74 @@ const clientVideos = [
   {
     id: 0,
     title: "Dr. Raghavendra Hunasgi",
-    category: "Global Growth Strategist",
+    category: "AI Avatar · Personal Branding · Thought Leadership",
     videoUrl: "https://www.youtube.com/embed/-5l1AhrZPlQ",
     thumbnail: "https://img.youtube.com/vi/-5l1AhrZPlQ/maxresdefault.jpg",
-    description: "Dr. Raghavendra Hunasgi is a serial entrepreneur, CMO and Co-founder of the Web3 unicorn Zeebu, bestselling author of 'Unleashing Growth', and a global growth strategist known for bridging traditional branding with emerging technologies like blockchain.",
-    tags: ["Web3 Unicorn", "Blockchain Strategy", "Growth Marketing"]
+    description: "Dr. Raghavendra Hunasgi is a serial entrepreneur, CMO and Co-founder of Web3 unicorn Zeebu, bestselling author of Unleashing Growth, and a global growth strategist known for bridging traditional branding with emerging technologies like blockchain.\n\nWe created an AI avatar of Dr. Raghavendra, cloned from a single recording session, to amplify his personal brand at scale. The avatar delivers his insights on growth strategy, Web3, branding and entrepreneurship, keeping him visible and active across platforms while he focuses on building businesses and leading teams globally.\n\nThe result is a thought leadership engine that speaks in his voice, carries his expertise and grows his personal brand around the clock, without him ever needing to record again.",
+    tags: ["AI Avatar", "Personal Branding", "Thought Leadership"]
   },
   {
     id: 7,
-    title: "AI Agentic Verse - Strategic Growth",
-    category: "Strategic Growth & AI",
+    title: "Gentech Agronation",
+    category: "AI Commercial · Brand Storytelling",
     videoUrl: "https://www.youtube.com/embed/ps08u-aUw88",
     thumbnail: "https://img.youtube.com/vi/ps08u-aUw88/maxresdefault.jpg",
-    description: "Explore how we integrate strategic growth frameworks with AI-driven automation to deliver exponential results for global brands.",
-    tags: ["Strategic Growth", "AI Automation", "Global Branding"]
+    description: "Gentech Crop Sciences is one of India's leading agricultural companies, with over 25 years of experience in crop protection and a presence across the country.\n\nWe produced an AI-generated brand commercial built around a single, powerful story. A farmer's journey with Gentech. From the first seed in the soil to a thriving harvest, the film follows the quiet determination of the Indian farmer and the role Gentech's products play in protecting every season he works for.\n\nThe result is a cinematic commercial that connects Gentech's science-driven mission to the human story at the heart of Indian agriculture.",
+    tags: ["AI Commercial", "Brand Storytelling"]
   },
   {
     id: 2,
-    title: "AI Agentic Verse Showcase",
-    category: "AI Automation & Scaling",
+    title: "Gentech Agronation",
+    category: "AI Commercial · Brand Storytelling · Tamil",
     videoUrl: "https://www.youtube.com/embed/O6zFm4xqkS4",
     thumbnail: "https://img.youtube.com/vi/O6zFm4xqkS4/maxresdefault.jpg",
-    description: "Discover how AI Agentic Verse is revolutionizing digital growth through autonomous AI systems. This showcase highlights our latest breakthroughs in AI-driven media, marketing, and identity scaling.",
-    tags: ["AI Automation", "Content Scaling", "Autonomous Systems"]
+    description: "Gentech Crop Sciences is one of India's leading agricultural companies, with over 25 years of experience in crop protection and a presence across the country.\n\nWe produced an AI-generated brand commercial in Tamil, built around the story of a paddy farmer and his fight to protect every crop he grows. The film follows his journey through the season, with Fertigen Extra at the heart of the narrative, a granule-based solution that shields crops like paddy, chilly and cotton from stem borer and leaf roller infestations.\n\nTold in Tamil to speak directly to the farming communities of South India, the commercial connects Gentech's most trusted product to the lived reality of the farmers who depend on it.",
+    tags: ["AI Commercial", "Brand Storytelling", "Tamil"]
   },
   {
     id: 3,
-    title: "AI Digital Identity Scaling",
-    category: "Digital Identity & Branding",
+    title: "SLS Seeds",
+    category: "AI Avatar · Product Promotion · Brand Storytelling",
     videoUrl: "https://www.youtube.com/embed/egWlU-ZNqNY",
     thumbnail: "https://img.youtube.com/vi/egWlU-ZNqNY/maxresdefault.jpg",
-    description: "Experience the future of personal branding with our AI-driven digital identity solutions. We help founders and creators scale their presence through hyper-realistic AI avatars and automated content pipelines.",
-    tags: ["Digital Identity", "AI Avatars", "Personal Branding"]
+    description: "SLS Seeds is a seed company dedicated to bringing high-quality agricultural products to farmers across India, with Suraj Dhan as their flagship seed variety.\n\nTo promote Suraj Dhan, we created an AI avatar of the company's founder and CEO. Without him stepping in front of a camera, we brought his voice and presence to life digitally, using it to speak directly to farmers about the product he built his company around.\n\nThe result is a compelling product promotion that feels personal and authentic, delivered entirely through AI.",
+    tags: ["AI Avatar", "Product Promotion", "Brand Storytelling"]
   },
   {
     id: 10,
-    title: "AI Agentic Verse - Identity Scaling",
-    category: "Digital Identity & Automation",
+    title: "Damp Prime Paints",
+    category: "AI Commercial · Hindi · Brand Storytelling",
     videoUrl: "https://www.youtube.com/embed/UwtDDeJGLy4",
     thumbnail: "https://img.youtube.com/vi/UwtDDeJGLy4/maxresdefault.jpg",
-    description: "Scale your digital presence with autonomous AI systems. We specialize in building hyper-realistic digital identities and automated content pipelines for global reach.",
-    tags: ["Identity Scaling", "AI Automation", "Digital Presence"]
+    description: "Damp Prime is a waterproofing paint brand built to protect homes from moisture, seepage and weather damage across India.\n\nWe produced an AI-generated commercial in Hindi, crafted to connect with homeowners who know the frustration of damp walls and leaking roofs. The film tells the story of a home protected, bringing Damp Prime's waterproofing promise to life through cinematic visuals and a narrative that speaks the language of every Indian household.\n\nThe commercial delivers Damp Prime's message with warmth and credibility, powered entirely by AI.",
+    tags: ["AI Commercial", "Hindi", "Brand Storytelling"]
   },
   {
     id: 8,
-    title: "AI Agentic Verse - Brand Evolution",
-    category: "AI Branding & Identity",
+    title: "Doctor Avatar",
+    category: "AI Avatar · Content Creation · Personal Branding · Demo",
     videoUrl: "https://www.youtube.com/embed/tsJdkbgk7W4",
     thumbnail: "https://img.youtube.com/vi/tsJdkbgk7W4/maxresdefault.jpg",
-    description: "Witness the evolution of brand identity in the age of AI. We create hyper-realistic digital assets and autonomous systems that amplify your brand's voice and reach.",
-    tags: ["Brand Evolution", "AI Identity", "Digital Assets"]
+    description: "A doctor records once. We do the rest.\n\nWe built an AI avatar demo that clones a doctor's likeness and voice, turning a single recording session into an unlimited content engine. The avatar delivers medical tips, clinic updates and health awareness videos, all without the doctor needing to show up on camera again.\n\nThe result is a personal brand that stays active and consistent, driving both the doctor's online presence and clinic footfall, powered entirely by AI.",
+    tags: ["AI Avatar", "Content Creation", "Personal Branding", "Demo"]
   },
   {
     id: 9,
-    title: "AI Agentic Verse - Creative Innovation",
-    category: "AI Innovation & Media",
+    title: "Real Estate Agent Avatar",
+    category: "AI Avatar · Content Creation · Personal Branding · Demo",
     videoUrl: "https://www.youtube.com/embed/2_1zoeWOBn4",
     thumbnail: "https://img.youtube.com/vi/2_1zoeWOBn4/maxresdefault.jpg",
-    description: "Explore the intersection of AI and creative media. Our short-form content solutions leverage advanced AI to deliver high-impact visuals and engaging narratives at scale.",
-    tags: ["AI Innovation", "Creative Media", "Short-form Content"]
+    description: "A real estate agent records once. We build a content engine that never stops.\n\nWe created an AI avatar that clones the agent's likeness and voice from a single recording session, producing unlimited content while he is out closing deals and meeting clients. Property walkthroughs, market updates, client testimonials and neighbourhood guides, all delivered in his voice, on his behalf, every single day.\n\nThe result is a personal brand that works around the clock, building trust with potential buyers and driving sales without the agent ever stepping in front of a camera again.",
+    tags: ["AI Avatar", "Content Creation", "Personal Branding", "Demo"]
   },
   {
     id: 6,
-    title: "AI Agentic Verse - Future of Work",
-    category: "AI Strategy & Innovation",
+    title: "Suryodaya Secondary School",
+    category: "AI Anime Commercial · Batch of 1994-1995 · Nostalgia Storytelling",
     videoUrl: "https://www.youtube.com/embed/zXzrkBPJrsM",
     thumbnail: "https://img.youtube.com/vi/zXzrkBPJrsM/maxresdefault.jpg",
-    description: "Witness the convergence of AI and human creativity. We build the infrastructure for the next generation of digital-first businesses through autonomous agents and hyper-realistic digital identities.",
-    tags: ["AI Innovation", "Future of Work", "Digital Identity"]
+    description: "Some memories never fade. They just wait to be relived.\n\nWe produced an AI-generated anime-style commercial for Suryodaya Secondary School, crafted exclusively for the batch of 1994-1995. The film reimagines the everyday moments of school life from that era, morning assemblies, chalk-dusted classrooms, lunch breaks on the playground and friendships that lasted a lifetime, all brought back to life through warm, hand-drawn anime visuals.\n\nEvery frame was designed to feel familiar, transporting former students back to the corridors and classrooms where their fondest memories were made.\n\nThe result is not just a commercial. It is a time capsule, animated by AI and built for a generation that deserves to see their childhood on screen.",
+    tags: ["AI Anime", "Batch of 1994-1995", "Nostalgia Storytelling"]
   }
 ];
 
@@ -175,7 +175,7 @@ export default function WorkInMotionPage() {
               <div className="w-full lg:w-2/5 pt-4">
                 <span className="text-sm font-bold uppercase tracking-widest text-zinc-500 mb-4 block">{video.category}</span>
                 <h3 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">{video.title}</h3>
-                <p className="text-xl text-zinc-400 leading-relaxed font-light">
+                <p className="text-xl text-zinc-400 leading-relaxed font-light whitespace-pre-line">
                   {video.description}
                 </p>
                 
