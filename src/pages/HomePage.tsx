@@ -12,19 +12,40 @@ import SEO from "../components/SEO";
 export default function HomePage() {
   const { getBlobUrl } = useBlobAssets();
 
-  // Preload hero poster
+  // Preload hero video and poster
   useEffect(() => {
     const posterUrl = getBlobUrl('herosection-poster.jpg', '/images/herosection-poster.jpg');
+    const videoUrl = "https://res.cloudinary.com/dsqmjneyd/video/upload/q_auto,f_auto/hero_section_gfdvyv.mp4";
+    
+    const preconnect1 = document.createElement('link');
+    preconnect1.rel = 'preconnect';
+    preconnect1.href = 'https://res.cloudinary.com';
+    document.head.appendChild(preconnect1);
+
+    const preloadVideo = document.createElement('link');
+    preloadVideo.rel = 'preload';
+    preloadVideo.as = 'video';
+    preloadVideo.href = videoUrl;
+    document.head.appendChild(preloadVideo);
+
     if (posterUrl) {
       const link = document.createElement('link');
       link.rel = 'preload';
       link.as = 'image';
       link.href = posterUrl;
       document.head.appendChild(link);
+      
       return () => {
         document.head.removeChild(link);
+        document.head.removeChild(preconnect1);
+        document.head.removeChild(preloadVideo);
       };
     }
+
+    return () => {
+      document.head.removeChild(preconnect1);
+      document.head.removeChild(preloadVideo);
+    };
   }, [getBlobUrl]);
 
   return (
@@ -37,15 +58,18 @@ export default function HomePage() {
       
       {/* 1. Hero Section */}
       <section className="relative min-h-[90vh] h-screen w-full overflow-hidden flex items-center justify-center text-center px-8 bg-zinc-950">
-        {/* Background Video (Cloudinary Embed) */}
+        {/* Background Video (Direct Cloudinary Video) */}
         <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-          <iframe
-            src="https://player.cloudinary.com/embed/?cloud_name=dsqmjneyd&public_id=hero_section_gfdvyv&autoplay=true&loop=true&muted=true&controls=false"
-            className="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2 object-cover opacity-100 brightness-110"
-            allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-            allowFullScreen
-            frameBorder="0"
-          ></iframe>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster={getBlobUrl('herosection-poster.jpg', '/images/herosection-poster.jpg')}
+            className="absolute top-1/2 left-1/2 w-full h-full min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover opacity-100 brightness-110"
+          >
+            <source src="https://res.cloudinary.com/dsqmjneyd/video/upload/q_auto,f_auto/hero_section_gfdvyv.mp4" type="video/mp4" />
+          </video>
         </div>
         
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/40 via-transparent to-zinc-950/60"></div>
