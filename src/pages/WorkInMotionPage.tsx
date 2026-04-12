@@ -166,13 +166,13 @@ export default function WorkInMotionPage() {
                   }
                 }
               }}
-              className="flex flex-col lg:flex-row gap-12 items-start"
+              className={`flex flex-col gap-12 items-center ${idx % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}
             >
               <div className="w-full lg:w-3/5 aspect-video overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-900 shadow-2xl">
                 <LazyVideo video={video} />
               </div>
               
-              <div className="w-full lg:w-2/5 pt-4">
+              <div className={`w-full lg:w-2/5 ${idx % 2 === 1 ? 'lg:pr-8' : 'lg:pl-8'}`}>
                 <span className="text-sm font-bold uppercase tracking-widest text-zinc-500 mb-4 block">{video.category}</span>
                 <h3 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">{video.title}</h3>
                 <p className="text-xl text-zinc-400 leading-relaxed font-light whitespace-pre-line">
