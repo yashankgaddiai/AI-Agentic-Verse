@@ -31,21 +31,23 @@ export default function AboutPage() {
         </section>
 
         {/* Founders Section */}
-        <section className="py-32 px-8 bg-zinc-50 border-y border-zinc-100">
+        <section className="py-32 px-6 sm:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-24">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
               {/* Yahgenesh */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="space-y-8"
+                className="space-y-10 group"
               >
-                <div className="space-y-2">
-                  <h2 className="font-headline font-bold text-5xl tracking-tight">Yahgenesh</h2>
-                  <p className="font-barlow font-bold text-sm uppercase tracking-widest text-zinc-500">Founder & Chief Executive Officer (CEO)</p>
-                </div>
                 <div className="space-y-4">
+                  <h3 className="font-headline font-bold text-5xl sm:text-6xl tracking-tight group-hover:text-zinc-600 transition-colors duration-500">Yahgenesh</h3>
+                  <div className="inline-block px-4 py-1.5 bg-zinc-900 text-white text-xs font-bold uppercase tracking-widest rounded-full">
+                    Founder & CEO
+                  </div>
+                </div>
+                <div className="space-y-6 border-l-2 border-zinc-100 pl-8">
                   <p className="font-barlow text-xl text-zinc-600 leading-relaxed">
                     Yahgenesh is a visionary leader and technology innovator, serving as the Founder and Chief Executive Officer of AI Agentic Verse. He is responsible for defining the company’s strategic direction while leading the development of advanced AI-driven solutions. His expertise lies in building AI systems and infrastructure that enable businesses to operate with greater efficiency and intelligence.
                   </p>
@@ -60,14 +62,16 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="space-y-8"
+                transition={{ delay: 0.2 }}
+                className="space-y-10 group"
               >
-                <div className="space-y-2">
-                  <h2 className="font-headline font-bold text-5xl tracking-tight">Yashank</h2>
-                  <p className="font-barlow font-bold text-sm uppercase tracking-widest text-zinc-500">Co-Founder & Chief Operating Officer (COO)</p>
-                </div>
                 <div className="space-y-4">
+                  <h3 className="font-headline font-bold text-5xl sm:text-6xl tracking-tight group-hover:text-zinc-600 transition-colors duration-500">Yashank</h3>
+                  <div className="inline-block px-4 py-1.5 bg-zinc-100 text-zinc-900 text-xs font-bold uppercase tracking-widest rounded-full border border-zinc-200">
+                    Co-Founder & COO
+                  </div>
+                </div>
+                <div className="space-y-6 border-l-2 border-zinc-100 pl-8">
                   <p className="font-barlow text-xl text-zinc-600 leading-relaxed">
                     Yashank serves as the Co-Founder and Chief Operating Officer of AI Agentic Verse, where he oversees business operations and drives organizational execution. He plays a pivotal role in translating strategic vision into actionable initiatives, ensuring operational efficiency, and delivering consistent business outcomes.
                   </p>
