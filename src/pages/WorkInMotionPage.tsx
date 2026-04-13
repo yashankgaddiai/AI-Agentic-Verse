@@ -17,6 +17,15 @@ const clientVideos = [
     tags: ["AI Avatar", "Personal Branding", "Thought Leadership"]
   },
   {
+    id: 11,
+    title: "Yashank, Co-Founder & COO, AI Agentic Verse",
+    category: "AI Avatar · Personal Branding · Thought Leadership",
+    videoUrl: "https://www.youtube.com/embed/Z6i0aAs46nE",
+    thumbnail: "https://img.youtube.com/vi/Z6i0aAs46nE/maxresdefault.jpg",
+    description: "Yashank is the Co-Founder and Chief Operating Officer of AI Agentic Verse, leading business operations, driving organizational execution and translating strategic vision into measurable outcomes.\n\nWe created an AI avatar of Yashank to extend his personal brand beyond the boardroom. The avatar delivers content around AI, business operations, entrepreneurship and the future of agentic technology, keeping him present and influential across platforms while he focuses on scaling AI Agentic Verse.\n\nThe result is a thought leadership presence that runs in his voice, reflects his expertise and builds his brand around the clock, without him needing to record every time.",
+    tags: ["AI Avatar", "Personal Branding", "Thought Leadership"]
+  },
+  {
     id: 7,
     title: "Gentech Agronation",
     category: "AI Commercial · Brand Storytelling",
@@ -51,6 +60,15 @@ const clientVideos = [
     thumbnail: "https://img.youtube.com/vi/UwtDDeJGLy4/maxresdefault.jpg",
     description: "Damp Prime is a waterproofing paint brand built to protect homes from moisture, seepage and weather damage across India.\n\nWe produced an AI-generated commercial in Hindi, crafted to connect with homeowners who know the frustration of damp walls and leaking roofs. The film tells the story of a home protected, bringing Damp Prime's waterproofing promise to life through cinematic visuals and a narrative that speaks the language of every Indian household.\n\nThe commercial delivers Damp Prime's message with warmth and credibility, powered entirely by AI.",
     tags: ["AI Commercial", "Hindi", "Brand Storytelling"]
+  },
+  {
+    id: 12,
+    title: "Doctor Avatar",
+    category: "AI Avatar · Content Creation · Personal Branding · Demo",
+    videoUrl: "https://www.youtube.com/embed/H0sgCjrVnQY",
+    thumbnail: "https://img.youtube.com/vi/H0sgCjrVnQY/maxresdefault.jpg",
+    description: "A doctor records once. We do the rest.\n\nWe built an AI avatar demo that clones a male doctor's likeness and voice, turning a single recording session into an unlimited content engine. The avatar delivers medical tips, health awareness videos, patient education content and clinic updates, all in his voice, all without him stepping in front of a camera again.\n\nThe result is a personal brand that stays active and consistent across platforms, positioning him as a trusted medical voice in his field while driving awareness and footfall for his clinic, powered entirely by AI.",
+    tags: ["AI Avatar", "Content Creation", "Personal Branding", "Demo"]
   },
   {
     id: 8,
