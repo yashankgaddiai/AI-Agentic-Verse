@@ -14,20 +14,71 @@ export default function ServicesPage() {
       <SEO 
         title="Our Services"
         description="Explore our AI-powered services: AI Avatars, AI UGC Ads, AI Product Studios, AI Coaching Systems, and AI Chat Agents. Elevating brands through the power of AI."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "AI Business Solutions",
+          "provider": {
+            "@type": "Organization",
+            "name": "AI Agentic Verse",
+            "url": "https://aiagenticverse.com/"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "AI Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "AI Avatars",
+                  "description": "Create a photorealistic AI version of yourself or your brand spokesperson."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "AI UGC Ads",
+                  "description": "Scalable user-generated content that converts. Infinite variations, zero burnout."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "AI Product Studios",
+                  "description": "Create studio-quality product visuals from prompts."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "AI Coaching Systems",
+                  "description": "Your Knowledge. Teaching 24/7. Deploy AI avatars that teach and train 24/7."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "AI Chat Agents",
+                  "description": "Automate conversations, bookings, and sales with intent-aware AI."
+                }
+              }
+            ]
+          }
+        }}
       />
       <NavBar />
       <main className="pt-24 md:pt-32 pb-16 sm:pb-24 bg-white">
-        <header className="max-w-7xl mx-auto px-5 sm:px-12 mb-16 sm:mb-24 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center">
-          <div>
+        <header className="max-w-7xl mx-auto px-5 sm:px-12 mb-16 sm:mb-24 text-center">
+          <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-bold mb-6 mt-6 sm:mt-12 uppercase tracking-tight text-black leading-none">Our <span className="opacity-40">Intelligence</span></h1>
-            <p className="max-w-2xl text-base sm:text-lg md:text-xl text-black/60 leading-relaxed italic">
+            <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-black/60 leading-relaxed italic">
               Elevating brands through the invisible power of AI. Cinematic production meets algorithmic precision.
             </p>
-          </div>
-          <div className="flex justify-center order-first lg:order-last">
-            <div className="w-full max-w-[200px] sm:max-w-sm aspect-square bg-zinc-50 rounded-[28px] sm:rounded-[40px] border border-zinc-100 flex items-center justify-center">
-              <Bot size={60} className="text-zinc-200 sm:w-20 sm:h-20" />
-            </div>
           </div>
         </header>
 

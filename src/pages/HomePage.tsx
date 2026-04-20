@@ -53,6 +53,24 @@ export default function HomePage() {
       <SEO 
         title="AI Agentic Verse | Build. Automate. Scale."
         description="Your 24/7 AI Workforce for Media, Marketing & Identity. We build autonomous ecosystems that run your business at scale."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "AI Agentic Verse",
+          "url": "https://aiagenticverse.com/",
+          "logo": "https://res.cloudinary.com/dsqmjneyd/image/upload/v1775483943/1_lfvwn7.png",
+          "description": "Your 24/7 AI Workforce for Media, Marketing & Identity.",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "hello@aiagenticverse.com"
+          },
+          "sameAs": [
+            "https://twitter.com/aiagenticverse",
+            "https://www.linkedin.com/company/aiagenticverse",
+            "https://www.instagram.com/aiagenticverse"
+          ]
+        }}
       />
       <NavBar />
       

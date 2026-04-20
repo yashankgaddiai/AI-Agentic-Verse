@@ -6,6 +6,7 @@ interface SEOProps {
   keywords?: string;
   image?: string;
   url?: string;
+  schema?: object;
 }
 
 export default function SEO({ 
@@ -13,7 +14,8 @@ export default function SEO({
   description = "Your 24/7 AI Workforce for Media, Marketing & Identity. We build autonomous ecosystems that run your business at scale.",
   keywords = "AI, Automation, Media Production, AI Avatars, UGC Ads, Digital Identity",
   image = "https://res.cloudinary.com/dsqmjneyd/image/upload/v1775484147/be44d117-6a09-4c5a-a56e-533a3672b3c8_isjvmg.jpg",
-  url = "https://aiagenticverse.com/"
+  url = "https://aiagenticverse.com/",
+  schema
 }: SEOProps) {
   const siteTitle = title.includes("AI Agentic Verse") ? title : `${title} | AI Agentic Verse`;
 
@@ -33,6 +35,13 @@ export default function SEO({
       <meta property="twitter:title" content={siteTitle} />
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={image} />
+
+      {/* Structured Data */}
+      {schema && (
+        <script type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
+      )}
     </Helmet>
   );
 }

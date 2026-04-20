@@ -9,6 +9,26 @@ export default function AboutPage() {
       <SEO 
         title="About Us"
         description="Learn about AI Agentic Verse, a forward-thinking AI company dedicated to transforming businesses through intelligent, agent-based solutions."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "AI Agentic Verse",
+            "description": "AI Agentic Verse is a forward-thinking AI Company dedicated to transforming businesses through intelligent, agent-based solutions.",
+            "url": "https://aiagenticverse.com/",
+            "founder": [
+              {
+                "@type": "Person",
+                "name": "Yahgenesh"
+              },
+              {
+                "@type": "Person",
+                "name": "Yashank"
+              }
+            ]
+          }
+        }}
       />
       <NavBar />
       <main className="bg-[#fcf9f9]">
