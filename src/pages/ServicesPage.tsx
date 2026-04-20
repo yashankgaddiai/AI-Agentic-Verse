@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import { useBlobAssets } from "../hooks/useBlobAssets";
 import OptimizedImage from "../components/OptimizedImage";
 import Card from "../components/ui/Card";
-import { CheckCircle2, Bot } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import SEO from "../components/SEO";
 
 export default function ServicesPage() {
@@ -137,9 +137,6 @@ export default function ServicesPage() {
                     priority={i === 0}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <Bot size={60} className="text-white" />
-                  </div>
                 </div>
               </div>
               <div className="space-y-8">
