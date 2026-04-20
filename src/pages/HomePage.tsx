@@ -102,8 +102,8 @@ export default function HomePage() {
             <p className="font-barlow font-medium text-lg sm:text-xl md:text-2xl text-white leading-snug sm:leading-tight">
               Your 24/7 AI Workforce for <br className="sm:hidden" /> Media, Marketing & Identity
             </p>
-            <p className="font-barlow text-sm sm:text-base md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed italic px-4">
-              "From Content to Conversion — Fully Automated with AI Agents"
+            <p className="font-barlow text-sm sm:text-base md:text-xl text-white/80 max-w-4xl mx-auto leading-relaxed italic px-4">
+              "From Content to Conversion — Fully Automated with AI Agents" • "Scale Faster with Autonomous AI Systems That Never Sleep" • "The Future of Digital Growth — Powered by Agentic AI"
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5 px-6 sm:px-0">
