@@ -160,14 +160,14 @@ export default function WorkInMotionPage() {
       />
       <NavBar />
       
-      <main className="pt-32 sm:pt-40 pb-16 sm:pb-24 px-6 sm:px-8">
+      <main className="pt-24 sm:pt-40 pb-16 sm:pb-24 px-5 sm:px-8">
         <header className="max-w-7xl mx-auto mb-16 sm:mb-24 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-8 uppercase tracking-tight leading-[0.9]">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 sm:mb-8 uppercase tracking-tight leading-[0.9]">
               Our Work <br/>
               <span className="font-serif italic font-normal text-zinc-400 normal-case">In Motion</span>
             </h1>
@@ -187,7 +187,7 @@ export default function WorkInMotionPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="max-w-7xl mx-auto space-y-32 sm:space-y-48"
+          className="max-w-7xl mx-auto space-y-20 sm:space-y-48"
         >
           {clientVideos.map((video, idx) => (
             <motion.div
@@ -204,16 +204,16 @@ export default function WorkInMotionPage() {
                   }
                 }
               }}
-              className={`flex flex-col gap-12 items-center ${idx % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}
+              className={`flex flex-col gap-8 sm:gap-12 items-center ${idx % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}
             >
-              <div className="w-full lg:w-3/5 aspect-video overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-900 shadow-2xl">
+              <div className="w-full lg:w-3/5 aspect-video overflow-hidden rounded-2xl sm:rounded-[2rem] border border-white/10 bg-zinc-900 shadow-2xl">
                 <LazyVideo video={video} />
               </div>
               
               <div className={`w-full lg:w-2/5 ${idx % 2 === 1 ? 'lg:pr-8' : 'lg:pl-8'}`}>
-                <span className="text-sm font-bold uppercase tracking-widest text-zinc-500 mb-4 block">{video.category}</span>
-                <h3 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">{video.title}</h3>
-                <p className="text-xl text-zinc-400 leading-relaxed font-light whitespace-pre-line">
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-zinc-500 mb-3 sm:mb-4 block">{video.category}</span>
+                <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 sm:mb-8 leading-tight">{video.title}</h3>
+                <p className="text-lg sm:text-xl text-zinc-400 leading-relaxed font-light whitespace-pre-line">
                   {video.description}
                 </p>
                 
@@ -238,10 +238,10 @@ export default function WorkInMotionPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="max-w-4xl mx-auto mt-40 text-center p-16 rounded-[4rem] bg-white/5 border border-white/10 backdrop-blur-xl"
+          className="max-w-4xl mx-auto mt-20 sm:mt-40 text-center p-8 sm:p-16 rounded-[2rem] sm:rounded-[4rem] bg-white/5 border border-white/10 backdrop-blur-xl"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">Ready to See Your Brand <br/><span className="font-serif italic font-normal text-zinc-400">In Motion?</span></h2>
-          <p className="text-xl text-zinc-400 mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8">Ready to See Your Brand <br/><span className="font-serif italic font-normal text-zinc-400">In Motion?</span></h2>
+          <p className="text-lg sm:text-xl text-zinc-400 mb-10 sm:mb-12">
             Let's build your autonomous content engine and scale your presence globally.
           </p>
           <Button 

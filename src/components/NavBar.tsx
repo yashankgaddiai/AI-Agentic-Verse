@@ -30,11 +30,11 @@ export default function NavBar() {
   const mobileNavLinkClass = (path: string) => `font-premium font-black text-2xl uppercase tracking-widest transition-colors ${isActive(path) ? 'text-black' : 'text-zinc-700 hover:text-black'}`;
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'mt-2' : 'mt-6'} mx-auto max-w-7xl w-[95%]`}>
-      <div className={`flex justify-between items-center px-6 md:px-8 py-4 bg-white/80 backdrop-blur-md shadow-[0_20px_40px_rgba(26,28,28,0.06)] rounded-full border border-zinc-100`}>
-        <Link to="/" className="flex items-center gap-2 font-premium font-bold text-lg md:text-xl tracking-[-1px] md:tracking-[-2px] text-zinc-900">
-          <img src="https://res.cloudinary.com/dsqmjneyd/image/upload/v1775483943/1_lfvwn7.png" alt="Logo" className="w-8 h-8 rounded-full" referrerPolicy="no-referrer" />
-          <span className="whitespace-nowrap">AI Agentic Verse</span>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'mt-2' : 'mt-4 md:mt-6'} mx-auto max-w-7xl w-[94%]`}>
+      <div className={`flex justify-between items-center px-4 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-md shadow-[0_20px_40px_rgba(26,28,28,0.06)] rounded-full border border-zinc-100`}>
+        <Link to="/" className="flex items-center gap-2 font-premium font-bold text-base md:text-xl tracking-tight md:tracking-[-2px] text-zinc-900 shrink-0">
+          <img src="https://res.cloudinary.com/dsqmjneyd/image/upload/v1775483943/1_lfvwn7.png" alt="Logo" className="w-7 h-7 md:w-8 md:h-8 rounded-full" referrerPolicy="no-referrer" />
+          <span className="truncate max-w-[120px] xs:max-w-none">AI Agentic Verse</span>
         </Link>
 
         {/* Desktop Links */}
@@ -83,15 +83,18 @@ export default function NavBar() {
             <Link to="/about" className={mobileNavLinkClass('/about')}>About Us</Link>
             <Link to="/contact" className={mobileNavLinkClass('/contact')}>Contact</Link>
             
-            <div className="w-full h-px bg-zinc-100 my-4"></div>
+            <div className="w-full h-px bg-zinc-100 my-2"></div>
             
             <Button 
               variant="primary" 
-              className="w-full py-6 rounded-2xl font-premium"
-              onClick={() => window.open("https://calendly.com/aiagenticverse/ai-agentic-verse", "_blank")}
+              className="w-full py-5 rounded-2xl font-premium text-sm"
+              onClick={() => {
+                setIsOpen(false);
+                window.open("https://calendly.com/aiagenticverse/ai-agentic-verse", "_blank");
+              }}
             >
               Book A Free Meeting
-              <ArrowUpRight size={20} />
+              <ArrowUpRight size={18} />
             </Button>
           </motion.div>
         )}

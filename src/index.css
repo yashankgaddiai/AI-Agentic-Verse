@@ -47,12 +47,16 @@
 }
 
 @layer base {
+  html {
+    @apply overflow-x-hidden;
+  }
+  
   body {
-    @apply font-body bg-surface text-on-surface selection:bg-on-surface selection:text-surface transition-colors duration-500 antialiased;
+    @apply font-body bg-surface text-on-surface selection:bg-on-surface selection:text-surface transition-colors duration-500 antialiased overflow-x-hidden w-full;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply tracking-tight;
+    @apply tracking-tight break-words;
   }
 }
 

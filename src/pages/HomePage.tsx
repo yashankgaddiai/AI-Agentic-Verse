@@ -57,7 +57,7 @@ export default function HomePage() {
       <NavBar />
       
       {/* 1. Hero Section */}
-      <section className="relative min-h-[90vh] h-screen w-full overflow-hidden flex items-center justify-center text-center px-8 bg-zinc-950">
+      <section className="relative h-[100dvh] min-h-[600px] w-full overflow-hidden flex items-center justify-center text-center px-4 sm:px-8 bg-zinc-950">
         {/* Background Video (Direct Cloudinary Video) */}
         <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
           <video
@@ -66,32 +66,33 @@ export default function HomePage() {
             muted
             playsInline
             poster={getBlobUrl('herosection-poster.jpg', '/images/herosection-poster.jpg')}
-            className="absolute top-1/2 left-1/2 w-full h-full min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover opacity-100 brightness-110"
+            className="absolute top-1/2 left-1/2 w-full h-full min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover opacity-80 sm:opacity-100 brightness-110"
           >
             <source src="https://res.cloudinary.com/dsqmjneyd/video/upload/q_auto,f_auto/hero_section_gfdvyv.mp4" type="video/mp4" />
           </video>
         </div>
         
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/40 via-transparent to-zinc-950/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/60 via-transparent to-zinc-950/70"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05),transparent_70%)]"></div>
         
-        <div className="relative z-10 max-w-5xl w-full px-4 sm:px-0">
-          <h1 className="font-barlow font-bold text-4xl sm:text-6xl md:text-8xl tracking-tight-custom text-white leading-[0.9] mb-8 uppercase">
-            AI Agentic Verse <br/>
-            <span className="font-serif font-bold text-4xl sm:text-5xl md:text-[72px] tracking-normal block mt-4 normal-case">Build. Automate. Scale.</span>
+        <div className="relative z-10 max-w-5xl w-full px-2 sm:px-6">
+          <h1 className="font-barlow font-bold text-4xl sm:text-6xl md:text-8xl tracking-tight-custom text-white leading-[1] sm:leading-[0.9] mb-4 sm:mb-8 uppercase">
+            AI Agentic Verse <br className="hidden sm:block" />
+            <span className="font-serif font-bold text-3xl sm:text-5xl md:text-[72px] tracking-normal block mt-2 sm:mt-4 normal-case">Build. Automate. Scale.</span>
           </h1>
-          <div className="space-y-4 mb-12">
-            <p className="font-barlow font-medium text-lg sm:text-xl md:text-2xl text-white leading-relaxed">
-              Your 24/7 AI Workforce for Media, Marketing & Identity
+          <div className="space-y-4 mb-10 sm:mb-12">
+            <p className="font-barlow font-medium text-lg sm:text-xl md:text-2xl text-white leading-snug sm:leading-tight">
+              Your 24/7 AI Workforce for <br className="sm:hidden" /> Media, Marketing & Identity
             </p>
-            <p className="font-barlow text-base sm:text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed italic">
-              "From Content to Conversion — Fully Automated with AI Agents" • "Scale Faster with Autonomous AI Systems That Never Sleep" • "The Future of Digital Growth — Powered by Agentic AI"
+            <p className="font-barlow text-sm sm:text-base md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed italic px-4">
+              "From Content to Conversion — Fully Automated with AI Agents"
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 px-6 sm:px-0">
             <Button 
+              variant="secondary"
               size="lg" 
-              className="group w-full sm:w-auto"
+              className="group w-full sm:w-auto h-14 sm:h-16 px-8 sm:px-12 text-sm sm:text-base font-black shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)]"
               onClick={() => window.open("https://calendly.com/aiagenticverse/ai-agentic-verse", "_blank")}
             >
               Deploy Your Digital Clone
@@ -100,9 +101,9 @@ export default function HomePage() {
             <Link to="/contact" className="w-full sm:w-auto">
               <Button 
                 size="lg" 
-                className="group w-full sm:w-auto"
+                className="group w-full sm:w-auto h-14 sm:h-16 px-8 sm:px-12 text-sm sm:text-base font-bold bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all duration-500"
               >
-                Contact
+                Contact Us
                 <ArrowRight className="group-hover:translate-x-1.5 transition-transform" />
               </Button>
             </Link>
@@ -111,16 +112,16 @@ export default function HomePage() {
       </section>
 
       {/* New Section: Autonomous Ecosystems */}
-      <section className="py-32 px-8 bg-white border-y border-zinc-100">
+      <section className="py-20 sm:py-32 px-5 sm:px-8 bg-white border-y border-zinc-100">
         <div className="max-w-5xl mx-auto">
           <div className="max-w-3xl">
-            <div className="mb-16">
-              <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-zinc-900 px-6 py-2.5 rounded-full inline-block mb-10 border border-zinc-800">Our Mission</span>
-              <h2 className="font-headline font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-8 text-zinc-900">
+            <div className="mb-12 sm:mb-16">
+              <span className="font-barlow font-bold text-xs sm:text-sm uppercase tracking-[0.3em] text-white bg-zinc-900 px-5 sm:px-6 py-2.5 rounded-full inline-block mb-8 sm:mb-10 border border-zinc-800">Our Mission</span>
+              <h2 className="font-headline font-bold text-3xl sm:text-4xl md:text-6xl tracking-tight leading-tight mb-6 sm:mb-8 text-zinc-900">
                 At AI Agentic Verse, we don’t just use AI — <br/>
                 <span className="text-zinc-900">we build autonomous ecosystems</span> that run your business at scale.
               </h2>
-              <p className="font-barlow text-xl md:text-2xl text-zinc-600 leading-relaxed">
+              <p className="font-barlow text-lg sm:text-xl md:text-2xl text-zinc-600 leading-relaxed">
                 We specialize in end-to-end automation of media production, creative testing, and digital identity, enabling brands, creators, and businesses to operate with speed, intelligence, and precision.
               </p>
             </div>
@@ -181,13 +182,13 @@ export default function HomePage() {
       </section>
 
       {/* AI Avatars Section */}
-      <section className="py-24 sm:py-32 px-6 sm:px-8 bg-zinc-900 text-white overflow-hidden">
+      <section className="py-20 sm:py-32 px-5 sm:px-8 bg-zinc-900 text-white overflow-hidden">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-12 sm:mb-16">
-            <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-white/5 px-6 py-2.5 rounded-full inline-block mb-8 sm:mb-10 border border-white/10">AI Avatars</span>
-            <h2 className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-8">
+          <div className="mb-10 sm:mb-16">
+            <span className="font-barlow font-bold text-xs sm:text-sm uppercase tracking-[0.3em] text-white bg-white/5 px-5 sm:px-6 py-2.5 rounded-full inline-block mb-6 sm:mb-10 border border-white/10">AI Avatars</span>
+            <h2 className="font-headline font-bold text-3xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-6 sm:mb-8">
               Scale Your Presence <br/>
-              <span className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight text-white">Without Showing Up</span>
+              <span className="font-headline font-bold text-3xl sm:text-5xl md:text-6xl tracking-tight leading-tight text-white">Without Showing Up</span>
             </h2>
             <p className="font-barlow text-lg sm:text-xl md:text-2xl text-zinc-400 leading-relaxed">
               Create powerful content without ever stepping in front of the camera. At AI Agentic Verse, our AI Avatars enable you to build scalable digital identities that consistently represent your brand across every platform.
@@ -232,13 +233,13 @@ export default function HomePage() {
       </section>
 
       {/* AI UGC Avatars Section */}
-      <section className="py-24 sm:py-32 px-6 sm:px-8 bg-white text-zinc-900 overflow-hidden">
+      <section className="py-20 sm:py-32 px-5 sm:px-8 bg-white text-zinc-900 overflow-hidden">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-12 sm:mb-16">
-            <span className="font-barlow font-bold text-sm uppercase tracking-[0.3em] text-white bg-zinc-900 px-6 py-2.5 rounded-full inline-block mb-8 sm:mb-10 border border-zinc-800">AI UGC Avatars</span>
-            <h2 className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-8">
+          <div className="mb-10 sm:mb-16">
+            <span className="font-barlow font-bold text-xs sm:text-sm uppercase tracking-[0.3em] text-white bg-zinc-900 px-5 sm:px-6 py-2.5 rounded-full inline-block mb-6 sm:mb-10 border border-zinc-800">AI UGC Avatars</span>
+            <h2 className="font-headline font-bold text-3xl sm:text-5xl md:text-6xl tracking-tight leading-tight mb-6 sm:mb-8">
               High-Converting Ads, <br/>
-              <span className="font-headline font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-tight text-zinc-900">Generated & Scaled by AI</span>
+              <span className="font-headline font-bold text-3xl sm:text-5xl md:text-6xl tracking-tight leading-tight text-zinc-900">Generated & Scaled by AI</span>
             </h2>
             <p className="font-barlow text-lg sm:text-xl md:text-2xl text-zinc-600 leading-relaxed">
               At AI AgenticVerse, we redefine user-generated content with AI-powered UGC Avatars — enabling brands to create authentic, high-converting ad creatives without relying on traditional creators.

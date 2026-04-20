@@ -98,18 +98,18 @@ export default function ContactPage() {
         description="Get in touch with AI Agentic Verse. Schedule a strategy call or send us a message to discuss your AI integration roadmap."
       />
       <NavBar />
-      <main className="pt-32 sm:pt-40 pb-16 sm:pb-24 px-6 sm:px-8 md:px-[120px] max-w-7xl mx-auto">
-        <header className="mb-16 sm:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8 mt-8 sm:mt-12">
+      <main className="pt-28 sm:pt-40 pb-16 sm:pb-24 px-5 sm:px-8 max-w-7xl mx-auto">
+        <header className="mb-12 sm:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8 mt-6 sm:mt-12">
           <div className="max-w-2xl">
-            <h1 className="font-bold text-4xl sm:text-6xl md:text-8xl tracking-tight leading-[0.9] text-on-surface uppercase mb-6">
+            <h1 className="font-bold text-3xl sm:text-6xl md:text-8xl tracking-tight leading-[0.95] text-on-surface uppercase mb-4 sm:mb-6">
               Connect with <span className="opacity-40">intelligence</span>
             </h1>
           </div>
         </header>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-7 bg-black/[0.02] dark:bg-white/[0.02] rounded-[3rem] p-4 md:p-8 border border-black/5 dark:border-white/5 overflow-hidden">
-            <h2 className="font-bold text-3xl uppercase tracking-tight mb-8 px-4">Schedule a Call</h2>
-            <div className="rounded-[2rem] overflow-hidden bg-white">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start">
+          <div className="lg:col-span-7 bg-black/[0.02] dark:bg-white/[0.02] rounded-2xl sm:rounded-[3rem] p-3 md:p-8 border border-black/5 dark:border-white/5 overflow-hidden">
+            <h2 className="font-bold text-2xl sm:text-3xl uppercase tracking-tight mb-6 sm:mb-8 px-2 sm:px-4">Schedule a Call</h2>
+            <div className="rounded-xl sm:rounded-[2rem] overflow-hidden bg-white">
               <InlineWidget 
                 url="https://calendly.com/aiagenticverse/ai-agentic-verse" 
                 styles={{
@@ -120,8 +120,8 @@ export default function ContactPage() {
             </div>
           </div>
           <div className="lg:col-span-5 space-y-8">
-            <div className="bg-black/[0.02] dark:bg-white/[0.02] rounded-[3rem] p-8 md:p-12 border border-black/5 dark:border-white/5">
-              <h3 className="font-bold text-2xl uppercase tracking-tight mb-10">Direct Message</h3>
+            <div className="bg-black/[0.02] dark:bg-white/[0.02] rounded-2xl sm:rounded-[3rem] p-6 sm:p-12 border border-black/5 dark:border-white/5">
+              <h3 className="font-bold text-xl sm:text-2xl uppercase tracking-tight mb-8 sm:mb-10">Direct Message</h3>
               {submitted ? (
                 <div className="py-12 text-center space-y-6">
                   <div className="w-20 h-20 bg-green-50 text-green-500 rounded-full flex items-center justify-center mx-auto">

@@ -16,22 +16,22 @@ export default function ServicesPage() {
         description="Explore our AI-powered services: AI Avatars, AI UGC Ads, AI Product Studios, AI Coaching Systems, and AI Chat Agents. Elevating brands through the power of AI."
       />
       <NavBar />
-      <main className="pt-24 sm:pt-32 pb-16 sm:pb-24 bg-white">
-        <header className="max-w-7xl mx-auto px-6 sm:px-12 md:px-[120px] mb-16 sm:mb-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <main className="pt-24 md:pt-32 pb-16 sm:pb-24 bg-white">
+        <header className="max-w-7xl mx-auto px-5 sm:px-12 mb-16 sm:mb-24 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center">
           <div>
-            <h1 className="text-5xl sm:text-7xl md:text-9xl font-bold mb-6 mt-8 sm:mt-12 uppercase tracking-tight text-black">Our <span className="opacity-40">Intelligence</span></h1>
-            <p className="max-w-2xl text-lg sm:text-xl text-black/60 leading-relaxed">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-bold mb-6 mt-6 sm:mt-12 uppercase tracking-tight text-black leading-none">Our <span className="opacity-40">Intelligence</span></h1>
+            <p className="max-w-2xl text-base sm:text-lg md:text-xl text-black/60 leading-relaxed italic">
               Elevating brands through the invisible power of AI. Cinematic production meets algorithmic precision.
             </p>
           </div>
-          <div className="flex justify-center">
-            <div className="w-full max-w-xs sm:max-w-sm aspect-square bg-zinc-50 rounded-[32px] sm:rounded-[40px] border border-zinc-100 flex items-center justify-center">
-              <Bot size={80} className="text-zinc-200" />
+          <div className="flex justify-center order-first lg:order-last">
+            <div className="w-full max-w-[200px] sm:max-w-sm aspect-square bg-zinc-50 rounded-[28px] sm:rounded-[40px] border border-zinc-100 flex items-center justify-center">
+              <Bot size={60} className="text-zinc-200 sm:w-20 sm:h-20" />
             </div>
           </div>
         </header>
 
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 md:px-[120px] space-y-24 sm:space-y-40">
+        <div className="max-w-7xl mx-auto px-5 sm:px-12 space-y-24 sm:space-y-40">
           {[
             {
               id: "01",
@@ -75,9 +75,9 @@ export default function ServicesPage() {
               img: "https://res.cloudinary.com/dsqmjneyd/image/upload/q_auto/f_auto/v1775484167/6_gtrpqm.png"
             }
           ].map((service, i) => (
-            <Card key={i} variant="none" padding="none" className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center border-none rounded-none hover:translate-y-0">
+            <Card key={i} variant="none" padding="none" className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-center border-none rounded-none hover:translate-y-0">
               <div className={`${i % 2 === 1 ? 'lg:order-2' : ''}`}>
-                <div className="relative w-full aspect-video overflow-hidden rounded-[2rem] mb-8 shadow-2xl border border-black/10 group">
+                <div className="relative w-full aspect-video overflow-hidden rounded-2xl sm:rounded-[2rem] mb-6 sm:mb-8 shadow-2xl border border-black/10 group">
                   <OptimizedImage 
                     filename={service.img.split('/').pop() || ''} 
                     fallback={service.img}
@@ -93,9 +93,9 @@ export default function ServicesPage() {
               </div>
               <div className="space-y-8">
                 <div>
-                  <span className="uppercase tracking-[4px] text-xs text-black/40 mb-4 block">Service {service.id}</span>
-                  <h2 className="text-5xl md:text-7xl font-bold mb-4 text-black">{service.title}</h2>
-                  <p className="text-2xl text-black/60 italic">{service.tagline}</p>
+                  <span className="uppercase tracking-[4px] text-[10px] sm:text-xs text-black/40 mb-3 sm:mb-4 block">Service {service.id}</span>
+                  <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-3 sm:mb-4 text-black leading-tight">{service.title}</h2>
+                  <p className="text-lg sm:text-2xl text-black/60 italic">{service.tagline}</p>
                 </div>
                 <p className="text-xl text-black/50 leading-relaxed">
                   {service.desc}
