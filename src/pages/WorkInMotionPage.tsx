@@ -62,6 +62,15 @@ const clientVideos = [
     tags: ["AI Commercial", "Hindi", "Brand Storytelling"]
   },
   {
+    id: 13,
+    title: "Fortune Global Elevators",
+    category: "AI Commercial · Brand Promotion · Mechanism Storytelling",
+    videoUrl: "https://www.youtube.com/embed/uOnMOEp5xSA",
+    thumbnail: "https://img.youtube.com/vi/uOnMOEp5xSA/maxresdefault.jpg",
+    description: "Fortune Global Elevators is a brand built on precision engineering, reliability and the seamless movement of people across spaces every single day.\n\nWe produced an AI-generated elevator commercial that does more than promote a brand. It takes viewers inside the mechanics of how an elevator works, the cables, the counterweights, the safety systems and the engineering intelligence behind every smooth ride. The film demystifies the technology while building confidence in Fortune Global's craftsmanship and quality.\n\nThe result is a brand commercial that educates and inspires at the same time, positioning Fortune Global Elevators as a name synonymous with safety, innovation and engineering excellence, powered entirely by AI.",
+    tags: ["AI Commercial", "Brand Promotion", "Mechanism Storytelling"]
+  },
+  {
     id: 12,
     title: "Doctor Avatar",
     category: "AI Avatar · Content Creation · Personal Branding · Demo",
