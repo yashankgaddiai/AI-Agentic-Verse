@@ -6,7 +6,6 @@ import ServicesPage from "./pages/ServicesPage";
 import WorkInMotionPage from "./pages/WorkInMotionPage";
 import ContactPage from "./pages/ContactPage";
 import AdminMediaPage from "./pages/AdminMediaPage";
-import ChatAgent from "./components/ChatAgent";
 import ScrollToTop from "./components/ScrollToTop";
 import ErrorBoundary from "./components/ErrorBoundary";
 
@@ -24,7 +23,6 @@ export default function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/admin/media" element={<AdminMediaPage />} />
           </Routes>
-          <ChatAgent />
         </Router>
       </HelmetProvider>
     </ErrorBoundary>
