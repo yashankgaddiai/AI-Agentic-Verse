@@ -1,7 +1,5 @@
 import express from "express";
-import { createServer as createViteServer } from "vite";
 import path from "path";
-import { fileURLToPath } from "url";
 
 // Import Vercel Serverless Handlers
 import remoteAssetsHandler from "./api/admin/remote-assets.ts";
@@ -11,19 +9,12 @@ import uploadHandler from "./api/upload.ts";
 import testUploadHandler from "./api/admin/test-upload.ts";
 import healthHandler from "./api/health.ts";
 
-let resolvedFilename = "";
-try {
-  if (typeof import.meta !== "undefined" && import.meta.url) {
-    resolvedFilename = fileURLToPath(import.meta.url);
-  }
-} catch (e) {}
-
-const clientFilename = resolvedFilename;
-const clientDirname = clientFilename ? path.dirname(clientFilename) : "";
-
 async function startServer() {
   const app = express();
-  const PORT = 3000;
+  const PORT = Number(process.env.PORT) || 3000;
+  const isDev = process.argv.includes("--dev") || process.env.NODE_ENV === "development";
+
+  app.disable("x-powered-by");
 
   // Middleware for JSON bodies (used by sync-asset, etc.)
   app.use(express.json());
@@ -38,19 +29,31 @@ async function startServer() {
   app.get("/api/admin/remote-assets", remoteAssetsHandler);
   app.post("/api/admin/test-upload", testUploadHandler);
 
-  // Vite middleware for development
-  const isDev = process.env.NODE_ENV === "development";
   if (isDev) {
+    const { createServer: createViteServer } = await import("vite");
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
     });
     app.use(vite.middlewares);
   } else {
-    const distPath = path.join(process.cwd(), "dist");
-    app.use(express.static(distPath));
+    app.use(
+      express.static(path.join(__dirname, "dist"), {
+        index: false,
+        setHeaders: (res, filePath) => {
+          if (filePath.endsWith(".js") || filePath.endsWith(".mjs")) {
+            res.type("application/javascript");
+          }
+        },
+      }),
+    );
+
+    app.get(/^\/src\/.*\.(?:ts|tsx|js|jsx)$/, (_req, res) => {
+      res.sendStatus(404);
+    });
+
     app.get("*", (req, res) => {
-      res.sendFile(path.join(distPath, "index.html"));
+      res.sendFile(path.join(__dirname, "dist", "index.html"));
     });
   }
 
