@@ -39,7 +39,7 @@ async function startServer() {
   app.post("/api/admin/test-upload", testUploadHandler);
 
   // Vite middleware for development
-  const isDev = process.env.NODE_ENV === "development" || process.env.NODE_ENV !== "production" || !process.env.NODE_ENV;
+  const isDev = process.env.NODE_ENV === "development";
   if (isDev) {
     const vite = await createViteServer({
       server: { middlewareMode: true },
