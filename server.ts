@@ -48,7 +48,7 @@ async function startServer() {
       }),
     );
 
-    app.get(/^\/src\/.*\.(?:ts|tsx|js|jsx)$/, (_req, res) => {
+    app.get(/^\/(?:src\/.*|main)\.(?:ts|tsx|js|jsx)$/, (_req, res) => {
       res.sendStatus(404);
     });
 

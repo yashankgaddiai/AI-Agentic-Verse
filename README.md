@@ -28,7 +28,7 @@ This creates:
 - `dist/assets/*` compiled Vite bundles
 - `server.cjs` bundled Express production server
 
-Production must serve `dist/index.html`, not the repository root `index.html`. The root HTML is Vite's development entry and intentionally references `/src/main.tsx`; the production HTML generated in `dist/` references compiled `/assets/*.js` files.
+Production should serve `dist/index.html` through the Node server. The Vite development entry lives at `src/index.html`; the repository-root `index.html` is a production-safe fallback for misconfigured static hosts and does not reference raw TypeScript or TSX files.
 
 ## Production Start
 
@@ -40,7 +40,7 @@ The production server:
 
 - serves static assets from `dist/`
 - sends SPA routes to `dist/index.html`
-- returns 404 for raw `/src/*.ts` and `/src/*.tsx` requests
+- returns 404 for raw `/src/*.ts`, `/src/*.tsx`, and `/main.tsx` requests
 - serves JavaScript modules with `application/javascript`
 - uses `process.env.PORT` when provided by the host
 
