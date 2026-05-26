@@ -11,8 +11,15 @@ import uploadHandler from "./api/upload.ts";
 import testUploadHandler from "./api/admin/test-upload.ts";
 import healthHandler from "./api/health.ts";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+let resolvedFilename = "";
+try {
+  if (typeof import.meta !== "undefined" && import.meta.url) {
+    resolvedFilename = fileURLToPath(import.meta.url);
+  }
+} catch (e) {}
+
+const clientFilename = resolvedFilename;
+const clientDirname = clientFilename ? path.dirname(clientFilename) : "";
 
 async function startServer() {
   const app = express();
