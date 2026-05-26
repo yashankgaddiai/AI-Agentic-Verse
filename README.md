@@ -30,6 +30,8 @@ This creates:
 
 Production should serve `dist/index.html` through the Node server. The Vite development entry lives at `src/index.html`; the repository-root `index.html` is a production-safe fallback for misconfigured static hosts and does not reference raw TypeScript or TSX files.
 
+The compiled `dist/` directory is also committed for Hostinger setups that deploy files directly from GitHub without running a build command.
+
 ## Production Start
 
 ```bash
@@ -53,7 +55,9 @@ Use Node.js hosting with these settings:
 - Startup file / command: `server.cjs` or `npm start`
 - Public assets directory: `dist`
 
-Do not upload or configure the root `index.html` as the production document root. Deploy the built `dist/` directory and `server.cjs` together.
+Best option: configure the app as Node.js hosting and start `server.cjs`.
+
+Static fallback option: if Hostinger serves the repository root directly, keep the committed `dist/` directory deployed with the root `.htaccess`. The root `index.html` will load `dist/index.html`, and `.htaccess` maps static assets and SPA routes correctly.
 
 ## Vercel Deployment
 
