@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useBlobAssets } from "../hooks/useBlobAssets";
 
 interface OptimizedImageProps {
@@ -48,22 +48,6 @@ export default function OptimizedImage({
   
   // Use 800px version as default src if it exists, otherwise original
   const mainSrc = url800 || originalUrl || '';
-
-  // Handle priority preloading
-  useEffect(() => {
-    if (priority && mainSrc) {
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.as = 'image';
-      link.href = mainSrc;
-      if (srcSet) link.imageSrcset = srcSet;
-      if (sizes) link.imageSizes = sizes;
-      document.head.appendChild(link);
-      return () => {
-        document.head.removeChild(link);
-      };
-    }
-  }, [priority, mainSrc, srcSet, sizes]);
 
   return (
     <div className={`relative overflow-hidden ${className}`}>

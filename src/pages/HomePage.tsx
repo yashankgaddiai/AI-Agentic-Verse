@@ -11,42 +11,21 @@ import SEO from "../components/SEO";
 
 export default function HomePage() {
   const { getBlobUrl } = useBlobAssets();
+  const heroPosterUrl = getBlobUrl(
+    'herosection-poster.jpg',
+    'https://res.cloudinary.com/dsqmjneyd/image/upload/v1775484147/be44d117-6a09-4c5a-a56e-533a3672b3c8_isjvmg.jpg'
+  );
 
-  // Preload hero video and poster
   useEffect(() => {
-    const posterUrl = getBlobUrl('herosection-poster.jpg', '/images/herosection-poster.jpg');
-    const videoUrl = "https://res.cloudinary.com/dsqmjneyd/video/upload/q_auto,f_auto/hero_section_gfdvyv.mp4";
-    
     const preconnect1 = document.createElement('link');
     preconnect1.rel = 'preconnect';
     preconnect1.href = 'https://res.cloudinary.com';
     document.head.appendChild(preconnect1);
 
-    const preloadVideo = document.createElement('link');
-    preloadVideo.rel = 'preload';
-    preloadVideo.as = 'video';
-    preloadVideo.href = videoUrl;
-    document.head.appendChild(preloadVideo);
-
-    if (posterUrl) {
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.as = 'image';
-      link.href = posterUrl;
-      document.head.appendChild(link);
-      
-      return () => {
-        document.head.removeChild(link);
-        document.head.removeChild(preconnect1);
-        document.head.removeChild(preloadVideo);
-      };
-    }
-
     return () => {
       document.head.removeChild(preconnect1);
-      document.head.removeChild(preloadVideo);
     };
-  }, [getBlobUrl]);
+  }, []);
 
   return (
     <div className="bg-surface text-on-surface">
@@ -83,7 +62,7 @@ export default function HomePage() {
             loop
             muted
             playsInline
-            poster={getBlobUrl('herosection-poster.jpg', '/images/herosection-poster.jpg')}
+            poster={heroPosterUrl}
             className="absolute top-1/2 left-1/2 w-full h-full min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover opacity-80 sm:opacity-100 brightness-110"
           >
             <source src="https://res.cloudinary.com/dsqmjneyd/video/upload/q_auto,f_auto/hero_section_gfdvyv.mp4" type="video/mp4" />

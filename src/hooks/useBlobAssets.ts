@@ -12,27 +12,35 @@ export function useBlobAssets() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    let isMounted = true;
+
     fetch('/api/admin/remote-assets')
       .then(res => {
-        if (!res.ok) {
-          throw new Error(`API error: ${res.status}`);
+        const contentType = res.headers.get('content-type') || '';
+        if (!res.ok || !contentType.includes('application/json')) {
+          return [];
         }
         return res.json();
       })
       .then((data) => {
+        if (!isMounted) return;
+
         if (Array.isArray(data)) {
           setBlobs(data);
         } else {
-          console.warn('Remote assets API did not return an array (likely token missing):', data);
           setBlobs([]);
         }
         setLoading(false);
       })
-      .catch(err => {
-        console.warn('Failed to fetch remote assets (falling back to local):', err.message);
+      .catch(() => {
+        if (!isMounted) return;
         setBlobs([]);
         setLoading(false);
       });
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const getBlobUrl = (filename: string, fallback: string | null = null) => {
