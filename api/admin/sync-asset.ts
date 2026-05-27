@@ -2,8 +2,11 @@ import { put } from '@vercel/blob';
 import fs from "fs";
 import path from "path";
 import sharp from "sharp";
+import { requireAdminRequest } from "../auth.ts";
 
 export default async function handler(req: any, res: any) {
+  if (!requireAdminRequest(req, res)) return;
+
   const token = process.env.BLOB_READ_WRITE_TOKEN;
   if (!token) return res.status(401).json({ error: "Vercel Blob token is missing." });
 
@@ -15,17 +18,23 @@ export default async function handler(req: any, res: any) {
     const { filename } = req.body;
     if (!filename) return res.status(400).json({ error: "Filename required" });
 
-    const filePath = path.join(process.cwd(), "public", "images", filename);
+    const safeFilename = path.basename(filename);
+    if (safeFilename !== filename) {
+      return res.status(400).json({ error: "Invalid filename" });
+    }
+
+    const imagesDir = path.join(process.cwd(), "public", "images");
+    const filePath = path.join(imagesDir, safeFilename);
     if (!fs.existsSync(filePath)) {
       return res.status(404).json({ error: "File not found" });
     }
 
     const fileBuffer = fs.readFileSync(filePath);
-    const contentType = filename.endsWith('.png') ? 'image/png' : 'image/jpeg';
+    const contentType = safeFilename.endsWith('.png') ? 'image/png' : 'image/jpeg';
     const isImage = contentType.startsWith('image/') && !filename.endsWith('.svg');
 
     if (isImage) {
-      const baseName = filename.substring(0, filename.lastIndexOf('.')) || filename;
+      const baseName = safeFilename.substring(0, safeFilename.lastIndexOf('.')) || safeFilename;
       const sizes = [400, 800, 1200];
       
       const uploadPromises = sizes.map(async (size) => {
@@ -43,7 +52,7 @@ export default async function handler(req: any, res: any) {
         });
       });
 
-      const mainUploadPromise = put(filename, fileBuffer, {
+      const mainUploadPromise = put(safeFilename, fileBuffer, {
         access: "public",
         contentType,
         token,
@@ -54,7 +63,7 @@ export default async function handler(req: any, res: any) {
       const results = await Promise.all([...uploadPromises, mainUploadPromise]);
       res.status(200).json(results[results.length - 1]);
     } else {
-      const blob = await put(filename, fileBuffer, {
+      const blob = await put(safeFilename, fileBuffer, {
         access: "public",
         token,
         addRandomSuffix: false,

@@ -15,6 +15,13 @@ async function startServer() {
   const isDev = process.argv.includes("--dev") || process.env.NODE_ENV === "development";
 
   app.disable("x-powered-by");
+  app.use((_req, res, next) => {
+    res.setHeader("X-Content-Type-Options", "nosniff");
+    res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+    res.setHeader("X-Frame-Options", "SAMEORIGIN");
+    res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=()");
+    next();
+  });
 
   // Middleware for JSON bodies (used by sync-asset, etc.)
   app.use(express.json());
@@ -43,6 +50,11 @@ async function startServer() {
         setHeaders: (res, filePath) => {
           if (filePath.endsWith(".js") || filePath.endsWith(".mjs")) {
             res.type("application/javascript");
+          }
+          if (filePath.includes(`${path.sep}assets${path.sep}`)) {
+            res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+          } else if (filePath.endsWith(".html")) {
+            res.setHeader("Cache-Control", "no-store");
           }
         },
       }),

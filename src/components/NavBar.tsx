@@ -2,11 +2,9 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import { useBlobAssets } from "../hooks/useBlobAssets";
 import Button from "./ui/Button";
 
 export default function NavBar() {
-  const { getBlobUrl } = useBlobAssets();
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -33,7 +31,7 @@ export default function NavBar() {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'mt-2' : 'mt-4 md:mt-6'} mx-auto max-w-7xl w-[94%]`}>
       <div className={`flex justify-between items-center px-4 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-md shadow-[0_20px_40px_rgba(26,28,28,0.06)] rounded-full border border-zinc-100`}>
         <Link to="/" className="flex items-center gap-2 font-premium font-bold text-base md:text-xl tracking-tight md:tracking-[-2px] text-zinc-900 shrink-0">
-          <img src="https://res.cloudinary.com/dsqmjneyd/image/upload/v1775483943/1_lfvwn7.png" alt="Logo" className="w-7 h-7 md:w-8 md:h-8 rounded-full" referrerPolicy="no-referrer" />
+          <img src="https://res.cloudinary.com/dsqmjneyd/image/upload/v1775483943/1_lfvwn7.png" alt="AI Agentic Verse logo" className="w-7 h-7 md:w-8 md:h-8 rounded-full" referrerPolicy="no-referrer" />
           <span className="truncate max-w-[120px] xs:max-w-none">AI Agentic Verse</span>
         </Link>
 
@@ -51,7 +49,7 @@ export default function NavBar() {
             variant="primary" 
             size="sm" 
             className="hidden sm:flex group h-11 px-6 font-premium"
-            onClick={() => window.open("https://calendly.com/aiagenticverse/ai-agentic-verse", "_blank")}
+            onClick={() => window.open("https://calendly.com/aiagenticverse/ai-agentic-verse", "_blank", "noopener,noreferrer")}
           >
             Book Meeting
             <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -62,6 +60,8 @@ export default function NavBar() {
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden p-2 text-zinc-900 hover:bg-zinc-100 rounded-full transition-colors"
             aria-label="Toggle Menu"
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -75,6 +75,7 @@ export default function NavBar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
+            id="mobile-navigation"
             className="absolute top-full left-0 right-0 mt-4 p-8 bg-white/95 backdrop-blur-xl rounded-[32px] border border-zinc-100 shadow-2xl lg:hidden flex flex-col items-center gap-8 z-40"
           >
             <Link to="/" className={mobileNavLinkClass('/')}>Home</Link>
@@ -90,7 +91,7 @@ export default function NavBar() {
               className="w-full py-5 rounded-2xl font-premium text-sm"
               onClick={() => {
                 setIsOpen(false);
-                window.open("https://calendly.com/aiagenticverse/ai-agentic-verse", "_blank");
+                window.open("https://calendly.com/aiagenticverse/ai-agentic-verse", "_blank", "noopener,noreferrer");
               }}
             >
               Book A Free Meeting

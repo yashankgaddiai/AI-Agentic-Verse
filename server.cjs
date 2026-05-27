@@ -23,11 +23,29 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 
 // server.ts
 var import_express = __toESM(require("express"), 1);
-var import_path3 = __toESM(require("path"), 1);
+var import_path4 = __toESM(require("path"), 1);
 
 // api/admin/remote-assets.ts
 var import_blob = require("@vercel/blob");
+
+// api/auth.ts
+var ADMIN_HEADER = "x-admin-token";
+function isAdminRequest(req) {
+  const expected = process.env.ADMIN_API_TOKEN;
+  if (!expected) return false;
+  const headerToken = req.headers?.[ADMIN_HEADER] || req.headers?.[ADMIN_HEADER.toLowerCase()];
+  const bearerToken = typeof req.headers?.authorization === "string" ? req.headers.authorization.replace(/^Bearer\s+/i, "") : "";
+  return headerToken === expected || bearerToken === expected;
+}
+function requireAdminRequest(req, res) {
+  if (isAdminRequest(req)) return true;
+  res.status(403).json({ error: "Admin API token required." });
+  return false;
+}
+
+// api/admin/remote-assets.ts
 async function handler(req, res) {
+  if (!requireAdminRequest(req, res)) return;
   const token = process.env.BLOB_READ_WRITE_TOKEN;
   if (!token) {
     console.warn("\u26A0\uFE0F Vercel Blob token (BLOB_READ_WRITE_TOKEN) is missing. Falling back to local assets.");
@@ -68,6 +86,7 @@ var import_fs2 = __toESM(require("fs"), 1);
 var import_path2 = __toESM(require("path"), 1);
 var import_sharp = __toESM(require("sharp"), 1);
 async function handler3(req, res) {
+  if (!requireAdminRequest(req, res)) return;
   const token = process.env.BLOB_READ_WRITE_TOKEN;
   if (!token) return res.status(401).json({ error: "Vercel Blob token is missing." });
   if (req.method !== "POST") {
@@ -76,15 +95,20 @@ async function handler3(req, res) {
   try {
     const { filename } = req.body;
     if (!filename) return res.status(400).json({ error: "Filename required" });
-    const filePath = import_path2.default.join(process.cwd(), "public", "images", filename);
+    const safeFilename = import_path2.default.basename(filename);
+    if (safeFilename !== filename) {
+      return res.status(400).json({ error: "Invalid filename" });
+    }
+    const imagesDir = import_path2.default.join(process.cwd(), "public", "images");
+    const filePath = import_path2.default.join(imagesDir, safeFilename);
     if (!import_fs2.default.existsSync(filePath)) {
       return res.status(404).json({ error: "File not found" });
     }
     const fileBuffer = import_fs2.default.readFileSync(filePath);
-    const contentType = filename.endsWith(".png") ? "image/png" : "image/jpeg";
+    const contentType = safeFilename.endsWith(".png") ? "image/png" : "image/jpeg";
     const isImage = contentType.startsWith("image/") && !filename.endsWith(".svg");
     if (isImage) {
-      const baseName = filename.substring(0, filename.lastIndexOf(".")) || filename;
+      const baseName = safeFilename.substring(0, safeFilename.lastIndexOf(".")) || safeFilename;
       const sizes = [400, 800, 1200];
       const uploadPromises = sizes.map(async (size) => {
         const optimizedBuffer = await (0, import_sharp.default)(fileBuffer).resize(size, null, { withoutEnlargement: true }).webp({ quality: 70 }).toBuffer();
@@ -96,7 +120,7 @@ async function handler3(req, res) {
           cacheControlMaxAge: 31536e3
         });
       });
-      const mainUploadPromise = (0, import_blob2.put)(filename, fileBuffer, {
+      const mainUploadPromise = (0, import_blob2.put)(safeFilename, fileBuffer, {
         access: "public",
         contentType,
         token,
@@ -106,7 +130,7 @@ async function handler3(req, res) {
       const results = await Promise.all([...uploadPromises, mainUploadPromise]);
       res.status(200).json(results[results.length - 1]);
     } else {
-      const blob = await (0, import_blob2.put)(filename, fileBuffer, {
+      const blob = await (0, import_blob2.put)(safeFilename, fileBuffer, {
         access: "public",
         token,
         addRandomSuffix: false,
@@ -123,14 +147,20 @@ async function handler3(req, res) {
 // api/upload.ts
 var import_blob3 = require("@vercel/blob");
 var import_sharp2 = __toESM(require("sharp"), 1);
+var import_path3 = __toESM(require("path"), 1);
 async function handler4(req, res) {
+  if (!requireAdminRequest(req, res)) return;
   const token = process.env.BLOB_READ_WRITE_TOKEN;
   if (!token) return res.status(401).json({ error: "Vercel Blob token is missing." });
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
   try {
-    const filename = req.query.filename || "file.png";
+    const rawFilename = req.query.filename || "file.png";
+    const filename = import_path3.default.basename(rawFilename).replace(/[^a-zA-Z0-9._-]/g, "-");
+    if (!filename || filename !== rawFilename) {
+      return res.status(400).json({ error: "Invalid filename" });
+    }
     const contentType = req.headers["content-type"] || "application/octet-stream";
     const isImage = contentType.startsWith("image/") && !contentType.includes("svg");
     if (isImage) {
@@ -177,6 +207,7 @@ async function handler4(req, res) {
 // api/admin/test-upload.ts
 var import_blob4 = require("@vercel/blob");
 async function handler5(req, res) {
+  if (!requireAdminRequest(req, res)) return;
   const token = process.env.BLOB_READ_WRITE_TOKEN;
   if (!token) return res.status(401).json({ error: "Vercel Blob token is missing." });
   if (req.method !== "POST") {
@@ -205,6 +236,13 @@ async function startServer() {
   const PORT = Number(process.env.PORT) || 3e3;
   const isDev = process.argv.includes("--dev") || process.env.NODE_ENV === "development";
   app.disable("x-powered-by");
+  app.use((_req, res, next) => {
+    res.setHeader("X-Content-Type-Options", "nosniff");
+    res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+    res.setHeader("X-Frame-Options", "SAMEORIGIN");
+    res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=()");
+    next();
+  });
   app.use(import_express.default.json());
   app.use("/api/upload", import_express.default.raw({ type: "*/*", limit: "50mb" }));
   app.get("/api/health", handler6);
@@ -222,11 +260,16 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     app.use(
-      import_express.default.static(import_path3.default.join(__dirname, "dist"), {
+      import_express.default.static(import_path4.default.join(__dirname, "dist"), {
         index: false,
         setHeaders: (res, filePath) => {
           if (filePath.endsWith(".js") || filePath.endsWith(".mjs")) {
             res.type("application/javascript");
+          }
+          if (filePath.includes(`${import_path4.default.sep}assets${import_path4.default.sep}`)) {
+            res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+          } else if (filePath.endsWith(".html")) {
+            res.setHeader("Cache-Control", "no-store");
           }
         }
       })
@@ -235,7 +278,7 @@ async function startServer() {
       res.sendStatus(404);
     });
     app.get("*", (req, res) => {
-      res.sendFile(import_path3.default.join(__dirname, "dist", "index.html"));
+      res.sendFile(import_path4.default.join(__dirname, "dist", "index.html"));
     });
   }
   app.listen(PORT, "0.0.0.0", () => {

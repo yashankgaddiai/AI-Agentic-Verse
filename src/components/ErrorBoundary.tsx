@@ -3,29 +3,19 @@ import React from "react";
 const ErrorBoundary: any = class extends (React.Component as any) {
   constructor(props: any) {
     super(props);
-    this.state = { hasError: false, error: null };
+    this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error: any) {
-    return { hasError: true, error };
+  static getDerivedStateFromError() {
+    return { hasError: true };
   }
 
-  componentDidCatch(error: any, errorInfo: any) {
+  componentDidCatch(error: unknown, errorInfo: unknown) {
     console.error("Uncaught error:", error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
-      let errorMessage = "Something went wrong.";
-      try {
-        const parsedError = JSON.parse(this.state.error?.message || "");
-        if (parsedError && parsedError.error) {
-          errorMessage = `Firestore Error: ${parsedError.error} (Operation: ${parsedError.operationType})`;
-        }
-      } catch (e) {
-        errorMessage = this.state.error?.message || errorMessage;
-      }
-
       return (
         <div className="min-h-screen flex items-center justify-center bg-zinc-50 p-6 text-zinc-900">
           <div className="max-w-md w-full bg-white rounded-3xl p-8 shadow-xl border border-zinc-100 text-center space-y-6">
@@ -34,7 +24,7 @@ const ErrorBoundary: any = class extends (React.Component as any) {
             </div>
             <h2 className="text-2xl font-bold">Application Error</h2>
             <p className="text-zinc-600 leading-relaxed">
-              {errorMessage}
+              Something went wrong. Please reload the page or contact hello@aiagenticverse.com.
             </p>
             <button
               onClick={() => window.location.reload()}

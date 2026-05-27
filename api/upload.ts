@@ -1,7 +1,11 @@
 import { put } from '@vercel/blob';
 import sharp from 'sharp';
+import path from 'path';
+import { requireAdminRequest } from './auth.ts';
 
 export default async function handler(req: any, res: any) {
+  if (!requireAdminRequest(req, res)) return;
+
   const token = process.env.BLOB_READ_WRITE_TOKEN;
   if (!token) return res.status(401).json({ error: "Vercel Blob token is missing." });
 
@@ -10,7 +14,12 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
-    const filename = req.query.filename as string || "file.png";
+    const rawFilename = req.query.filename as string || "file.png";
+    const filename = path.basename(rawFilename).replace(/[^a-zA-Z0-9._-]/g, "-");
+    if (!filename || filename !== rawFilename) {
+      return res.status(400).json({ error: "Invalid filename" });
+    }
+
     const contentType = req.headers["content-type"] || "application/octet-stream";
     const isImage = contentType.startsWith('image/') && !contentType.includes('svg');
 

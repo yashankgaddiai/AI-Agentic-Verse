@@ -44,7 +44,18 @@ The production server:
 - sends SPA routes to `dist/index.html`
 - returns 404 for raw `/src/*.ts`, `/src/*.tsx`, and `/main.tsx` requests
 - serves JavaScript modules with `application/javascript`
+- sends basic security headers and immutable cache headers for compiled assets
+- protects Blob/admin mutation APIs with `ADMIN_API_TOKEN`
 - uses `process.env.PORT` when provided by the host
+
+## Environment
+
+```bash
+BLOB_READ_WRITE_TOKEN=
+ADMIN_API_TOKEN=
+```
+
+`ADMIN_API_TOKEN` is required for `/api/upload` and `/api/admin/*` Blob operations. The admin media page stores the token only in browser `localStorage` and sends it as `x-admin-token`.
 
 ## Hostinger Node.js Deployment
 

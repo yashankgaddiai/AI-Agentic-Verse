@@ -1,15 +1,13 @@
 import { Link } from "react-router-dom";
-import { useBlobAssets } from "../hooks/useBlobAssets";
 
 export default function Footer() {
-  const { getBlobUrl } = useBlobAssets();
   return (
     <footer className="w-full py-24 px-8 border-t border-outline bg-surface relative overflow-hidden">
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
           <div className="md:col-span-2 space-y-8">
             <Link to="/" className="flex items-center gap-3 font-barlow font-bold text-xl text-primary uppercase tracking-widest group">
-              <img src="https://res.cloudinary.com/dsqmjneyd/image/upload/v1775483943/1_lfvwn7.png" alt="Logo" className="w-10 h-10 rounded-full border border-outline group-hover:scale-110 transition-transform duration-500" referrerPolicy="no-referrer" />
+              <img src="https://res.cloudinary.com/dsqmjneyd/image/upload/v1775483943/1_lfvwn7.png" alt="AI Agentic Verse logo" className="w-10 h-10 rounded-full border border-outline group-hover:scale-110 transition-transform duration-500" referrerPolicy="no-referrer" />
               AI Agentic Verse
             </Link>
             <p className="text-zinc-500 font-light text-lg max-w-sm leading-relaxed">
