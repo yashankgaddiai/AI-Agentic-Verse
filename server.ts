@@ -39,7 +39,7 @@ async function startServer() {
   app.post("/api/admin/test-upload", testUploadHandler);
 
   // Vite middleware for development
-  const isDev = process.env.NODE_ENV === "development";
+  const isDev = resolvedFilename.endsWith("server.ts") || process.env.NODE_ENV === "development";
   if (isDev) {
     const vite = await createViteServer({
       server: { middlewareMode: true },
@@ -50,6 +50,15 @@ async function startServer() {
     const distPath = path.join(process.cwd(), "dist");
     app.use(express.static(distPath));
     app.get("*", (req, res) => {
+      // Avoid serving index.html for missing static assets or API endpoints (prevents MIME-type errors in browser)
+      if (
+        req.path.startsWith("/api") ||
+        req.path.startsWith("/assets") ||
+        req.path.match(/\.(js|css|png|jpg|jpeg|gif|svg|ico|json|webp)$/)
+      ) {
+        res.status(404).send("Not Found");
+        return;
+      }
       res.sendFile(path.join(distPath, "index.html"));
     });
   }
