@@ -88,15 +88,15 @@ export default function AboutPage() {
                 <div className="space-y-3 sm:space-y-4">
                   <h3 className="font-headline font-bold text-4xl sm:text-6xl tracking-tight group-hover:text-zinc-600 transition-colors duration-500">Yashank</h3>
                   <div className="inline-block px-4 py-1.5 bg-zinc-100 text-zinc-900 text-[10px] sm:text-xs font-bold uppercase tracking-widest rounded-full border border-zinc-200">
-                    Co-Founder & CBO
+                    Co-Founder & COO
                   </div>
                 </div>
                 <div className="space-y-5 sm:space-y-6 border-l-2 border-zinc-100 pl-6 sm:pl-8">
                   <p className="font-barlow text-lg sm:text-xl text-zinc-600 leading-relaxed">
-                    Yashank serves as the Co-Founder and Chief Business Officer of AI Agentic Verse, where he leads the company’s growth, revenue strategy, and market expansion. He is responsible for identifying high-impact opportunities, building strategic partnerships, and driving monetization across all business verticals.
+                    Yashank serves as the Co-Founder and Chief Operating Officer of AI Agentic Verse, where he leads the company’s operational strategy, execution, and organizational growth. He is responsible for optimizing internal processes, ensuring operational excellence, and aligning teams to effectively deliver innovative AI solutions.
                   </p>
                   <p className="font-barlow text-lg sm:text-xl text-zinc-600 leading-relaxed">
-                    With a strong understanding of market dynamics, customer psychology, and scalable business models, Yashank focuses on transforming innovative ideas into commercially successful solutions. He plays a key role in positioning the company’s offerings within high-demand markets, strengthening client relationships, and accelerating revenue growth. His leadership ensures that innovation is consistently aligned with business value, market relevance, and long-term scalability.
+                    With a strong understanding of business operations, scalable systems, and strategic execution, Yashank focuses on building efficient workflows, improving productivity, and transforming the company’s vision into actionable outcomes. He plays a key role in driving operational efficiency, strengthening cross-functional collaboration, and ensuring seamless delivery of solutions to clients. His leadership ensures that innovation is supported by strong execution, sustainable growth, and long-term operational scalability.
                   </p>
                 </div>
               </motion.div>
