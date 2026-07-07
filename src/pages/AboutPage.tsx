@@ -88,15 +88,15 @@ export default function AboutPage() {
                 <div className="space-y-3 sm:space-y-4">
                   <h3 className="font-headline font-bold text-4xl sm:text-6xl tracking-tight group-hover:text-zinc-600 transition-colors duration-500">Yashank</h3>
                   <div className="inline-block px-4 py-1.5 bg-zinc-100 text-zinc-900 text-[10px] sm:text-xs font-bold uppercase tracking-widest rounded-full border border-zinc-200">
-                    Founder
+                    Co-Founder & CBO
                   </div>
                 </div>
                 <div className="space-y-5 sm:space-y-6 border-l-2 border-zinc-100 pl-6 sm:pl-8">
                   <p className="font-barlow text-lg sm:text-xl text-zinc-600 leading-relaxed">
-                    Yashank serves as the Founder of AI Agentic Verse, where he leads the company’s vision, strategy, and overall growth. He is responsible for shaping the company’s direction, driving innovation, building strong business foundations, and transforming ideas into impactful AI-driven solutions.
+                    Yashank serves as the Co-Founder and Chief Business Officer of AI Agentic Verse, where he leads the company’s growth, revenue strategy, and market expansion. He is responsible for identifying high-impact opportunities, building strategic partnerships, and driving monetization across all business verticals.
                   </p>
                   <p className="font-barlow text-lg sm:text-xl text-zinc-600 leading-relaxed">
-                    With a deep understanding of technology, market trends, and scalable business models, Yashank focuses on creating solutions that address real-world challenges and deliver meaningful value to clients. He plays a key role in defining the company’s mission, building strategic relationships, fostering innovation, and guiding the team toward sustainable growth. His leadership ensures that AI Agentic Verse continues to evolve with a strong focus on excellence, market relevance, and long-term impact.
+                    With a strong understanding of market dynamics, customer psychology, and scalable business models, Yashank focuses on transforming innovative ideas into commercially successful solutions. He plays a key role in positioning the company’s offerings within high-demand markets, strengthening client relationships, and accelerating revenue growth. His leadership ensures that innovation is consistently aligned with business value, market relevance, and long-term scalability.
                   </p>
                 </div>
               </motion.div>
