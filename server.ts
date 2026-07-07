@@ -38,8 +38,16 @@ async function startServer() {
   app.get("/api/admin/remote-assets", remoteAssetsHandler);
   app.post("/api/admin/test-upload", testUploadHandler);
 
-  // Vite middleware for development
-  const isDev = resolvedFilename.endsWith("server.ts") || process.env.NODE_ENV === "development";
+  // Vite middleware for development vs static production serving
+  let isDev = true;
+  if (process.env.NODE_ENV === "production") {
+    isDev = false;
+  } else if (typeof __filename !== "undefined" && __filename.includes("dist")) {
+    isDev = false;
+  } else if (resolvedFilename && !resolvedFilename.endsWith("server.ts")) {
+    isDev = false;
+  }
+
   if (isDev) {
     const vite = await createViteServer({
       server: { middlewareMode: true },
@@ -50,12 +58,9 @@ async function startServer() {
     const distPath = path.join(process.cwd(), "dist");
     app.use(express.static(distPath));
     app.get("*", (req, res) => {
-      // Avoid serving index.html for missing static assets or API endpoints (prevents MIME-type errors in browser)
-      if (
-        req.path.startsWith("/api") ||
-        req.path.startsWith("/assets") ||
-        req.path.match(/\.(js|css|png|jpg|jpeg|gif|svg|ico|json|webp)$/)
-      ) {
+      // Avoid serving index.html for missing static assets, API endpoints, or files with extensions
+      const hasExtension = path.extname(req.path) !== "";
+      if (req.path.startsWith("/api") || hasExtension) {
         res.status(404).send("Not Found");
         return;
       }
