@@ -18,7 +18,7 @@ const clientVideos = [
   },
   {
     id: 11,
-    title: "Yashank, Co-Founder & COO, AI Agentic Verse",
+    title: "Yashank, Founder & COO, AI Agentic Verse",
     category: "AI Avatar · Personal Branding · Thought Leadership",
     videoUrl: "https://www.youtube.com/embed/Z6i0aAs46nE",
     thumbnail: "https://img.youtube.com/vi/Z6i0aAs46nE/maxresdefault.jpg",

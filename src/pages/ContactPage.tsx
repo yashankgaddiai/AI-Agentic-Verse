@@ -7,13 +7,63 @@ import Textarea from "../components/ui/Textarea";
 import Button from "../components/ui/Button";
 import { Send, CheckCircle } from "lucide-react";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import { db } from "../firebase";
+import { db, auth } from "../firebase";
 import SEO from "../components/SEO";
+
+enum OperationType {
+  CREATE = 'create',
+  UPDATE = 'update',
+  DELETE = 'delete',
+  LIST = 'list',
+  GET = 'get',
+  WRITE = 'write',
+}
+
+interface FirestoreErrorInfo {
+  error: string;
+  operationType: OperationType;
+  path: string | null;
+  authInfo: {
+    userId: string | undefined;
+    email: string | null | undefined;
+    emailVerified: boolean | undefined;
+    isAnonymous: boolean | undefined;
+    tenantId: string | null | undefined;
+    providerInfo: {
+      providerId: string;
+      displayName: string | null;
+      email: string | null;
+      photoUrl: string | null;
+    }[];
+  }
+}
+
+function handleFirestoreError(error: unknown, operationType: OperationType, path: string | null) {
+  const errInfo: FirestoreErrorInfo = {
+    error: error instanceof Error ? error.message : String(error),
+    authInfo: {
+      userId: auth.currentUser?.uid,
+      email: auth.currentUser?.email,
+      emailVerified: auth.currentUser?.emailVerified,
+      isAnonymous: auth.currentUser?.isAnonymous,
+      tenantId: auth.currentUser?.tenantId,
+      providerInfo: auth.currentUser?.providerData.map(provider => ({
+        providerId: provider.providerId,
+        displayName: provider.displayName,
+        email: provider.email,
+        photoUrl: provider.photoURL
+      })) || []
+    },
+    operationType,
+    path
+  }
+  console.error('Firestore Error: ', JSON.stringify(errInfo));
+  throw new Error(JSON.stringify(errInfo));
+}
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [formError, setFormError] = useState("");
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -23,28 +73,19 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormError("");
-
-    const trimmedData = {
-      fullName: formData.fullName.trim(),
-      email: formData.email.trim(),
-      company: formData.company.trim(),
-      message: formData.message.trim(),
-    };
-
-    if (!trimmedData.fullName || !trimmedData.email || !trimmedData.message) return;
+    if (!formData.fullName || !formData.email || !formData.message) return;
 
     setLoading(true);
     const path = 'contacts';
     try {
       await addDoc(collection(db, path), {
-        ...trimmedData,
+        ...formData,
         createdAt: serverTimestamp()
       });
       setSubmitted(true);
       setFormData({ fullName: "", email: "", company: "", message: "" });
     } catch (error) {
-      setFormError("We could not send your message right now. Please email hello@aiagenticverse.com or book a strategy call.");
+      handleFirestoreError(error, OperationType.CREATE, path);
     } finally {
       setLoading(false);
     }
@@ -96,19 +137,12 @@ export default function ContactPage() {
                 </div>
               ) : (
                 <form className="space-y-8" onSubmit={handleSubmit}>
-                  {formError && (
-                    <p className="rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-700" role="alert">
-                      {formError}
-                    </p>
-                  )}
                   <div className="space-y-6">
                     <Input 
                       label="Full Name" 
                       placeholder="John Doe" 
                       type="text" 
                       required
-                      autoComplete="name"
-                      maxLength={100}
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                     />
@@ -117,8 +151,6 @@ export default function ContactPage() {
                       placeholder="john@company.com" 
                       type="email" 
                       required
-                      autoComplete="email"
-                      maxLength={254}
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     />
@@ -126,8 +158,6 @@ export default function ContactPage() {
                       label="Company" 
                       placeholder="Company Name" 
                       type="text" 
-                      autoComplete="organization"
-                      maxLength={100}
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                     />
@@ -135,7 +165,6 @@ export default function ContactPage() {
                       label="Message" 
                       placeholder="Tell us about your project..." 
                       required
-                      maxLength={5000}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     />
@@ -159,9 +188,9 @@ export default function ContactPage() {
               <div>
                 <h4 className="font-bold text-xs uppercase tracking-widest text-black/40 dark:text-white/40 mb-4">Follow Us</h4>
                 <div className="flex gap-6">
-                  <a href="https://twitter.com/aiagenticverse" target="_blank" rel="noopener noreferrer" className="font-bold text-sm uppercase tracking-widest text-black/60 dark:text-white/60 hover:text-on-surface transition-colors">Twitter</a>
-                  <a href="https://www.linkedin.com/company/aiagenticverse" target="_blank" rel="noopener noreferrer" className="font-bold text-sm uppercase tracking-widest text-black/60 dark:text-white/60 hover:text-on-surface transition-colors">LinkedIn</a>
-                  <a href="https://www.instagram.com/aiagenticverse" target="_blank" rel="noopener noreferrer" className="font-bold text-sm uppercase tracking-widest text-black/60 dark:text-white/60 hover:text-on-surface transition-colors">Instagram</a>
+                  {['Twitter', 'LinkedIn', 'Instagram'].map(s => (
+                    <a key={s} href="#" className="font-bold text-sm uppercase tracking-widest text-black/60 dark:text-white/60 hover:text-on-surface transition-colors">{s}</a>
+                  ))}
                 </div>
               </div>
             </div>

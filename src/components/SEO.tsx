@@ -18,25 +18,20 @@ export default function SEO({
   schema
 }: SEOProps) {
   const siteTitle = title.includes("AI Agentic Verse") ? title : `${title} | AI Agentic Verse`;
-  const canonicalUrl = url.endsWith("/") ? url : `${url}/`;
 
   return (
     <Helmet>
-      <html lang="en" />
       <title>{siteTitle}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
-      <link rel="canonical" href={canonicalUrl} />
 
       {/* Open Graph / Facebook */}
-      <meta property="og:type" content="website" />
       <meta property="og:title" content={siteTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
-      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:url" content={url} />
 
       {/* Twitter */}
-      <meta name="twitter:card" content="summary_large_image" />
       <meta property="twitter:title" content={siteTitle} />
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={image} />

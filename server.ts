@@ -1,5 +1,7 @@
 import express from "express";
+import { createServer as createViteServer } from "vite";
 import path from "path";
+import { fileURLToPath } from "url";
 
 // Import Vercel Serverless Handlers
 import remoteAssetsHandler from "./api/admin/remote-assets.ts";
@@ -9,19 +11,19 @@ import uploadHandler from "./api/upload.ts";
 import testUploadHandler from "./api/admin/test-upload.ts";
 import healthHandler from "./api/health.ts";
 
+let resolvedFilename = "";
+try {
+  if (typeof import.meta !== "undefined" && import.meta.url) {
+    resolvedFilename = fileURLToPath(import.meta.url);
+  }
+} catch (e) {}
+
+const clientFilename = resolvedFilename;
+const clientDirname = clientFilename ? path.dirname(clientFilename) : "";
+
 async function startServer() {
   const app = express();
-  const PORT = Number(process.env.PORT) || 3000;
-  const isDev = process.argv.includes("--dev") || process.env.NODE_ENV === "development";
-
-  app.disable("x-powered-by");
-  app.use((_req, res, next) => {
-    res.setHeader("X-Content-Type-Options", "nosniff");
-    res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
-    res.setHeader("X-Frame-Options", "SAMEORIGIN");
-    res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=()");
-    next();
-  });
+  const PORT = 3000;
 
   // Middleware for JSON bodies (used by sync-asset, etc.)
   app.use(express.json());
@@ -36,36 +38,19 @@ async function startServer() {
   app.get("/api/admin/remote-assets", remoteAssetsHandler);
   app.post("/api/admin/test-upload", testUploadHandler);
 
+  // Vite middleware for development
+  const isDev = process.env.NODE_ENV === "development";
   if (isDev) {
-    const { createServer: createViteServer } = await import("vite");
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
     });
     app.use(vite.middlewares);
   } else {
-    app.use(
-      express.static(path.join(__dirname, "dist"), {
-        index: false,
-        setHeaders: (res, filePath) => {
-          if (filePath.endsWith(".js") || filePath.endsWith(".mjs")) {
-            res.type("application/javascript");
-          }
-          if (filePath.includes(`${path.sep}assets${path.sep}`)) {
-            res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
-          } else if (filePath.endsWith(".html")) {
-            res.setHeader("Cache-Control", "no-store");
-          }
-        },
-      }),
-    );
-
-    app.get(/^\/(?:src\/.*|main)\.(?:ts|tsx|js|jsx)$/, (_req, res) => {
-      res.sendStatus(404);
-    });
-
+    const distPath = path.join(process.cwd(), "dist");
+    app.use(express.static(distPath));
     app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname, "dist", "index.html"));
+      res.sendFile(path.join(distPath, "index.html"));
     });
   }
 

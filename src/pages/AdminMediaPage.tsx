@@ -21,19 +21,10 @@ export default function AdminMediaPage() {
   const [remoteBlobs, setRemoteBlobs] = useState<RemoteBlob[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadingRemote, setLoadingRemote] = useState(true);
-  const [adminToken, setAdminToken] = useState(() => localStorage.getItem("adminApiToken") || "");
-
-  const adminHeaders = adminToken ? { "x-admin-token": adminToken } : {};
-
-  const readJson = async <T,>(res: Response, fallback: T): Promise<T> => {
-    const contentType = res.headers.get("content-type") || "";
-    if (!res.ok || !contentType.includes("application/json")) return fallback;
-    return res.json();
-  };
 
   useEffect(() => {
     fetch("/api/admin/local-assets")
-      .then((res) => readJson<string[]>(res, []))
+      .then((res) => res.json())
       .then((data: string[]) => {
         setAssets(data.map((filename) => ({ filename, status: "pending" })));
         setLoading(false);
@@ -48,8 +39,8 @@ export default function AdminMediaPage() {
 
   const fetchRemoteBlobs = () => {
     setLoadingRemote(true);
-    fetch("/api/admin/remote-assets", { headers: adminHeaders })
-      .then((res) => readJson<RemoteBlob[]>(res, []))
+    fetch("/api/admin/remote-assets")
+      .then((res) => res.json())
       .then((data: RemoteBlob[]) => {
         setRemoteBlobs(data);
         setLoadingRemote(false);
@@ -68,7 +59,7 @@ export default function AdminMediaPage() {
     try {
       const res = await fetch("/api/admin/sync-asset", {
         method: "POST",
-        headers: { "Content-Type": "application/json", ...adminHeaders },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ filename }),
       });
 
@@ -99,7 +90,7 @@ export default function AdminMediaPage() {
 
   const runTestUpload = async () => {
     try {
-      const res = await fetch("/api/admin/test-upload", { method: "POST", headers: adminHeaders });
+      const res = await fetch("/api/admin/test-upload", { method: "POST" });
       if (!res.ok) throw new Error("Test upload failed");
       const data = await res.json();
       alert(`Success! File uploaded to: ${data.url}`);
@@ -119,27 +110,6 @@ export default function AdminMediaPage() {
             <p className="text-black/60 dark:text-white/60 max-w-2xl">
               Sync your local assets from <code className="bg-black/5 px-2 py-1 rounded">/public/images</code> to Vercel Blob.
             </p>
-          </div>
-          <div className="w-full md:w-auto">
-            <label className="block text-xs font-bold uppercase tracking-widest text-black/40 dark:text-white/40 mb-2">
-              Admin API Token
-            </label>
-            <input
-              type="password"
-              value={adminToken}
-              onChange={(event) => {
-                const value = event.target.value;
-                setAdminToken(value);
-                if (value) {
-                  localStorage.setItem("adminApiToken", value);
-                } else {
-                  localStorage.removeItem("adminApiToken");
-                }
-              }}
-              className="w-full md:w-80 rounded-full border border-black/10 dark:border-white/10 bg-transparent px-5 py-3 text-sm"
-              placeholder="Required for Blob actions"
-              autoComplete="off"
-            />
           </div>
           <button 
             onClick={runTestUpload}

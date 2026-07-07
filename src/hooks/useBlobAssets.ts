@@ -7,54 +7,32 @@ interface RemoteBlob {
   uploadedAt: string;
 }
 
-let cachedBlobs: RemoteBlob[] | null = null;
-let pendingRequest: Promise<RemoteBlob[]> | null = null;
-
-async function fetchRemoteBlobs() {
-  if (cachedBlobs) return cachedBlobs;
-  if (pendingRequest) return pendingRequest;
-
-  pendingRequest = fetch('/api/admin/remote-assets')
-    .then(res => {
-      const contentType = res.headers.get('content-type') || '';
-      if (!res.ok || !contentType.includes('application/json')) {
-        return [];
-      }
-      return res.json();
-    })
-    .then((data) => {
-      cachedBlobs = Array.isArray(data) ? data : [];
-      return cachedBlobs;
-    })
-    .catch(() => {
-      cachedBlobs = [];
-      return cachedBlobs;
-    })
-    .finally(() => {
-      pendingRequest = null;
-    });
-
-  return pendingRequest;
-}
-
 export function useBlobAssets() {
-  const [blobs, setBlobs] = useState<RemoteBlob[]>(cachedBlobs || []);
+  const [blobs, setBlobs] = useState<RemoteBlob[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let isMounted = true;
-
-    fetchRemoteBlobs()
+    fetch('/api/admin/remote-assets')
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`API error: ${res.status}`);
+        }
+        return res.json();
+      })
       .then((data) => {
-        if (!isMounted) return;
-
-        setBlobs(data);
+        if (Array.isArray(data)) {
+          setBlobs(data);
+        } else {
+          console.warn('Remote assets API did not return an array (likely token missing):', data);
+          setBlobs([]);
+        }
+        setLoading(false);
+      })
+      .catch(err => {
+        console.warn('Failed to fetch remote assets (falling back to local):', err.message);
+        setBlobs([]);
         setLoading(false);
       });
-
-    return () => {
-      isMounted = false;
-    };
   }, []);
 
   const getBlobUrl = (filename: string, fallback: string | null = null) => {

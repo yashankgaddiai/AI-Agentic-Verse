@@ -1,90 +1,20 @@
-# AI Agentic Verse
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-React, TypeScript, Vite, and Express application for AI Agentic Verse.
+# Run and deploy your AI Studio app
 
-## Local Development
+This contains everything you need to run your app locally.
+
+View your app in AI Studio: https://ai.studio/apps/338c0e00-1636-4747-8847-adfe8f510a4f
+
+## Run Locally
+
+**Prerequisites:**  Node.js
+
 
 1. Install dependencies:
-   ```bash
-   npm install
-   ```
-2. Copy `.env.example` to `.env.local` and set the required values.
-3. Start the Express + Vite development server:
-   ```bash
-   npm run dev
-   ```
-
-## Production Build
-
-Build the optimized client and bundled Express server:
-
-```bash
-npm run build
-```
-
-This creates:
-
-- `dist/index.html`
-- `dist/assets/*` compiled Vite bundles
-- `server.cjs` bundled Express production server
-
-Production should serve `dist/index.html` through the Node server. The Vite development entry lives at `src/index.html`; the repository-root `index.html` is a production-safe fallback for misconfigured static hosts and does not reference raw TypeScript or TSX files.
-
-The compiled `dist/` directory is also committed for Hostinger setups that deploy files directly from GitHub without running a build command.
-
-## Production Start
-
-```bash
-npm start
-```
-
-The production server:
-
-- serves static assets from `dist/`
-- sends SPA routes to `dist/index.html`
-- returns 404 for raw `/src/*.ts`, `/src/*.tsx`, and `/main.tsx` requests
-- serves JavaScript modules with `application/javascript`
-- sends basic security headers and immutable cache headers for compiled assets
-- protects Blob/admin mutation APIs with `ADMIN_API_TOKEN`
-- uses `process.env.PORT` when provided by the host
-
-## Environment
-
-```bash
-BLOB_READ_WRITE_TOKEN=
-ADMIN_API_TOKEN=
-```
-
-`ADMIN_API_TOKEN` is required for `/api/upload` and `/api/admin/*` Blob operations. The admin media page stores the token only in browser `localStorage` and sends it as `x-admin-token`.
-
-## Hostinger Node.js Deployment
-
-Use Node.js hosting with these settings:
-
-- Install command: `npm ci`
-- Build command: `npm run build`
-- Startup file / command: `server.cjs` or `npm start`
-- Public assets directory: `dist`
-
-Best option: configure the app as Node.js hosting and start `server.cjs`.
-
-Static fallback option: if Hostinger serves the repository root directly, keep the committed `dist/` directory deployed with the root `.htaccess`. The root `index.html` will load `dist/index.html`, and `.htaccess` maps static assets and SPA routes correctly.
-
-## Vercel Deployment
-
-Vercel is configured with `vercel.json`:
-
-- build command: `npm run build`
-- output directory: `dist`
-- API routes served from `api/`
-- SPA fallback to `/index.html`
-- immutable caching for compiled `/assets/*`
-
-## Useful Checks
-
-```bash
-npm run lint
-npm audit
-npm run build
-npm start
-```
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`

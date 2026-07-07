@@ -16,7 +16,6 @@ export default function Button({
   size = "md",
   isLoading,
   disabled,
-  type = "button",
   ...props
 }: ButtonProps) {
   const variants = {
@@ -43,7 +42,6 @@ export default function Button({
         className
       )}
       disabled={isLoading || disabled}
-      type={type}
       {...props}
     >
       {isLoading ? (

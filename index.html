@@ -24,37 +24,8 @@
     <title>AI Agentic Verse | Build. Automate. Scale.</title>
   </head>
   <body>
-    <noscript>Enable JavaScript to load AI Agentic Verse.</noscript>
-    <div id="root" style="font-family: Inter, system-ui, sans-serif; padding: 2rem; color: #111827;">
-      Loading AI Agentic Verse...
-    </div>
-    <script>
-      (async () => {
-        const root = document.getElementById("root");
-
-        try {
-          const response = await fetch("/dist/index.html", { cache: "no-store" });
-
-          if (!response.ok) {
-            throw new Error("Production build not found");
-          }
-
-          const html = await response.text();
-          const deployableHtml = html
-            .replaceAll('src="/assets/', 'src="/dist/assets/')
-            .replaceAll('href="/assets/', 'href="/dist/assets/');
-
-          document.open();
-          document.write(deployableHtml);
-          document.close();
-        } catch (error) {
-          root.innerHTML =
-            "<h1>Production build required</h1>" +
-            "<p>This host is serving the repository root. Run <code>npm run build</code> and configure the Node app to start with <code>npm start</code>, or point the web root to <code>dist</code>.</p>";
-          console.error(error);
-        }
-      })();
-    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
 
