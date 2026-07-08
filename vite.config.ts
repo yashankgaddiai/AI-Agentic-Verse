@@ -68,6 +68,8 @@ function adaptMiddleware(handler: any) {
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {
+    root: path.resolve(__dirname, 'src'),
+    publicDir: path.resolve(__dirname, 'public'),
     plugins: [
       react(), 
       tailwindcss(),
@@ -115,9 +117,18 @@ export default defineConfig(({mode}) => {
         '@': path.resolve(__dirname, '.'),
       },
     },
+    build: {
+      outDir: path.resolve(__dirname, 'dist'),
+      assetsDir: 'assets',
+      emptyOutDir: true,
+      sourcemap: false,
+    },
     server: {
       host: '0.0.0.0',
       port: 3000,
+      fs: {
+        allow: [__dirname],
+      },
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
       // Do not modifyâ€”file watching is disabled to prevent flickering during agent edits.
       hmr: process.env.DISABLE_HMR !== 'true',

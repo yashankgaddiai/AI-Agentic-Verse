@@ -24,8 +24,33 @@
     <title>AI Agentic Verse | Build. Automate. Scale.</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <noscript>Enable JavaScript to load AI Agentic Verse.</noscript>
+    <div id="root" style="min-height:100vh;background:#09090b;color:#fff;font-family:Inter,system-ui,sans-serif;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;">
+      Loading AI Agentic Verse...
+    </div>
+    <script>
+      (async () => {
+        const root = document.getElementById("root");
+        window.__STATIC_DEPLOY__ = true;
+
+        try {
+          const response = await fetch("/dist/index.html", { cache: "no-store" });
+          if (!response.ok) throw new Error("Production build not found");
+
+          const html = await response.text();
+          const deployableHtml = html
+            .replaceAll('src="/assets/', 'src="/dist/assets/')
+            .replaceAll('href="/assets/', 'href="/dist/assets/');
+
+          document.open();
+          document.write(deployableHtml);
+          document.close();
+        } catch (error) {
+          root.innerHTML = "<main><h1>Production build required</h1><p>Run <code>npm run build</code> or deploy the committed <code>dist</code> folder.</p></main>";
+          console.error(error);
+        }
+      })();
+    </script>
   </body>
 </html>
 
